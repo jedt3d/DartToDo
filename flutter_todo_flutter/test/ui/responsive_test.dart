@@ -91,12 +91,45 @@ Finder _dialogButton(String label) => find.descendant(
 
 void _expectDialogAboveKeyboard(WidgetTester tester, _Device device) {
   expect(tester.takeException(), isNull);
-  final dialog = tester.getRect(find.byType(AlertDialog));
+  final dialog = tester.getRect(
+    find
+        .descendant(
+          of: find.byType(AlertDialog),
+          matching: find.byType(Material),
+        )
+        .first,
+  );
   expect(dialog.top, greaterThanOrEqualTo(device.safe.top));
   expect(
     dialog.bottom,
     lessThanOrEqualTo(device.size.height - device.keyboard),
   );
+}
+
+Future<void> _showDialogControl(
+  WidgetTester tester,
+  _Device device,
+  Finder control, {
+  double minimumHeight = 44,
+}) async {
+  await tester.ensureVisible(control);
+  await tester.pumpAndSettle();
+  expect(control.hitTestable(), findsOneWidget);
+  final rect = tester.getRect(control);
+  expect(rect.height, greaterThanOrEqualTo(minimumHeight));
+  expect(rect.top, greaterThanOrEqualTo(device.safe.top));
+  expect(rect.bottom, lessThanOrEqualTo(device.size.height - device.keyboard));
+  expect(rect.left, greaterThanOrEqualTo(device.safe.left));
+  expect(rect.right, lessThanOrEqualTo(device.size.width - device.safe.right));
+}
+
+Future<void> _openTheme(WidgetTester tester) async {
+  await tester.tap(find.byKey(const Key('list-options')));
+  await tester.pumpAndSettle();
+  await tester.ensureVisible(find.text('Change Theme…'));
+  await tester.pumpAndSettle();
+  await tester.tap(find.text('Change Theme…'));
+  await tester.pumpAndSettle();
 }
 
 void main() {
@@ -302,14 +335,21 @@ void main() {
         await tester.pumpAndSettle();
         await tester.tap(find.text('Local account'));
         await tester.pumpAndSettle();
+        await tester.tap(find.byKey(const Key('display-name')));
+        _setInsets(tester, device, keyboard: true);
+        await tester.pumpAndSettle();
+        _expectDialogAboveKeyboard(tester, device);
+        await _showDialogControl(
+          tester,
+          device,
+          find.byKey(const Key('display-name')),
+        );
+        await tester.tap(find.byKey(const Key('display-name')));
         await tester.enterText(
           find.byKey(const Key('display-name')),
           'Responsive local user',
         );
-        _setInsets(tester, device, keyboard: true);
-        await tester.pumpAndSettle();
-        _expectDialogAboveKeyboard(tester, device);
-        expect(_dialogButton('Save').hitTestable(), findsOneWidget);
+        await _showDialogControl(tester, device, _dialogButton('Save'));
         await tester.tap(_dialogButton('Save'));
         await tester.pumpAndSettle();
         expect(repository.data.settings.displayName, 'Responsive local user');
@@ -322,8 +362,6 @@ void main() {
     testWidgets(
       '${device.name} Change Theme selects a colour with keyboard and large text',
       (tester) async {
-        final semantics = tester.ensureSemantics();
-        addTearDown(semantics.dispose);
         _resetInsetsAfterTest(tester);
         _setInsets(tester, device);
         final repository = await pumpApp(
@@ -335,18 +373,23 @@ void main() {
         await tester.pumpAndSettle();
         await tester.tap(find.text('Important'));
         await tester.pumpAndSettle();
-        await tester.tap(find.byKey(const Key('list-options')));
-        await tester.pumpAndSettle();
-        await tester.ensureVisible(find.text('Change Theme…'));
-        await tester.tap(find.text('Change Theme…'));
-        await tester.pumpAndSettle();
+        await _openTheme(tester);
         _setInsets(tester, device, keyboard: true);
         await tester.pumpAndSettle();
         _expectDialogAboveKeyboard(tester, device);
-        await tester.ensureVisible(find.bySemanticsLabel('green theme'));
-        await tester.tap(find.bySemanticsLabel('green theme'));
+        final green = find.byWidgetPredicate(
+          (widget) =>
+              widget is Semantics && widget.properties.label == 'green theme',
+        );
+        await _showDialogControl(tester, device, green);
+        await tester.tap(green);
         await tester.pumpAndSettle();
         expect(repository.data.settings.smartThemes['important'], 'green');
+        expect(find.byType(AlertDialog), findsNothing);
+        await _openTheme(tester);
+        await _showDialogControl(tester, device, _dialogButton('Done'));
+        await tester.tap(_dialogButton('Done'));
+        await tester.pumpAndSettle();
         expect(find.byType(AlertDialog), findsNothing);
         expect(tester.takeException(), isNull);
       },
@@ -367,14 +410,20 @@ void main() {
         await tester.pumpAndSettle();
         await tester.tap(find.byKey(const Key('new-list')));
         await tester.pumpAndSettle();
+        _setInsets(tester, device, keyboard: true);
+        await tester.pumpAndSettle();
+        _expectDialogAboveKeyboard(tester, device);
+        await _showDialogControl(
+          tester,
+          device,
+          find.byKey(const Key('name-input')),
+        );
+        await tester.tap(find.byKey(const Key('name-input')));
         await tester.enterText(
           find.byKey(const Key('name-input')),
           'Responsive list',
         );
-        _setInsets(tester, device, keyboard: true);
-        await tester.pumpAndSettle();
-        _expectDialogAboveKeyboard(tester, device);
-        expect(_dialogButton('Save').hitTestable(), findsOneWidget);
+        await _showDialogControl(tester, device, _dialogButton('Save'));
         await tester.tap(_dialogButton('Save'));
         await tester.pumpAndSettle();
         expect(
@@ -413,19 +462,35 @@ void main() {
         );
         await tester.tap(find.byTooltip('Choose repeat'));
         await tester.pumpAndSettle();
-        await tester.ensureVisible(find.text('Custom…'));
-        await tester.tap(find.text('Custom…'));
+        final custom = find.widgetWithText(
+          CheckedPopupMenuItem<String>,
+          'Custom…',
+        );
+        await tester.ensureVisible(custom);
         await tester.pumpAndSettle();
-        await tester.enterText(find.byKey(const Key('repeat-every')), '3');
+        await tester.tap(custom);
+        await tester.pumpAndSettle();
         _setInsets(tester, device, keyboard: true);
         await tester.pumpAndSettle();
         _expectDialogAboveKeyboard(tester, device);
+        await _showDialogControl(
+          tester,
+          device,
+          find.byKey(const Key('repeat-every')),
+        );
+        await tester.tap(find.byKey(const Key('repeat-every')));
+        await tester.enterText(find.byKey(const Key('repeat-every')), '3');
+        await _showDialogControl(
+          tester,
+          device,
+          find.byKey(const Key('repeat-unit')),
+        );
         await tester.tap(find.byKey(const Key('repeat-unit')));
         await tester.pumpAndSettle();
         await tester.ensureVisible(find.text('months').last);
         await tester.tap(find.text('months').last);
         await tester.pumpAndSettle();
-        expect(_dialogButton('Save').hitTestable(), findsOneWidget);
+        await _showDialogControl(tester, device, _dialogButton('Save'));
         await tester.tap(_dialogButton('Save'));
         await tester.pumpAndSettle();
         expect(repository.data.tasks.single.repeat, 'monthly');

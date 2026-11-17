@@ -34,6 +34,7 @@ class _SettingsDialogState extends State<_SettingsDialog> {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
+    scrollable: true,
     title: const Text('Settings'),
     content: SizedBox(
       width: 420,
@@ -119,6 +120,7 @@ class _ThemeDialog extends StatelessWidget {
   final String selected;
   @override
   Widget build(BuildContext context) => AlertDialog(
+    scrollable: true,
     title: const Text('Change Theme'),
     content: SizedBox(
       width: 400,
@@ -232,41 +234,43 @@ class _RepeatDialogState extends State<_RepeatDialog> {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
+    scrollable: true,
     title: const Text('Custom repeat'),
     content: SizedBox(
       width: 300,
-      child: Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text('Every '),
-          SizedBox(
-            width: 65,
-            child: TextField(
-              key: const Key('repeat-every'),
-              controller: _every,
-              autofocus: true,
-              keyboardType: TextInputType.number,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              decoration: const InputDecoration(border: OutlineInputBorder()),
+          TextField(
+            key: const Key('repeat-every'),
+            controller: _every,
+            autofocus: true,
+            keyboardType: TextInputType.number,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            decoration: const InputDecoration(
+              labelText: 'Every',
+              border: OutlineInputBorder(),
             ),
           ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: DropdownButtonFormField<String>(
-              key: const Key('repeat-unit'),
-              initialValue: _unit,
-              items: [
-                for (final item in const [
-                  ('daily', 'days'),
-                  ('weekly', 'weeks'),
-                  ('monthly', 'months'),
-                  ('yearly', 'years'),
-                ])
-                  DropdownMenuItem(value: item.$1, child: Text(item.$2)),
-              ],
-              onChanged: (unit) {
-                if (unit != null) setState(() => _unit = unit);
-              },
-            ),
+          const SizedBox(height: 12),
+          DropdownButtonFormField<String>(
+            key: const Key('repeat-unit'),
+            initialValue: _unit,
+            isExpanded: true,
+            decoration: const InputDecoration(labelText: 'Unit'),
+            items: [
+              for (final item in const [
+                ('daily', 'days'),
+                ('weekly', 'weeks'),
+                ('monthly', 'months'),
+                ('yearly', 'years'),
+              ])
+                DropdownMenuItem(value: item.$1, child: Text(item.$2)),
+            ],
+            onChanged: (unit) {
+              if (unit != null) setState(() => _unit = unit);
+            },
           ),
         ],
       ),
@@ -313,6 +317,7 @@ class _NameDialogState extends State<_NameDialog> {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
+    scrollable: true,
     title: Text(widget.title),
     content: TextField(
       key: const Key('name-input'),
