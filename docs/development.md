@@ -118,7 +118,7 @@ dart test --reporter expanded
 python3 tool/check_codegen.py
 ```
 
-Backend tests use real PostgreSQL in `flutter_todo_test`, apply migrations and roll back each test's data. The release backend suite has 49 passing tests, including a non-destructive literal `decode(...)` string regression that failed on 3.4.5 and passes on 3.4.12. They cover persistence, malformed inputs, foreign references, soft deletion/restore, group dissolution, recurrence, duplicate identity, sort contracts and file limits. HTTP boundary tests run a real local listener. They do not use the app database for test tasks.
+Backend tests use real PostgreSQL in `flutter_todo_test`, apply migrations and roll back each test's data. The **v1.0.0 release backend checkpoint** had 49 passing tests, including a non-destructive literal `decode(...)` string regression that failed on 3.4.5 and passes on 3.4.12. They cover persistence, malformed inputs, foreign references, soft deletion/restore, group dissolution, recurrence, duplicate identity, sort contracts and file limits. HTTP boundary tests run a real local listener. They do not use the app database for test tasks.
 
 With the normal backend running, these finite checks verify live transport without printing task contents:
 
@@ -137,20 +137,49 @@ flutter build macos
 python3 ../tool/build_ios.py
 ```
 
-Frontend data tests cover smart-list dates/search/sorting, serialized writes, latest-state field edits, failed refresh, deletion/undo and disposal. Widget tests, native builds, simulator flows, screenshot comparisons, accessibility, Widgetbook runtime coverage and signing remain separate checks. Report their actual results individually; do not infer one from another. See the final trial report for current cross-device outcomes.
+Frontend data tests cover smart-list dates/search/sorting, serialized writes, latest-state field edits, failed refresh, deletion/undo and disposal. Widget tests, native builds, simulator flows, screenshot comparisons, accessibility, Widgetbook runtime coverage and signing remain separate checks. Report their actual results individually; do not infer one from another. See the [current issue-9 report](trial/issue-9-report.md) for recorded cross-device outcomes and remaining checks; the v1.0.0 report remains historical.
 
 Trial command logs and measured durations are stored locally under `.dartnflutter/trial/`; `tool/trial_run.py` records them. The [trial protocol](trial/protocol.md) explains the acceptance criteria and why this single project cannot establish causal time savings or model-cost improvements.
 
+## Issue-9 behavior and current verification status
+
+The current source raises the aggregate attachment allowance to **25 MiB (26,214,400 decoded bytes)**, with a **40 MiB (41,943,040-byte)** Serverpod request-body bound in all configurations. This maps the published “25 MB” label to an explicit local byte contract. The transport allowance accommodates base64/JSON overhead; it is not an additional per-file allowance.
+
+The separate real-HTTP attachment test commits through generated-client sessions and removes only its own temporary test rows. Run from the server package after confirming the isolated test configuration/database:
+
+```sh
+cd /Users/worajedt/GitHub/FlutterToDo/flutter_todo_server
+dart test tool/attachment_http_test.dart
+```
+
+The main suite and this HTTP probe serve different purposes. The recorded issue-9 finite run passed 51 backend tests and this separate real-HTTP test, including exact-cap/over-cap and aggregate rejection plus HTTP roundtrip/cleanup. From the frontend package, the existing focused files provide the notification-service and responsive checks:
+
+```sh
+cd /Users/worajedt/GitHub/FlutterToDo/flutter_todo_flutter
+flutter test --no-pub test/services/reminders_test.dart
+flutter test --no-pub test/ui/responsive_test.dart
+```
+
+Current source also implements separate cross-list move/manual reorder handles, compact touch Lists reveal, automatic first-visible-task details on wide iPad landscape and cold/warm notification task navigation. Verify each against the real backend and relevant native target. A successful move must retain the task ID and open its destination/details; a closed automatic inspector must stay closed until navigation or a new landscape entry. Notification proof must distinguish permission, pending/delivered state, actual tap and navigation to the stored owning task. Do not use a fixture callback as evidence of OS delivery.
+
+For source version **1.1.0+2**, the final issue-9 finite verification passed in **29.556 seconds**, with **163 frontend tests, 51 backend tests and one real-HTTP attachment test**, plus formatting, fatal-info analysis, generated-protocol consistency and both live HTTP smokes. Final current-source native core replay passed 2/2 on each target: macOS **22.066s**, iPhone **33.059s**, iPad **27.991s**. OS notification delivery passed on all three targets. Actual taps and terminated-app cold launches passed on iPhone/iPad: the old processes were stopped before delivery, native notification activation started new processes and opened the owning task/list/details; synthetic fixtures were cleaned up. macOS tap/cold launch remain unverified through the available tool surface. The fresh catalog passes **42/42 declarations and 78/78 cases** across 14 groups; the earlier interrupted 42/78 attempt remains a historical failure. See the [current report](trial/issue-9-report.md), [selected verification metadata](trial/issue-9-verification.json) and [widget coverage](trial/widget-coverage.md). The v1.0.0 counts above remain historical.
+
 ## Native screenshot evidence
 
-The local Xcode installation has bootable simulator runtimes but no Simulator desktop app bundle. The official Flutter integration screenshot driver captures the running native app window and saves its PNG bytes on the host:
+Xcode 27.2 supplies the interactive simulator GUI at `/Applications/Xcode.app/Contents/Applications/DeviceHub.app`; the older `Simulator.app` path is absent. Select the booted device in Device Hub and use **Controls → Rotate Left/Right** or **Device → Orientation** for a genuine landscape run. The app retains iPad multitasking; a completed Flutter preferred-orientation call alone does not prove a rotated framebuffer. Inspect the resulting native image dimensions and panel state. See [installed/official reference evidence](trial/issue-9-reference-research.md).
+
+The screenshot harness captures the running native app and saves original PNG bytes on the host:
 
 ```sh
 flutter drive --no-pub --driver test_driver/screenshots.dart \
   --target integration_test/screenshots_test.dart -d SIMULATOR_ID
 ```
 
-Run from `flutter_todo_flutter`. The capture uses the real backend, a temporary synthetic list, and the real Unsplash background; teardown soft-deletes that list. These are native app-window captures; OS status-bar text is outside the captured app window. The screenshot test waits for photo decoding before capture. App-container files are removed by the normal test runner, so screenshots must be retained by the host driver.
+Run from `flutter_todo_flutter`. The capture uses the real backend, a temporary synthetic list, and the real Unsplash background; teardown soft-deletes that list. On iOS these are native app-window captures; OS status-bar text and keyboard pixels are outside the captured app window. On macOS the installed Flutter 3.41 integration plugin has no screenshot handler, so the harness reads the actual running Flutter layer with `RepaintBoundary.toImage`, at the native pixel ratio; window chrome is excluded. The screenshot test waits for photo decoding before capture. App-container files are removed by the normal test runner, so screenshots must be retained by the host driver. The final [manifest](screenshots/manifest.json) verifies 21 captures: five macOS, five iPhone, five iPad portrait and six iPad landscape. The 2420×1668 landscape set includes the automatic inspector. These captures are runtime evidence, not human visual approval or an approved golden baseline.
+
+## Native printing prerequisites
+
+Physical printing verification was **skipped at the user's request**; no further physical print checks were performed after that instruction. Before the skip, native print-interface drivers passed on macOS/iPhone/iPad. The final macOS 120-task PDF contains every marker across seven pages, with SHA-256 `098c8d58163b10c8ff7cd7408cb5642ec3ed9235c691a5e99c5931d37d660bc9`; a short three-task preview was observed as one page after the minimum-height correction. Both macOS configurations include print entitlement while retaining App Sandbox. An earlier physical native-panel job requested one page/one copy, remained at “Looking for printer,” and only that trial job was canceled after a bounded wait; paper output is unverified. The iPhone/iPad one-page sheets showed No Printer Selected and were canceled. The configured Brother DCP-1610W lacks AirPrint, so its macOS queue is not an iOS destination. PDF/Printer Simulator output verifies that destination and rendering only. No installed Printer Simulator was found in the researched tool locations. See the [recorded print outcomes](trial/issue-9-report.md#recorded-results) and [prerequisites/primary sources](trial/issue-9-reference-research.md).
 
 ## Troubleshooting observed failures
 
@@ -167,3 +196,21 @@ Run from `flutter_todo_flutter`. The capture uses the real backend, a temporary 
 | A write fails while content remains visible | The controller retains the last good snapshot. Restore the service connection and retry the edit; there is no durable offline outbox. |
 
 See [security and backup](security.md) before sharing logs, changing listeners or restoring data.
+
+## Native printing evidence
+
+These commands document the completed interface/PDF probes for later reproduction; they are not additional required checks after the user's physical-printing skip. Run from `flutter_todo_flutter` with the real local backend available:
+
+```sh
+flutter drive --no-pub --driver test_driver/printing.dart --target integration_test/printing_test.dart -d macos
+flutter drive --no-pub --driver test_driver/printing.dart --target integration_test/printing_test.dart -d 02ED3EB4-23A2-41AB-8D17-49E352A076D3
+flutter drive --no-pub --driver test_driver/printing.dart --target integration_test/printing_test.dart -d 62507A81-E969-448F-8510-136600AB8DC6
+```
+
+The real list menu opens the OS print interface. Dismiss, export or submit it within the bounded test window; canceling verifies the interface return, not paper output. Add `--dart-define=PRINT_TRIAL_LONG=true` for 120 synthetic tasks. On macOS, export through the native PDF menu and check every task marker with the installed Poppler tools:
+
+```sh
+python3 tool/check_print_pdf.py /absolute/path/to/export.pdf
+```
+
+Run that last command from the repository root. The checker rejects missing/repeated markers independently of the print view implementation. The optional `--record` argument validates a retained export digest and the source-file hashes recorded for it. Local evidence lives in ignored `.dartnflutter/trial`; it is not part of the source ZIP. Close completed earlier Mac trial instances before another interactive run so computer use observes the intended window. The native print capability is declared in both Debug and Release entitlements while App Sandbox remains enabled.

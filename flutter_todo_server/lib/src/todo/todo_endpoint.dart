@@ -450,8 +450,8 @@ class TodoEndpoint extends Endpoint {
       } on FormatException {
         _fail('Invalid file contents.');
       }
-      if (bytes > 10 * 1024 * 1024) {
-        _fail('Files attached to a task must total 10 MB or less.');
+      if (bytes > 25 * 1024 * 1024) {
+        _fail('Files attached to a task must total 25 MB or less.');
       }
     }
   }

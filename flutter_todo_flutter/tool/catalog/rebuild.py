@@ -17,6 +17,8 @@ state.mkdir(exist_ok=True)
 groups = {
     'TodoApp': [('default', 'previewAppDefault'), ('loading', 'previewAppLoading'), ('error', 'previewAppError')],
     '_TodoHome': [('default', 'previewAppDefault'), ('loading', 'previewAppLoading'), ('error', 'previewAppError')],
+    '_EmptyDetails': [('empty', 'previewEmptyDetails')],
+    '_TaskMoveHandle': [('default', 'previewTaskMoveHandle')],
     '_FailurePage': [('error', 'previewFailure')],
     '_Sidebar': [('default', 'previewSidebar')],
     '_NavTile': [('default', 'previewNavigationDefault'), ('selected', 'previewNavigationSelected')],

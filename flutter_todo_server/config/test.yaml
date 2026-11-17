@@ -15,5 +15,6 @@ redis:
 sessionLogs:
   persistentEnabled: false
   consoleEnabled: true
-maxRequestSize: 16000000
+# 40 MiB accommodates base64 for the 25 MiB decoded attachment total plus JSON.
+maxRequestSize: 41943040
 futureCallExecutionEnabled: false

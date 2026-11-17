@@ -6,7 +6,7 @@ My Day selects a different free **Unsplash Featured** photo on each launch, with
 
 [Real iPhone/iPad screenshots and panel gallery](docs/screenshots/README.md)
 
-![DartToDo running on macOS](docs/screenshots/macos-live-detail.png)
+![DartToDo running on macOS](docs/screenshots/macos-details.png)
 
 ## Run on this Mac
 
@@ -33,10 +33,12 @@ The launcher starts/reuses the loopback backend and waits for a real API respons
 
 - Tasks, lists and groups; notes, steps, files, importance and completion.
 - My Day and suggestions, Important, Planned, All, Completed and Tasks; global title/note/step search and sorting.
-- Due dates, native reminder scheduling, daily/weekday/weekly/monthly/yearly repeats and custom intervals.
-- Task drag ordering, list/group order controls, moving tasks/lists, duplicate/copy/print actions, themes and local settings.
+- Due dates, native reminder scheduling and task-opening taps, daily/weekday/weekly/monthly/yearly repeats and custom intervals.
+- Separate task handles for manual reordering and moving between lists; list/group order controls, duplicate/copy/print actions, themes and local settings.
 - Task/list delete with Undo; group dissolution preserves its lists and tasks.
 - Adaptive desktop/iPad/iPhone layouts, keyboard shortcuts, labeled controls and Widgetbook previews for private components.
+
+Files on one task can total **25 MiB (26,214,400 decoded bytes)**. This implementation maps Microsoft’s published “25 MB” label to that explicit binary-byte limit; base64 transport size is counted separately. On touch screens, long-press the move handle to reveal Lists and drop onto a destination; a successful move keeps the task identity and opens its destination/details. On a wide iPad landscape layout, the first visible task opens in the inspector automatically; closing it keeps it closed until navigation or re-entry into landscape.
 
 Recurrence calendar rules, recovery boundaries and remaining reference differences are explicit in the [app guide](docs/app-guide.md). This is a local recreation with measured checks; it is not a claim of exact parity with every Microsoft platform/edge case.
 
@@ -49,7 +51,7 @@ cd flutter_todo_flutter
 flutter run -d macos -t lib/widgetbook.dart
 ```
 
-The native suite needs the configured simulators and real PostgreSQL. Missing prerequisites do not count as passes. The [trial report](docs/trial/final-report.md) records the final test/build/runtime scope, failures and limitations; [widget coverage](docs/trial/widget-coverage.md) distinguishes runtime, Figma, accessibility and golden evidence.
+The native suite needs the configured simulators and real PostgreSQL. Missing prerequisites do not count as passes. The [current issue-9 report](docs/trial/issue-9-report.md) records 163 passing frontend tests, 51 backend tests, a separate real-HTTP attachment test and 2/2 current-source native core tests on each target. OS notification delivery passed on all three targets; actual taps and terminated-app cold launch passed on iPhone/iPad. The catalog verifies 42/42 declarations and 78/78 cases; the gallery contains 21 final captures. Native print interfaces and the 120-task PDF passed; physical printing verification was skipped at the user's request. macOS notification tap/cold launch and human visual approval remain unverified. The [v1.0.0 trial report](docs/trial/final-report.md) remains historical; [widget coverage](docs/trial/widget-coverage.md) explains the separate runtime, Figma, accessibility and golden dimensions.
 
 ## Documentation and design
 
@@ -60,4 +62,4 @@ The native suite needs the configured simulators and real PostgreSQL. Missing pr
 
 ## Source releases
 
-Releases contain a version tag and source ZIP, with no app binaries. The repository's MIT license covers original code; referenced third-party assets retain their own rights. Raw Microsoft photographs are excluded. On this Mac, setup can import optional photo themes from the installed Microsoft To Do app; the application falls back to solid colours when those assets are absent. My Day's Unsplash background does not require Microsoft assets or an API key.
+The current source version is **1.1.0+2**. Version tags and source ZIPs are published through [GitHub Releases](https://github.com/jedt3d/DartToDo/releases), with no app binaries. The repository's MIT license covers original code; referenced third-party assets retain their own rights. Raw Microsoft photographs are excluded. On this Mac, setup can import optional photo themes from the installed Microsoft To Do app; the application falls back to solid colours when those assets are absent. My Day's Unsplash background does not require Microsoft assets or an API key.

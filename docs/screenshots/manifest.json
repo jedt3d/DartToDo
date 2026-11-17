@@ -1,90 +1,197 @@
 {
-  "schemaVersion": 1,
-  "capturedAt": "2026-11-17",
+  "schemaVersion": 2,
+  "appVersion": "1.1.0+2",
+  "capturedAt": "2026-11-18",
+  "timezone": "Asia/Bangkok",
   "images": [
     {
       "file": "docs/screenshots/ipad-details-keyboard.png",
       "width": 1668,
       "height": 2420,
-      "sha256": "b28a4cb61ae837100c1bfc1567e9311a71b5e6d3e986285866087e08a617d40e",
-      "provenance": "native app capture; synthetic task data"
+      "sha256": "47c71197b29ae5287956e5c5615256acacade2debf5263ec56c5947422f3ec3a",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
     },
     {
       "file": "docs/screenshots/ipad-details.png",
       "width": 1668,
       "height": 2420,
-      "sha256": "60c07db0232edfecef7f56854a5f452b5c1f3ed24932acf550ccba866274a9a7",
-      "provenance": "native app capture; synthetic task data"
+      "sha256": "13a48dae7317753d0dc298a402991a76c67ce42e27947004d8d6ae114a536a5a",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
+    },
+    {
+      "file": "docs/screenshots/ipad-landscape-auto-details.png",
+      "width": 2420,
+      "height": 1668,
+      "sha256": "cbd71ff674034fc3cdc06af33dcd447f03d02d95dff8c42762bc34152a5df1c9",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
+    },
+    {
+      "file": "docs/screenshots/ipad-landscape-details-keyboard.png",
+      "width": 2420,
+      "height": 1668,
+      "sha256": "c8511843abb60c133d824210e0f5a472c2001085c8463f9bf0c720f48ccda604",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
+    },
+    {
+      "file": "docs/screenshots/ipad-landscape-details.png",
+      "width": 2420,
+      "height": 1668,
+      "sha256": "1c60af0a38fb9708518dde572ebabeb39df2cac00726768b1024c753686d03c8",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
+    },
+    {
+      "file": "docs/screenshots/ipad-landscape-lists.png",
+      "width": 2420,
+      "height": 1668,
+      "sha256": "d46bac1b85c7628742c8360d5f29d63d37df95b0b36ef600fd0c372e6852bdca",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
+    },
+    {
+      "file": "docs/screenshots/ipad-landscape-my-day.png",
+      "width": 2420,
+      "height": 1668,
+      "sha256": "cbd71ff674034fc3cdc06af33dcd447f03d02d95dff8c42762bc34152a5df1c9",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
+    },
+    {
+      "file": "docs/screenshots/ipad-landscape-suggestions.png",
+      "width": 2420,
+      "height": 1668,
+      "sha256": "e9ae8c258a30ee0d852a0a944d30323d9c5687baef5cbc394dbfadfed8f6cb33",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
     },
     {
       "file": "docs/screenshots/ipad-lists.png",
       "width": 1668,
       "height": 2420,
-      "sha256": "31511359b72124b23eb7995750607942d6b1f3ada0fb4dadb817796b64e96c93",
-      "provenance": "native app capture; synthetic task data"
+      "sha256": "abcd54a9bb347b6081b87db885d95f6ac258baf27a79078680f3a578cc8d17ad",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
     },
     {
       "file": "docs/screenshots/ipad-my-day.png",
       "width": 1668,
       "height": 2420,
-      "sha256": "84c4c77cab96058a9f798ab0586af3e6bde0365c4e4ef331e96b180e71e15e13",
-      "provenance": "native app capture; synthetic task data"
+      "sha256": "5fbf5d7d44627ccde83b993ead0239d353b02570b115f5219f7d358009e80a77",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
     },
     {
       "file": "docs/screenshots/ipad-suggestions.png",
       "width": 1668,
       "height": 2420,
-      "sha256": "9ac897c531f9a626e3954bfac771d090ddc9eeeeb209b008b2c419b862d8159c",
-      "provenance": "native app capture; synthetic task data"
+      "sha256": "60c150841e668fb4742b1967abc23180a847429dd4742107d3f30184bc43ce0e",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
     },
     {
       "file": "docs/screenshots/iphone-details-keyboard.png",
       "width": 1206,
       "height": 2622,
-      "sha256": "2d1d85215be7eedb54f72f613b6c6b1e63c249060ab56a554b532156064048a5",
-      "provenance": "native app capture; synthetic task data"
+      "sha256": "bb4ff23c0301c111cdff559c8f911b9327b4445340ac0daa02126bf2145cfca5",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
     },
     {
       "file": "docs/screenshots/iphone-details.png",
       "width": 1206,
       "height": 2622,
-      "sha256": "6e12aa32a45a3e8c5ab200fd259edbe51aadca3b902a272ce16fc994b032cc9e",
-      "provenance": "native app capture; synthetic task data"
+      "sha256": "f18f784ffff25d878af8541541dbcd9d6fabaea0463c672d623995175311585d",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
     },
     {
       "file": "docs/screenshots/iphone-lists.png",
       "width": 1206,
       "height": 2622,
-      "sha256": "6f01888d40112e0c2c44072adf405712e94f7bc354f7862fcaaaf740e86d3878",
-      "provenance": "native app capture; synthetic task data"
+      "sha256": "54b20c6695e19aa284ad3ebe7d56f5fc1869326eaa8b4bccebe0cea17046a34f",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
     },
     {
       "file": "docs/screenshots/iphone-my-day.png",
       "width": 1206,
       "height": 2622,
-      "sha256": "f120b232a9f86a5aa178b75a78f219757562100af65dad68155079093ee99499",
-      "provenance": "native app capture; synthetic task data"
+      "sha256": "e73d123318deb7729e229bd448a988d11775f8fb9def1953484f844a73a2972e",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
     },
     {
       "file": "docs/screenshots/iphone-suggestions.png",
       "width": 1206,
       "height": 2622,
-      "sha256": "fd9623bb54d8d6b293ab1269f2dc405c43bd33b67646f9c945b2958b3fa6a529",
-      "provenance": "native app capture; synthetic task data"
+      "sha256": "0dc7f37ffe6a0db7de2c81ea6ae00db53cdea5a6ce7b2d85b94e79c39549d27c",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "Flutter iOS native screenshot handler; OS status bar/keyboard pixels excluded"
     },
     {
-      "file": "docs/screenshots/macos-live-detail.png",
-      "width": 4718592,
-      "height": 4292935744,
-      "sha256": "fb2045157ffbb37dc01c094925281bd1576568e8f410f23edb7173e4e93bd1c0",
-      "provenance": "native app capture; synthetic task data"
+      "file": "docs/screenshots/macos-details-keyboard.png",
+      "width": 2200,
+      "height": 1376,
+      "sha256": "18a5519f01097d44174567d31a5104ca2e585353bbd1c03c72088bbc2bc19a0f",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "running Flutter layer at native pixel ratio; OS chrome excluded"
+    },
+    {
+      "file": "docs/screenshots/macos-details.png",
+      "width": 2200,
+      "height": 1376,
+      "sha256": "4eb2072e31d46c3fe5ca27d3393851f2c4eeb2e42065fb67eb14d0e438d12ecd",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "running Flutter layer at native pixel ratio; OS chrome excluded"
+    },
+    {
+      "file": "docs/screenshots/macos-lists.png",
+      "width": 2200,
+      "height": 1376,
+      "sha256": "c4ffd5a0c886c560fb4eb7ec6a0a7e5702a33dee8e506b3e5c4e47b57a9a69a1",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "running Flutter layer at native pixel ratio; OS chrome excluded"
     },
     {
       "file": "docs/screenshots/macos-my-day.png",
-      "width": 4718592,
-      "height": 4292935744,
-      "sha256": "d8c50a22fd4f7e84250a6547e3377a2e1f16ee3f3e605e6db7e63f30024dff42",
-      "provenance": "native app capture; synthetic task data"
+      "width": 2200,
+      "height": 1376,
+      "sha256": "81d3b0b810e255dc9df98780cd30f08efc9736d79b0c8ba0e05bb1d9442fa211",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "running Flutter layer at native pixel ratio; OS chrome excluded"
+    },
+    {
+      "file": "docs/screenshots/macos-suggestions.png",
+      "width": 2200,
+      "height": 1376,
+      "sha256": "4375f17d60ca591769d1c11740bb30f9a731111d237cf45994ec75b34ef38a3e",
+      "provenance": "actual native application; synthetic task data; original PNG",
+      "captureMethod": "running Flutter layer at native pixel ratio; OS chrome excluded"
     }
-  ]
+  ],
+  "sourceFiles": {
+    "flutter_todo_flutter/integration_test/screenshots_test.dart": "35acbee02aae1f4448a3d2c35d0baa10b9b582c702c87d3d890dd3a0b29c8e3c",
+    "flutter_todo_flutter/ios/Runner/Info.plist": "ed2f03c6d440f37bace6617700c1e11e9c3549d727932692a788d771a54894b8",
+    "flutter_todo_flutter/lib/app_entry.dart": "9a16d9893b4a5c82a04a3e7e9abc21438bf7b14e233cfb2982f17f132d5d0557",
+    "flutter_todo_flutter/lib/data/task_queries.dart": "51199254b2890e48f845c9135eb98ee41b97f230eacc32f4405360a05993cc07",
+    "flutter_todo_flutter/lib/data/todo_controller.dart": "a23fcef7331bb0e5357795d2d0ba9ac915435838beeda7265f1a01e3b2b67e79",
+    "flutter_todo_flutter/lib/data/todo_repository.dart": "5d700ceb914bc0f47ed00b8651bcc5864edaba84fb19eb75190f14916b7f9e1c",
+    "flutter_todo_flutter/lib/main.dart": "4773116f6c0dcf31fd570281a8a09322887cacf58e937fd427c6ef0dd031ca4b",
+    "flutter_todo_flutter/lib/services/backgrounds.dart": "a0835ca9b5497bb07d71cc6752b9146691854fc63d0329888efb9f25c28386f8",
+    "flutter_todo_flutter/lib/services/reminders.dart": "29446beb3eeadcd818808db64bd7a872ab17073b70e47acf6eebf43bf45eaa0d",
+    "flutter_todo_flutter/lib/ui/dialogs.dart": "14982586af02e53f5e5b9eb7cf168b7e037300851b93f0400dc275a36e07a36d",
+    "flutter_todo_flutter/lib/ui/sidebar.dart": "666a782786f6d71125fc3073f7237a1a6ec7dc6b1959c005a2b00b2fcb49055f",
+    "flutter_todo_flutter/lib/ui/task_details.dart": "4fd5dc0685a017fd925782cbaa514bda9d951a51dcc19e5f0c255f201952ef84",
+    "flutter_todo_flutter/lib/ui/task_list.dart": "148f9224ff1a98b0c7ee7989cac4715822dfc118da92b1e8e5413785ff365d7b",
+    "flutter_todo_flutter/lib/ui/todo_app.dart": "31be104bdc0f20c1ff59ffe6d27cd309186c419f3995279a5ab5f8a4bd91880e",
+    "flutter_todo_flutter/macos/Runner/MainFlutterWindow.swift": "6ada9c18dc7da5dd0843190c3c1a8bc18e21cdef853d56432daac68e6806ede4",
+    "flutter_todo_flutter/pubspec.yaml": "90b191a8d15c30047faa00798221ceb38d07f78075c36990c1b0ecd95a01602e",
+    "flutter_todo_flutter/test_driver/screenshots.dart": "a56ea8b4cf93ce0fd39e7d4467b287f6900944e85aa2d54417dc61379eec2dd4"
+  },
+  "humanVisualApproval": false,
+  "scope": "Runtime/native layout evidence; no exact Microsoft pixel/font parity claim"
 }

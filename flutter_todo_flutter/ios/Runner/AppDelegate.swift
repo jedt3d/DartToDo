@@ -17,6 +17,35 @@ import UserNotifications
     guard let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "DartToDoNative") else { return }
     let native = FlutterMethodChannel(name: "darttodo/native", binaryMessenger: registrar.messenger())
     native.setMethodCallHandler { call, result in
+#if DEBUG
+      if call.method == "notificationDiagnostics",
+         let args = call.arguments as? [String: Any],
+         let id = args["id"] as? Int, id >= 0x60000000, id < 0x70000000 {
+        let center = UNUserNotificationCenter.current()
+        let delegateClass = center.delegate.map { String(describing: type(of: $0)) } ?? "nil"
+        center.getNotificationSettings { settings in
+          center.getPendingNotificationRequests { requests in
+            center.getDeliveredNotifications { delivered in
+              let pending = requests.filter { $0.identifier == String(id) }.map { request -> [String: Any] in
+                let calendar = request.trigger as? UNCalendarNotificationTrigger
+                return ["id": request.identifier,
+                        "triggerClass": String(describing: type(of: request.trigger)),
+                        "nextTrigger": calendar?.nextTriggerDate().map { ISO8601DateFormatter().string(from: $0) } ?? "nil",
+                        "dateComponents": String(describing: calendar?.dateComponents)]
+              }
+              let diagnostics: [String: Any] = ["delegateClass": delegateClass,
+                "authorization": settings.authorizationStatus.rawValue,
+                "alert": settings.alertSetting.rawValue,
+                "notificationCenter": settings.notificationCenterSetting.rawValue,
+                "pending": pending,
+                "deliveredCount": delivered.filter { $0.request.identifier == String(id) }.count]
+              DispatchQueue.main.async { result(diagnostics) }
+            }
+          }
+        }
+        return
+      }
+#endif
       guard call.method == "printList", let arguments = call.arguments as? [String: String],
             let title = arguments["title"], let body = arguments["body"] else {
         result(FlutterMethodNotImplemented)
