@@ -1,0 +1,8 @@
+class: TodoList
+table: todo_list
+fields:
+  title: String
+  groupId: int?, relation(parent=todo_group)
+  theme: String, default='blue'
+  position: int, default=0
+  deleted: bool, default=false

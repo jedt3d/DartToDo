@@ -1,0 +1,10 @@
+name: flutter_todo_client
+description: Generated typed client for the local FlutterToDo service.
+
+environment:
+  sdk: '^3.8.0'
+
+resolution: workspace
+
+dependencies:
+  serverpod_client: 3.4.12

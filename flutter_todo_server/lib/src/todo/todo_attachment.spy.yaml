@@ -1,0 +1,6 @@
+class: TodoAttachment
+fields:
+  id: String
+  name: String
+  mimeType: String
+  dataBase64: String

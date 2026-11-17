@@ -1,0 +1,186 @@
+{
+  "scope": "Figma design lane, 17 November 2026",
+  "timingPolicy": "Individual Figma API durations are unknown; the host exposed aggregate orchestration wall times, not a reliable per-call duration. No time-saved or model-cost claim is made.",
+  "events": [
+    {
+      "tool": "skills",
+      "stage": "discover",
+      "versions": "figma plugin 19.0.0",
+      "skills": [
+        "figma-use",
+        "figma-generate-design",
+        "figma-generate-library"
+      ],
+      "status": "passed",
+      "elapsedSeconds": null,
+      "actionableResult": "Loaded API, source/library discovery, token/component and validation rules",
+      "helpfulness": "helped"
+    },
+    {
+      "tool": "get_libraries",
+      "stage": "discover",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 0,
+      "actionableResult": "Material/Simple kits available; Apple kits report EULA prerequisite; no Fluent kit",
+      "helpfulness": "helped"
+    },
+    {
+      "tool": "use_figma: font/file inspection",
+      "stage": "discover",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 0,
+      "actionableResult": "Blank page 0:1; SF Pro styles listed",
+      "helpfulness": "partly helped; font list did not predict later editability"
+    },
+    {
+      "tool": "search_design_system",
+      "stage": "discover",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 0,
+      "actionableResult": "No task-sidebar composite; inspected incompatible square checkbox and Inter search",
+      "helpfulness": "helped justify source-matched local components"
+    },
+    {
+      "tool": "get_code_connect_map and repository search",
+      "stage": "discover",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 0,
+      "actionableResult": "No existing mappings/files",
+      "helpfulness": "helped"
+    },
+    {
+      "tool": "Python HTTPS icon download",
+      "stage": "setup",
+      "status": "failed",
+      "elapsedSeconds": 4.36,
+      "retries": 0,
+      "actionableResult": "Python trust store certificate failure; no verification bypass used",
+      "manualCorrection": "Use installed curl with standard certificate validation",
+      "helpfulness": "obstructed"
+    },
+    {
+      "tool": "curl Fluent SVG download",
+      "stage": "setup",
+      "status": "failed",
+      "elapsedSeconds": null,
+      "retries": 0,
+      "actionableResult": "Calendar Ltr path case mismatch returned 404",
+      "manualCorrection": "Verified repository names, used Calendar LTR; retained official MIT sources",
+      "helpfulness": "obstructed, then resolved"
+    },
+    {
+      "tool": "curl Fluent SVG download",
+      "stage": "setup",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 1,
+      "actionableResult": "21 official icon SVGs with hashes and license",
+      "evidence": "icons/manifest.json",
+      "helpfulness": "helped"
+    },
+    {
+      "tool": "use_figma: foundations",
+      "stage": "implement",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 0,
+      "actionableResult": "2 collections, 66 variables, 4 text styles",
+      "evidence": "figma-foundations.json",
+      "helpfulness": "helped"
+    },
+    {
+      "tool": "use_figma: components",
+      "stage": "implement",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 0,
+      "actionableResult": "21 vector icons, 4 control sets, 9 variants, Search, Composer",
+      "evidence": "figma-components.json",
+      "helpfulness": "helped"
+    },
+    {
+      "tool": "use_figma: compose SF Pro screens",
+      "stage": "implement",
+      "status": "failed",
+      "elapsedSeconds": null,
+      "retries": 0,
+      "actionableResult": "Instance text edits refused because listed SF Pro is missing at runtime",
+      "evidence": "font-limitation.md",
+      "manualCorrection": "Reload exact font segments did not resolve; explicit Inter fallback",
+      "helpfulness": "obstructed; exposed font availability mismatch"
+    },
+    {
+      "tool": "use_figma: compose editable fallback screens",
+      "stage": "implement",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 1,
+      "actionableResult": "5 complete editable app frames",
+      "evidence": "figma-screens.json",
+      "helpfulness": "helped"
+    },
+    {
+      "tool": "upload_assets",
+      "stage": "implement",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 0,
+      "actionableResult": "Single source wallpaper fill, 1134837 bytes, node 7:325",
+      "helpfulness": "helped; no private UI screenshot upload"
+    },
+    {
+      "tool": "use_figma: layout audit/repair",
+      "stage": "verify",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 1,
+      "actionableResult": "Corrected detail content width and task stack height. Instance-child resize alone did not persist; fixed icon main component layout/scale constraints.",
+      "manualCorrection": "Use NONE layout with SCALE constraints for one-vector icon wrappers",
+      "evidence": "figma-validation.json",
+      "helpfulness": "helped; first repair needed source-level correction"
+    },
+    {
+      "tool": "use_figma: brand/icon",
+      "stage": "implement",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 0,
+      "actionableResult": "DartToDo visible branding and original vector icon node 8:347",
+      "evidence": "darttodo-icon.svg",
+      "helpfulness": "helped"
+    },
+    {
+      "tool": "get_screenshot and visual inspection",
+      "stage": "verify",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 0,
+      "actionableResult": "Inspected final board and original icon exports; no missing-font or overflow nodes; typography parity remains unverified",
+      "evidence": "figma-review.png and darttodo-icon.png",
+      "helpfulness": "helped"
+    },
+    {
+      "tool": "Primary Dart brand reference review",
+      "stage": "discover",
+      "status": "passed",
+      "elapsedSeconds": null,
+      "retries": 0,
+      "actionableResult": "Inspected dart.dev/brand, official SVG and 64px logo after new steering; subsequent user request moved icon variants to a separate chat. No icon changes made.",
+      "helpfulness": "source reference only"
+    }
+  ],
+  "notRun": [
+    "Figma AI generation",
+    "Code Connect publishing",
+    "human ratings/comprehension timing",
+    "pixel parity grading against private reference",
+    "application runtime validation in this lane",
+    "Dart-style icon variants: moved to separate user-owned chat before authoring"
+  ],
+  "modelUsage": "unknown",
+  "cost": "unknown; no Figma AI credits used"
+}

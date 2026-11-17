@@ -1,0 +1,10 @@
+### Public attribution and hotlink metadata for one My Day background.
+class: BackgroundPhoto
+fields:
+  id: String
+  imageUrl: String
+  photographer: String
+  photographerUrl: String
+  photoUrl: String
+  fromCache: bool, default=false
+  source: String, default='editorial'

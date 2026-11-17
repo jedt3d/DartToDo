@@ -1,0 +1,31 @@
+# Phase 2 user-guide revision ledger
+
+17 November 2026. This lane follows committed phase-1 outline amendments `ce7ab36` and the thirteen finished command/tool references in `5ea7190`. It completes only the seven existing DartNFlutter user guides. The lead can merge these rows into the shared documentation revision record; this separate file avoids concurrent append conflicts.
+
+| Finished guide | Content supported by the trial and reason for the change |
+|---|---|
+| [Getting started](../../../DartNFlutter/docs/user-guides/getting-started.md) | Adds the actual Node/pnpm build/help/inspection path, explicit app-owned setup, one-time task creation and first assessment. The trial distinguished tool discovery, compatible package resolution, existing no-Docker PostgreSQL and executable application proof. Fresh-checkout replay and final readiness are not invented. |
+| [Daily workflow](../../../DartNFlutter/docs/user-guides/daily-workflow.md) | Uses `local-todo` acceptance and real configured check IDs, installed FilePicker/re-export investigation, source/network-boundary diagnosis and retained behavior regressions. Explains subset versus full checks, adjacent stages and recording only reviews actually performed. Reading a skill or summing event durations is not effectiveness evidence. |
+| [Project configuration](../../../DartNFlutter/docs/user-guides/project-configuration.md) | Separates candidate/package/command roots, workspace lock/config resolution and evidence paths. Adds project-pinned generator dependency-graph drift, explicit PostgreSQL/tool-major identity, actual loopback/CORS checks, native minima and selected simulator builds. These observations prevent unsupported root, version and deployment assumptions. |
+| [Package and version knowledge](../../../DartNFlutter/docs/user-guides/package-and-version-knowledge.md) | Separates constraints/locks/source/guidance/releases, bounded retrieval misses and re-export resolution. Preserves Effective Dart strength/language scope and assessment-only migration. Compatible Serverpod/Riverpod selection is not described as an executed upgrade; a changing remote homepage is outside installed-source guarantees. |
+| [Figma and Widgetbook](../../../DartNFlutter/docs/user-guides/figma-and-widgetbook.md) | Preserves private in-library/owner previews, all named declarations and exact machine-test evidence. Reports the 37/37 declaration and 73/73 runtime checkpoint separately from 16 unmapped source declarations/no imported approved UI. Uses final approved icon board 15:452 and 33 native entries, explicitly superseding 8:347; Inter fallback and absent full-UI pixel/golden approval remain visible. |
+| [Reports and readiness](../../../DartNFlutter/docs/user-guides/reports-and-readiness.md) | Explains stored versus assessed verdicts, current snapshot/policy/artifact identity, mutation and review expiration. Separates the 47 backend tests, selected native targets, generic `lipo` failure, widget execution, icon approval and live/cached photo observations. No checkpoint is promoted to final whole-project or release readiness. |
+| [Troubleshooting](../../../DartNFlutter/docs/user-guides/troubleshooting.md) | Replaces proposed topics with reproduced failures, diagnosed boundaries and verified corrections: cached kernel, generator graph, incompatible latest packages, FilePicker exports, workspace inspection, Postgres tooling, native minima, generic/selected simulator packaging, actual HTTP binding, note/accessibility repair, Figma fonts and inventory staleness. Unresolved generic packaging and native delivery scopes remain explicit. |
+
+## Source inspection
+
+The lane read all thirteen command/tool references, the seven amended outlines, `package.json`, the semantic-helper pubspec, the actual CLI help, application setup/run/selected-iOS-build scripts, current lifecycle task input/stored stage, native deployment settings and Figma/icon/catalog evidence. `run.py --help` and `build_ios.py --help` were executed read-only. `setup.py` was read rather than invoked with an unsupported help argument.
+
+The actual local catalog report at this checkpoint records inventory fingerprint `ae3f075530868d506df1abbecae78f612c8527d9758f830f70f6daa142a3eed5`, 37 registered declarations and 73 verified runtime cases, with `design.provided: false`. Counting the authored catalog independently found 16 entries without `figmaNodeId`. This is a dated observation, not a guarantee of freshness after later source changes. The app's task was still historically `implementing` when inspected; the guides do not label it or the release complete.
+
+Icon evidence distinguishes the final user-selected Folded check board `15:452` and integration record from the older provisional `8:347` source-map field. Icon approval is not whole-UI approval. The app-owned source map was flagged to the lead for coordination; this lane did not edit it or any design asset.
+
+## Validation and boundaries
+
+- Exactly seven user-guide files were expanded; their outline-only/planned-coverage/drafting-gate labels were removed.
+- All code fences are balanced. All **20 shell blocks** passed `zsh -n` syntax-only validation; no setup, application check, build, evidence recorder or benchmark was executed by this writing phase.
+- All **14 checkout-relative links** resolve. All **17 companion-repository feature-branch paths** have existing local source counterparts. Actual remote availability after publishing remains the lead's check; it was not inferred from local existence.
+- `git diff --check -- docs/user-guides` passed. Historical research/status files, toolchain implementation, skills and the independently managed benchmark/pilot files were untouched. No Git commit was made.
+- The guides cite publishable companion-source URLs on `codex/microsoft-todo-local`. Private raw reports/events/captures remain under ignored `.dartnflutter/`; no private local artifact is presented as a public download.
+
+These documents report observed engineering outcomes and their limits. No matched full-project baseline, causal time saving, complete model usage/cost, human comprehension time or user rating was manufactured. The lead owns final whole-project reports, remote-link validation and source-release status.

@@ -1,0 +1,1 @@
+Reference photographs are imported locally from the installed Microsoft To Do app. Run swift tool/import_reference_assets.swift flutter_todo_flutter/assets/themes from the repository root. Raw Microsoft assets are excluded from Git and the source release; the app uses a solid colour fallback when they are absent. Microsoft retains rights to its assets.

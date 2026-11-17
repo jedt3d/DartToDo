@@ -1,0 +1,23 @@
+class: TodoTask
+table: todo_task
+fields:
+  title: String
+  listId: int, relation(parent=todo_list)
+  completed: bool, default=false
+  important: bool, default=false
+  myDay: String?
+  dueDate: String?
+  reminder: DateTime?
+  repeat: String, default='none'
+  repeatEvery: int, default=1
+  notes: String, default=''
+  position: int, default=0
+  createdAt: DateTime, default=now
+  completedAt: DateTime?
+  deleted: bool, default=false
+  steps: List<TodoStep>
+  attachments: List<TodoAttachment>
+  nextOccurrenceId: int?, scope=serverOnly
+indexes:
+  todo_task_list_idx:
+    fields: listId

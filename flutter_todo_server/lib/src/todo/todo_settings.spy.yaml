@@ -1,0 +1,12 @@
+class: TodoSettings
+table: todo_settings
+fields:
+  displayName: String, default='Local user'
+  darkMode: bool, default=false
+  showCompleted: bool, default=true
+  confirmDelete: bool, default=true
+  weekStartsMonday: bool, default=true
+  completionSound: bool, default=true
+  smartThemes: Map<String, String>
+  sortOrder: String, default='manual'
+  sortDescending: bool, default=false

@@ -1,0 +1,1747 @@
+{
+  "schemaVersion": 1,
+  "inventoryFingerprint": "149d5d4fb5ee1ac7ec9d48dfa1bac65ee813a0a847f544d5198fa2f122a30776",
+  "entries": [
+    {
+      "widgetId": "lib/ui/dialogs.dart#_NameDialog",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewNameDialog",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/dialogs.dart#_NameDialogState.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/dialogs.dart#_NameDialog"
+      },
+      "requiredStates": [
+        "default"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewNameDialog",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/dialogs.dart#_RepeatDialog",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "custom"
+      ],
+      "cases": [
+        {
+          "id": "catalog-custom",
+          "name": "Custom",
+          "state": "custom",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewRepeatDialog",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/custom.json",
+            "sha256": "f437b177dec0cfa499af1ad8e3a41d9b0423c941ce26f5ca9b416b959e90a875"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/dialogs.dart#_RepeatDialogState.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/dialogs.dart#_RepeatDialog"
+      },
+      "requiredStates": [
+        "custom"
+      ],
+      "cases": [
+        {
+          "id": "catalog-custom",
+          "name": "Custom",
+          "state": "custom",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewRepeatDialog",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/custom.json",
+            "sha256": "f437b177dec0cfa499af1ad8e3a41d9b0423c941ce26f5ca9b416b959e90a875"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/dialogs.dart#_SettingsDialog",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default",
+        "dark"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewSettings",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-dark",
+          "name": "Dark",
+          "state": "dark",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewSettingsDark",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/dark.json",
+            "sha256": "244556b5e90d38fb1b71f71eb6a89909bb1103acc49c89706d1d0fa39eac3c9f"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/dialogs.dart#_SettingsDialogState.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/dialogs.dart#_SettingsDialog"
+      },
+      "requiredStates": [
+        "default",
+        "dark"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewSettings",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-dark",
+          "name": "Dark",
+          "state": "dark",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewSettingsDark",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/dark.json",
+            "sha256": "244556b5e90d38fb1b71f71eb6a89909bb1103acc49c89706d1d0fa39eac3c9f"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/dialogs.dart#_ThemeDialog",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewThemeDialog",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/dialogs.dart#_ThemeDialog.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/dialogs.dart#_ThemeDialog"
+      },
+      "requiredStates": [
+        "default"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewThemeDialog",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/sidebar.dart#_NavTile",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default",
+        "selected"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewNavigationDefault",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-selected",
+          "name": "Selected",
+          "state": "selected",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewNavigationSelected",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/selected.json",
+            "sha256": "12974823e8340246138b47fa5ebc4bca5ebb93446ea0ab9f7858dc4b790923ad"
+          }
+        }
+      ],
+      "figmaNodeId": "5:85"
+    },
+    {
+      "widgetId": "lib/ui/sidebar.dart#_NavTile.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/sidebar.dart#_NavTile"
+      },
+      "requiredStates": [
+        "default",
+        "selected"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewNavigationDefault",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-selected",
+          "name": "Selected",
+          "state": "selected",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewNavigationSelected",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/selected.json",
+            "sha256": "12974823e8340246138b47fa5ebc4bca5ebb93446ea0ab9f7858dc4b790923ad"
+          }
+        }
+      ],
+      "figmaNodeId": "5:85"
+    },
+    {
+      "widgetId": "lib/ui/sidebar.dart#_Sidebar",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewSidebar",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        }
+      ],
+      "figmaNodeId": "7:35"
+    },
+    {
+      "widgetId": "lib/ui/sidebar.dart#_SidebarState._listTile",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/sidebar.dart#_Sidebar"
+      },
+      "requiredStates": [
+        "default"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewSidebar",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        }
+      ],
+      "figmaNodeId": "7:35"
+    },
+    {
+      "widgetId": "lib/ui/sidebar.dart#_SidebarState.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/sidebar.dart#_Sidebar"
+      },
+      "requiredStates": [
+        "default"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewSidebar",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        }
+      ],
+      "figmaNodeId": "7:35"
+    },
+    {
+      "widgetId": "lib/ui/task_details.dart#_DetailAction",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default",
+        "active"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewDetailAction",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-active",
+          "name": "Active",
+          "state": "active",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewDetailActionActive",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/active.json",
+            "sha256": "67e48a6627652455d6d7ff4d5981e1d9f83b9ce416af31fa49b82dfc6a582e1c"
+          }
+        }
+      ],
+      "figmaNodeId": "5:127"
+    },
+    {
+      "widgetId": "lib/ui/task_details.dart#_DetailAction.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/task_details.dart#_DetailAction"
+      },
+      "requiredStates": [
+        "default",
+        "active"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewDetailAction",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-active",
+          "name": "Active",
+          "state": "active",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewDetailActionActive",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/active.json",
+            "sha256": "67e48a6627652455d6d7ff4d5981e1d9f83b9ce416af31fa49b82dfc6a582e1c"
+          }
+        }
+      ],
+      "figmaNodeId": "5:127"
+    },
+    {
+      "widgetId": "lib/ui/task_details.dart#_TaskDetails",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default",
+        "completed"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskDetails",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-completed",
+          "name": "Completed",
+          "state": "completed",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskDetailsCompleted",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+            "sha256": "f087fe5751744daf5fa797c5139dfc99c9d1769928635e4a907b1f4ff4dfe090"
+          }
+        }
+      ],
+      "figmaNodeId": "7:558"
+    },
+    {
+      "widgetId": "lib/ui/task_details.dart#_TaskDetailsState.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/task_details.dart#_TaskDetails"
+      },
+      "requiredStates": [
+        "default",
+        "completed"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskDetails",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-completed",
+          "name": "Completed",
+          "state": "completed",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskDetailsCompleted",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+            "sha256": "f087fe5751744daf5fa797c5139dfc99c9d1769928635e4a907b1f4ff4dfe090"
+          }
+        }
+      ],
+      "figmaNodeId": "7:558"
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_CheckCircle",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "unchecked",
+        "checked"
+      ],
+      "cases": [
+        {
+          "id": "catalog-unchecked",
+          "name": "Unchecked",
+          "state": "unchecked",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewCheckOpen",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/unchecked.json",
+            "sha256": "7c159aaa31f0c2ce8cd097f072e01b2dd262d641711a455f749867b84b299ff6"
+          }
+        },
+        {
+          "id": "catalog-checked",
+          "name": "Checked",
+          "state": "checked",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewCheckComplete",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/checked.json",
+            "sha256": "bb0070e80deb813ef4f4b96e2a5d9344da3e62e8cad6aadb9e5b0a6b5d2e4176"
+          }
+        }
+      ],
+      "figmaNodeId": "5:72"
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_CheckCircle.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/task_list.dart#_CheckCircle"
+      },
+      "requiredStates": [
+        "unchecked",
+        "checked"
+      ],
+      "cases": [
+        {
+          "id": "catalog-unchecked",
+          "name": "Unchecked",
+          "state": "unchecked",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewCheckOpen",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/unchecked.json",
+            "sha256": "7c159aaa31f0c2ce8cd097f072e01b2dd262d641711a455f749867b84b299ff6"
+          }
+        },
+        {
+          "id": "catalog-checked",
+          "name": "Checked",
+          "state": "checked",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewCheckComplete",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/checked.json",
+            "sha256": "bb0070e80deb813ef4f4b96e2a5d9344da3e62e8cad6aadb9e5b0a6b5d2e4176"
+          }
+        }
+      ],
+      "figmaNodeId": "5:72"
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_Composer",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default",
+        "saving",
+        "error"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewComposer",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-saving",
+          "name": "Saving",
+          "state": "saving",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewComposerSaving",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/saving.json",
+            "sha256": "c237db005911e0bc4369d6c123231f410806b6531fb3e7fb155de0e95e6c2837"
+          }
+        },
+        {
+          "id": "catalog-error",
+          "name": "Error",
+          "state": "error",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewComposerError",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
+        }
+      ],
+      "figmaNodeId": "5:133"
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_ComposerState.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/task_list.dart#_Composer"
+      },
+      "requiredStates": [
+        "default",
+        "saving",
+        "error"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewComposer",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-saving",
+          "name": "Saving",
+          "state": "saving",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewComposerSaving",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/saving.json",
+            "sha256": "c237db005911e0bc4369d6c123231f410806b6531fb3e7fb155de0e95e6c2837"
+          }
+        },
+        {
+          "id": "catalog-error",
+          "name": "Error",
+          "state": "error",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewComposerError",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
+        }
+      ],
+      "figmaNodeId": "5:133"
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_EmptyState",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "search-empty"
+      ],
+      "cases": [
+        {
+          "id": "catalog-search-empty",
+          "name": "Search Empty",
+          "state": "search-empty",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewEmptyState",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/search-empty.json",
+            "sha256": "356ac012e600cef9bce29f267aa0415e0a93c7f6ea00e9a5a87d0aeebeb112de"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_EmptyState.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/task_list.dart#_EmptyState"
+      },
+      "requiredStates": [
+        "search-empty"
+      ],
+      "cases": [
+        {
+          "id": "catalog-search-empty",
+          "name": "Search Empty",
+          "state": "search-empty",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewEmptyState",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/search-empty.json",
+            "sha256": "356ac012e600cef9bce29f267aa0415e0a93c7f6ea00e9a5a87d0aeebeb112de"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_HeaderButton",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewHeaderButton",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_HeaderButton.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/task_list.dart#_HeaderButton"
+      },
+      "requiredStates": [
+        "default"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewHeaderButton",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_SuggestionsPanel",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default",
+        "empty"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewSuggestions",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-empty",
+          "name": "Empty",
+          "state": "empty",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewSuggestionsEmpty",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/empty.json",
+            "sha256": "685ca809f36586bf6f9fc39c19278015493ad257afe799aa0a116773b59c7b05"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_SuggestionsPanel.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/task_list.dart#_SuggestionsPanel"
+      },
+      "requiredStates": [
+        "default",
+        "empty"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewSuggestions",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-empty",
+          "name": "Empty",
+          "state": "empty",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewSuggestionsEmpty",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/empty.json",
+            "sha256": "685ca809f36586bf6f9fc39c19278015493ad257afe799aa0a116773b59c7b05"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_TaskPane",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default",
+        "empty",
+        "search-empty",
+        "completed",
+        "photo"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskPane",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-empty",
+          "name": "Empty",
+          "state": "empty",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskPaneEmpty",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/empty.json",
+            "sha256": "685ca809f36586bf6f9fc39c19278015493ad257afe799aa0a116773b59c7b05"
+          }
+        },
+        {
+          "id": "catalog-search-empty",
+          "name": "Search Empty",
+          "state": "search-empty",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskPaneSearch",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/search-empty.json",
+            "sha256": "356ac012e600cef9bce29f267aa0415e0a93c7f6ea00e9a5a87d0aeebeb112de"
+          }
+        },
+        {
+          "id": "catalog-completed",
+          "name": "Completed",
+          "state": "completed",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskPaneCompleted",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+            "sha256": "f087fe5751744daf5fa797c5139dfc99c9d1769928635e4a907b1f4ff4dfe090"
+          }
+        },
+        {
+          "id": "catalog-photo",
+          "name": "Photo",
+          "state": "photo",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskPanePhoto",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/photo.json",
+            "sha256": "ad7b52ddaf9c2690140a9c2052e4b6e164815b17e8bce91e817e43fc37f0ba4e"
+          }
+        }
+      ],
+      "figmaNodeId": "7:35"
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_TaskPane.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/task_list.dart#_TaskPane"
+      },
+      "requiredStates": [
+        "default",
+        "empty",
+        "search-empty",
+        "completed",
+        "photo"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskPane",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-empty",
+          "name": "Empty",
+          "state": "empty",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskPaneEmpty",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/empty.json",
+            "sha256": "685ca809f36586bf6f9fc39c19278015493ad257afe799aa0a116773b59c7b05"
+          }
+        },
+        {
+          "id": "catalog-search-empty",
+          "name": "Search Empty",
+          "state": "search-empty",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskPaneSearch",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/search-empty.json",
+            "sha256": "356ac012e600cef9bce29f267aa0415e0a93c7f6ea00e9a5a87d0aeebeb112de"
+          }
+        },
+        {
+          "id": "catalog-completed",
+          "name": "Completed",
+          "state": "completed",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskPaneCompleted",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+            "sha256": "f087fe5751744daf5fa797c5139dfc99c9d1769928635e4a907b1f4ff4dfe090"
+          }
+        },
+        {
+          "id": "catalog-photo",
+          "name": "Photo",
+          "state": "photo",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskPanePhoto",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/photo.json",
+            "sha256": "ad7b52ddaf9c2690140a9c2052e4b6e164815b17e8bce91e817e43fc37f0ba4e"
+          }
+        }
+      ],
+      "figmaNodeId": "7:35"
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_TaskRow",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default",
+        "selected",
+        "completed"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskRow",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-selected",
+          "name": "Selected",
+          "state": "selected",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskRowSelected",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/selected.json",
+            "sha256": "12974823e8340246138b47fa5ebc4bca5ebb93446ea0ab9f7858dc4b790923ad"
+          }
+        },
+        {
+          "id": "catalog-completed",
+          "name": "Completed",
+          "state": "completed",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskRowCompleted",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+            "sha256": "f087fe5751744daf5fa797c5139dfc99c9d1769928635e4a907b1f4ff4dfe090"
+          }
+        }
+      ],
+      "figmaNodeId": "5:116"
+    },
+    {
+      "widgetId": "lib/ui/task_list.dart#_TaskRow.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/task_list.dart#_TaskRow"
+      },
+      "requiredStates": [
+        "default",
+        "selected",
+        "completed"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskRow",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-selected",
+          "name": "Selected",
+          "state": "selected",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskRowSelected",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/selected.json",
+            "sha256": "12974823e8340246138b47fa5ebc4bca5ebb93446ea0ab9f7858dc4b790923ad"
+          }
+        },
+        {
+          "id": "catalog-completed",
+          "name": "Completed",
+          "state": "completed",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewTaskRowCompleted",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+            "sha256": "f087fe5751744daf5fa797c5139dfc99c9d1769928635e4a907b1f4ff4dfe090"
+          }
+        }
+      ],
+      "figmaNodeId": "5:116"
+    },
+    {
+      "widgetId": "lib/ui/todo_app.dart#TodoApp",
+      "access": {
+        "kind": "direct"
+      },
+      "requiredStates": [
+        "default",
+        "loading",
+        "error"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewAppDefault",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-loading",
+          "name": "Loading",
+          "state": "loading",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewAppLoading",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/loading.json",
+            "sha256": "bac56fc858bff3b83d8a2e4e7108fb892a0edafcf317d00474103efabff81a8d"
+          }
+        },
+        {
+          "id": "catalog-error",
+          "name": "Error",
+          "state": "error",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewAppError",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
+        }
+      ],
+      "figmaNodeId": "7:35"
+    },
+    {
+      "widgetId": "lib/ui/todo_app.dart#TodoApp.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/todo_app.dart#TodoApp"
+      },
+      "requiredStates": [
+        "default",
+        "loading",
+        "error"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewAppDefault",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-loading",
+          "name": "Loading",
+          "state": "loading",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewAppLoading",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/loading.json",
+            "sha256": "bac56fc858bff3b83d8a2e4e7108fb892a0edafcf317d00474103efabff81a8d"
+          }
+        },
+        {
+          "id": "catalog-error",
+          "name": "Error",
+          "state": "error",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewAppError",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
+        }
+      ],
+      "figmaNodeId": "7:35"
+    },
+    {
+      "widgetId": "lib/ui/todo_app.dart#_FailurePage",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "error"
+      ],
+      "cases": [
+        {
+          "id": "catalog-error",
+          "name": "Error",
+          "state": "error",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewFailure",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/todo_app.dart#_FailurePage.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/todo_app.dart#_FailurePage"
+      },
+      "requiredStates": [
+        "error"
+      ],
+      "cases": [
+        {
+          "id": "catalog-error",
+          "name": "Error",
+          "state": "error",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewFailure",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
+        }
+      ]
+    },
+    {
+      "widgetId": "lib/ui/todo_app.dart#_TodoHome",
+      "access": {
+        "kind": "in-library",
+        "harnessFile": "lib/ui/todo_app.dart"
+      },
+      "requiredStates": [
+        "default",
+        "loading",
+        "error"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewAppDefault",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-loading",
+          "name": "Loading",
+          "state": "loading",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewAppLoading",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/loading.json",
+            "sha256": "bac56fc858bff3b83d8a2e4e7108fb892a0edafcf317d00474103efabff81a8d"
+          }
+        },
+        {
+          "id": "catalog-error",
+          "name": "Error",
+          "state": "error",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewAppError",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
+        }
+      ],
+      "figmaNodeId": "7:35"
+    },
+    {
+      "widgetId": "lib/ui/todo_app.dart#_TodoHomeState.build",
+      "access": {
+        "kind": "owner-context",
+        "ownerWidgetId": "lib/ui/todo_app.dart#_TodoHome"
+      },
+      "requiredStates": [
+        "default",
+        "loading",
+        "error"
+      ],
+      "cases": [
+        {
+          "id": "catalog-default",
+          "name": "Default",
+          "state": "default",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewAppDefault",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
+        },
+        {
+          "id": "catalog-loading",
+          "name": "Loading",
+          "state": "loading",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewAppLoading",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/loading.json",
+            "sha256": "bac56fc858bff3b83d8a2e4e7108fb892a0edafcf317d00474103efabff81a8d"
+          }
+        },
+        {
+          "id": "catalog-error",
+          "name": "Error",
+          "state": "error",
+          "builder": {
+            "import": "package:flutter_todo_flutter/ui/todo_app.dart",
+            "function": "previewAppError",
+            "source": "lib/ui/catalog_previews.dart"
+          },
+          "requiredEvidence": [
+            "widget-test"
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
+        }
+      ],
+      "figmaNodeId": "7:35"
+    }
+  ]
+}

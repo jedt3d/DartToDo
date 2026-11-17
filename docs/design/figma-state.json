@@ -1,0 +1,77 @@
+{
+  "fileKey": "P72xp9CQ7S1SkSqLdn7ORO",
+  "sessionId": "f4f0eb5a-6b89-4906-b5e1-dbafff577425",
+  "scope": "Editable desktop, tablet and phone screens plus their necessary reusable components and tokens",
+  "step": "app-screens-complete",
+  "pageId": "0:1",
+  "discovery": {
+    "initialPages": 1,
+    "initialCanvasNodes": 0,
+    "codeConnectMappings": 0,
+    "codeConnectFiles": 0,
+    "wholeViewSearch": "task list sidebar: no result in Material 3 and Simple Design System",
+    "candidateCheckbox": {
+      "setId": "2:91",
+      "defaultSize": [
+        48,
+        48
+      ],
+      "decision": "incompatible square Material checkbox; source uses a 20-point circular completion control"
+    },
+    "candidateSearch": {
+      "setId": "2:44",
+      "defaultSize": [
+        120,
+        40
+      ],
+      "font": "Inter",
+      "decision": "incompatible native reference size and typography"
+    },
+    "libraryDecision": "Build necessary source-matched local components. No Fluent library was available. Apple kits not used because tool reports EULA acceptance prerequisite.",
+    "temporaryInstancesRemoved": [
+      "2:214",
+      "2:220"
+    ]
+  },
+  "entities": {
+    "collections": {
+      "primitives": "VariableCollectionId:4:2",
+      "semantic": "VariableCollectionId:4:3"
+    },
+    "variables": "See figma-foundations.json",
+    "textStyles": "See figma-foundations.json",
+    "components": "See figma-components.json",
+    "frames": {
+      "review": "7:28",
+      "desktop": "7:35",
+      "myDay": "7:252",
+      "myDayBackground": "7:325",
+      "ipad": "7:347",
+      "iphone": "7:487",
+      "iphoneDetail": "7:558"
+    },
+    "icon": "8:347"
+  },
+  "pendingValidations": [],
+  "completedSteps": [
+    "code-and-font-discovery",
+    "file-inspection",
+    "library-search",
+    "candidate-inspection",
+    "foundations",
+    "components",
+    "screens",
+    "font-fallback-repair",
+    "icon-scale-repair",
+    "final-structural-audit",
+    "final-visual-inspection",
+    "original-icon-export"
+  ],
+  "brand": "DartToDo",
+  "limitations": [
+    "Figma SF Pro missing-font limitation: explicit Inter fallback; typography parity unverified",
+    "Mobile frames are adaptive specifications, not an inspected Microsoft iOS reference",
+    "Single Microsoft-owned wallpaper is local reference only"
+  ],
+  "iconStatus": "provisional; user selection pending in separate chat"
+}
