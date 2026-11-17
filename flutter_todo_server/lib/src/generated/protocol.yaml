@@ -1,0 +1,14 @@
+background:
+  - featured:
+todo:
+  - fetch:
+  - saveTask:
+  - completeTask:
+  - deleteTask:
+  - restoreTask:
+  - saveList:
+  - deleteList:
+  - restoreList:
+  - saveGroup:
+  - deleteGroup:
+  - saveSettings:

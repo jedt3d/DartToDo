@@ -1,0 +1,28 @@
+{
+  "reviewNodeId": "7:28",
+  "totalNodes": 529,
+  "counts": {
+    "FRAME": 168,
+    "TEXT": 119,
+    "INSTANCE": 139,
+    "VECTOR": 72,
+    "RECTANGLE": 13,
+    "ELLIPSE": 18
+  },
+  "fonts": [
+    "Inter"
+  ],
+  "missingFonts": [],
+  "overflowNodes": [],
+  "imageFilledNodes": [
+    {
+      "id": "7:325",
+      "name": "My Day list",
+      "width": 840,
+      "height": 720
+    }
+  ],
+  "iconNodeId": "8:347",
+  "fontFidelity": "unverified; Inter fallback explicitly documented",
+  "fullUiRasterCount": 0
+}

@@ -1,0 +1,6 @@
+class: TodoGroup
+table: todo_group
+fields:
+  title: String
+  position: int, default=0
+  deleted: bool, default=false

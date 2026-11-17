@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "brand": "DartToDo",
+  "purpose": "Human-readable Figma/source mapping; not a DartNFlutter design-import schema",
+  "fileKey": "P72xp9CQ7S1SkSqLdn7ORO",
+  "pageId": "0:1",
+  "reviewUrl": "https://www.figma.com/design/P72xp9CQ7S1SkSqLdn7ORO?node-id=7-28",
+  "frames": {
+    "review": "7:28",
+    "desktop": "7:35",
+    "myDay": "7:252",
+    "myDayBackground": "7:325",
+    "ipad": "7:347",
+    "iphone": "7:487",
+    "iphoneDetail": "7:558"
+  },
+  "iconNodeId": "15:451",
+  "referenceTokens": "docs/design/reference-tokens.json",
+  "figmaFoundations": "docs/design/figma-foundations.json",
+  "figmaComponents": "docs/design/figma-components.json",
+  "validation": "docs/design/figma-validation.json",
+  "sourceFont": "Apple system / SF Pro",
+  "figmaFont": "Inter",
+  "fontFidelity": "unverified: listed SF Pro produces missing-font error on instance text editing",
+  "uiRasterScreenshotsUsed": false,
+  "images": [
+    {
+      "nodeId": "7:325",
+      "purpose": "My Day wallpaper coordination example",
+      "provenance": "Unsplash free Featured photograph Hpf8lIyrsGc by Keithen Schwahn; real app randomizes at launch"
+    }
+  ],
+  "localOnlyExclusions": [
+    "Microsoft sign-in",
+    "sharing",
+    "assigned work",
+    "flagged email",
+    "cloud synchronization"
+  ],
+  "iconStatus": "final: bordered Folded Check, light and dark selected by user and packaged in native asset catalogs",
+  "iconVariants": {
+    "light": "15:443",
+    "dark": "15:435",
+    "board": "15:452"
+  }
+}

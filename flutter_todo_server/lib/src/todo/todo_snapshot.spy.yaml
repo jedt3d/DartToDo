@@ -1,0 +1,6 @@
+class: TodoSnapshot
+fields:
+  tasks: List<TodoTask>
+  lists: List<TodoList>
+  groups: List<TodoGroup>
+  settings: TodoSettings

@@ -1,0 +1,12 @@
+{
+  "catalogEntries" : 33,
+  "figmaBoard" : "https:\/\/www.figma.com\/design\/P72xp9CQ7S1SkSqLdn7ORO?node-id=15-452",
+  "iosDarkAppearance" : true,
+  "iosDefaultOpaque" : true,
+  "macDefault" : "light",
+  "macDockAppearance" : "follows-system",
+  "note" : "Native build and runtime verification are recorded separately.",
+  "selected" : "folded-check",
+  "sourceManifest" : "docs\/design\/icon-variants\/folded-check-themes\/manifest.json",
+  "status" : "catalogs-generated"
+}

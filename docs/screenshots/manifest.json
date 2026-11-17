@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-11-17",
+  "images": [
+    {
+      "file": "docs/screenshots/ipad-details-keyboard.png",
+      "width": 1668,
+      "height": 2420,
+      "sha256": "b28a4cb61ae837100c1bfc1567e9311a71b5e6d3e986285866087e08a617d40e",
+      "provenance": "native app capture; synthetic task data"
+    },
+    {
+      "file": "docs/screenshots/ipad-details.png",
+      "width": 1668,
+      "height": 2420,
+      "sha256": "60c07db0232edfecef7f56854a5f452b5c1f3ed24932acf550ccba866274a9a7",
+      "provenance": "native app capture; synthetic task data"
+    },
+    {
+      "file": "docs/screenshots/ipad-lists.png",
+      "width": 1668,
+      "height": 2420,
+      "sha256": "b5a6df4471cc09edb41f0463f5e5c5879102030233fd5664204296ac0cd78348",
+      "provenance": "native app capture; synthetic task data"
+    },
+    {
+      "file": "docs/screenshots/ipad-my-day.png",
+      "width": 1668,
+      "height": 2420,
+      "sha256": "bbaffab7ec99c287d3754819a3972c9087be554d1aba7d69ad28e27bab868b54",
+      "provenance": "native app capture; synthetic task data"
+    },
+    {
+      "file": "docs/screenshots/ipad-suggestions.png",
+      "width": 1668,
+      "height": 2420,
+      "sha256": "9ac897c531f9a626e3954bfac771d090ddc9eeeeb209b008b2c419b862d8159c",
+      "provenance": "native app capture; synthetic task data"
+    },
+    {
+      "file": "docs/screenshots/iphone-details-keyboard.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "e3eb72ed889f9639b6257367bcf26ffe08448441699f0920e6fddc7cba65f104",
+      "provenance": "native app capture; synthetic task data"
+    },
+    {
+      "file": "docs/screenshots/iphone-details.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "6e12aa32a45a3e8c5ab200fd259edbe51aadca3b902a272ce16fc994b032cc9e",
+      "provenance": "native app capture; synthetic task data"
+    },
+    {
+      "file": "docs/screenshots/iphone-lists.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "6f01888d40112e0c2c44072adf405712e94f7bc354f7862fcaaaf740e86d3878",
+      "provenance": "native app capture; synthetic task data"
+    },
+    {
+      "file": "docs/screenshots/iphone-my-day.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "f120b232a9f86a5aa178b75a78f219757562100af65dad68155079093ee99499",
+      "provenance": "native app capture; synthetic task data"
+    },
+    {
+      "file": "docs/screenshots/iphone-suggestions.png",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "fd9623bb54d8d6b293ab1269f2dc405c43bd33b67646f9c945b2958b3fa6a529",
+      "provenance": "native app capture; synthetic task data"
+    },
+    {
+      "file": "docs/screenshots/macos-live-detail.png",
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "be7c5af59fac34934979121cd1d2f2b284a820b5daf4a1a9c9e1b96a1070dd26",
+      "provenance": "native app capture; synthetic task data"
+    },
+    {
+      "file": "docs/screenshots/macos-my-day.png",
+      "width": 4718592,
+      "height": 4292935744,
+      "sha256": "08bc490d6ab44c9b3913b6f77ed37d43eb2faa96e3fff805406269699f060cd1",
+      "provenance": "native app capture; synthetic task data"
+    }
+  ]
+}

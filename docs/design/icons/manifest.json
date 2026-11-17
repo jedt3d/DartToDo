@@ -1,0 +1,128 @@
+[
+  {
+    "name": "sun",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Weather%20Sunny/SVG/ic_fluent_weather_sunny_20_regular.svg",
+    "sha256": "c6a4eb912c9e9c245ab5dfa77c7a8dea691a1acf8869190449bb908830ff9b93",
+    "bytes": 1901
+  },
+  {
+    "name": "star",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Star/SVG/ic_fluent_star_20_regular.svg",
+    "sha256": "dec99558a39bededa688446716215216a8e051c6518a51f886f53a08a67e16cb",
+    "bytes": 951
+  },
+  {
+    "name": "calendar",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Calendar%20LTR/SVG/ic_fluent_calendar_ltr_20_regular.svg",
+    "sha256": "eefff0ad01757bbaf1b0ceefaa1f5f2da95dafd58be7616b733dcb6fc55ac9ac",
+    "bytes": 982
+  },
+  {
+    "name": "inbox",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Home/SVG/ic_fluent_home_20_regular.svg",
+    "sha256": "b810b7e896c6ef2b4cfa0b693650e0f94b4a6760b222531d60e55ee38212a861",
+    "bytes": 1032
+  },
+  {
+    "name": "plus",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Add/SVG/ic_fluent_add_20_regular.svg",
+    "sha256": "fdf9fefaf083ff2349ac94afd47aab8ecb554650781c5797176b9d6ad3caee05",
+    "bytes": 425
+  },
+  {
+    "name": "group",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Folder%20Add/SVG/ic_fluent_folder_add_20_regular.svg",
+    "sha256": "cd3f4b271eb744513906a76684d7a3993e6fba41d5a594c92fd88ae84b975436",
+    "bytes": 1085
+  },
+  {
+    "name": "search",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Search/SVG/ic_fluent_search_20_regular.svg",
+    "sha256": "5ac1eac82df532662cd1bad2c8e55763846e1b258740bcbb0612a48d22630d40",
+    "bytes": 668
+  },
+  {
+    "name": "more",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/More%20Horizontal/SVG/ic_fluent_more_horizontal_20_regular.svg",
+    "sha256": "5cc969f49ca33c856fb72804f9355e84db26dc6c23f2a1fc85995b67ad1c0c8d",
+    "bytes": 584
+  },
+  {
+    "name": "suggestions",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Lightbulb/SVG/ic_fluent_lightbulb_20_regular.svg",
+    "sha256": "624d546ee51156c04dd5cbb5bca3381d68939f494302cbc0ccdbcc9e3c40cea3",
+    "bytes": 1160
+  },
+  {
+    "name": "reminder",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Alert/SVG/ic_fluent_alert_20_regular.svg",
+    "sha256": "71baa585b5effa33b12695c294e9b5301c141307caf125b865984f7217a6b7d3",
+    "bytes": 1163
+  },
+  {
+    "name": "repeat",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Arrow%20Repeat%20All/SVG/ic_fluent_arrow_repeat_all_20_regular.svg",
+    "sha256": "09ab348e69bf73c8218c0ca8ef983b2ee1e808aef318af0871b022e66f67da06",
+    "bytes": 1648
+  },
+  {
+    "name": "attach",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Attach/SVG/ic_fluent_attach_20_regular.svg",
+    "sha256": "af1eef447ed420ff54745b15ac49015ceb9e0abb18c387e87105dbd1852383db",
+    "bytes": 809
+  },
+  {
+    "name": "delete",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Delete/SVG/ic_fluent_delete_20_regular.svg",
+    "sha256": "c3ce6fcb04fa1564fc50e00677d763ddf5cafa0ade58604df4c478268ef54452",
+    "bytes": 922
+  },
+  {
+    "name": "back",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Chevron%20Left/SVG/ic_fluent_chevron_left_20_regular.svg",
+    "sha256": "23926710858e2fcaf18178b613f28f35bce3ab8b9238836f7aace406a597d14a",
+    "bytes": 447
+  },
+  {
+    "name": "close",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Dismiss/SVG/ic_fluent_dismiss_20_regular.svg",
+    "sha256": "e84ad771fa8afba8e3ef52c98d9ab2d8ef4fc8e23c5954766a1c4e88fc13b355",
+    "bytes": 782
+  },
+  {
+    "name": "check",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Checkmark/SVG/ic_fluent_checkmark_20_regular.svg",
+    "sha256": "d4eb7c05fcfe45d7799925431902dc0079fa0a8cf4c647cfd4cb3db22c3fd2b7",
+    "bytes": 449
+  },
+  {
+    "name": "note",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Note/SVG/ic_fluent_note_20_regular.svg",
+    "sha256": "3b78d9a54104fb4366c33f60774368ebe15e10f460d094284d7ef1d2a5fb5b0b",
+    "bytes": 797
+  },
+  {
+    "name": "list",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Text%20Bullet%20List%20LTR/SVG/ic_fluent_text_bullet_list_ltr_20_regular.svg",
+    "sha256": "4b57105ae98074d41fea28c7cee11670c78d2c739c97e31c344c89deaddc5304",
+    "bytes": 885
+  },
+  {
+    "name": "chevron",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Chevron%20Right/SVG/ic_fluent_chevron_right_20_regular.svg",
+    "sha256": "212c611689abb60d2cd56d868e070e44a4c4fbe1d4392622040d1d10a46463e2",
+    "bytes": 445
+  },
+  {
+    "name": "menu",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Navigation/SVG/ic_fluent_navigation_20_regular.svg",
+    "sha256": "59538fecbf6bbd3de61f776f5d6472adb76492e05aff5c236417dd79bdf3086a",
+    "bytes": 515
+  },
+  {
+    "name": "star-filled",
+    "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/main/assets/Star/SVG/ic_fluent_star_20_filled.svg",
+    "sha256": "81784fe79cae62b5d4c0ed90741d32f276321d841b45c173592df72adf30623b",
+    "bytes": 543
+  }
+]

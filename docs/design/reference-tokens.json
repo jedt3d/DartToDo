@@ -1,0 +1,23 @@
+{
+  "source": "Installed Microsoft To Do macOS reference, manually measured logical points; approximate color samples",
+  "scope": "Local clone screens; light sidebar and Tasks theme",
+  "font": {"family": "SF Pro", "regular": "Regular", "medium": "Medium", "semibold": "Semibold"},
+  "colors": {
+    "sidebar": "#F0F0F0", "selected": "#D8D8D8", "surface": "#FFFFFF", "tasks": "#6679C9",
+    "text": "#292929", "secondary": "#777777", "accent": "#4E68EA", "important": "#A83D65",
+    "planned": "#26756E", "border": "#D6D6D6", "divider": "#E4E4E4", "composer": "#00000040",
+    "selectedTask": "#FFFFFFB8", "transparent": "#FFFFFF00"
+  },
+  "metrics": {
+    "space4": 4, "space8": 8, "space12": 12, "space16": 16, "space24": 24, "space32": 32,
+    "radius4": 4, "radius14": 14, "sidebarWidth": 244, "detailWidth": 320,
+    "sidebarRowHeight": 28, "taskRowHeight": 44, "composerHeight": 42, "icon16": 16, "icon20": 20,
+    "font12": 12, "font14": 14, "font16": 16, "font24": 24
+  },
+  "limitations": [
+    "Manual native-reference measurements do not establish pixel parity.",
+    "SF Pro is available in the Figma service; SF Pro Text is not listed as a distinct available family.",
+    "iPhone and iPad frames are adaptive specifications, not fidelity evidence for an uninspected Microsoft iOS app.",
+    "Microsoft account, sharing, assigned tasks and flagged email integrations are excluded."
+  ]
+}

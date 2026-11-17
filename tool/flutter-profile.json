@@ -1,0 +1,20 @@
+{
+  "id": "native-ui",
+  "title": "DartToDo native targets",
+  "packageDirectory": "flutter_todo_flutter",
+  "targetStage": "verified",
+  "mobileTargets": [
+    "ios"
+  ],
+  "iosDeviceId": "02ED3EB4-23A2-41AB-8D17-49E352A076D3",
+  "integrationTestPath": "integration_test/app_test.dart",
+  "buildCommand": {
+    "executable": "flutter",
+    "args": [
+      "build",
+      "macos",
+      "--debug",
+      "--no-pub"
+    ]
+  }
+}

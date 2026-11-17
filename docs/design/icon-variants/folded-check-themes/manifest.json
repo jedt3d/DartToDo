@@ -1,0 +1,105 @@
+{
+  "status": "final-bordered-dark-and-light",
+  "concept": "Folded check",
+  "selected": "A",
+  "fileKey": "P72xp9CQ7S1SkSqLdn7ORO",
+  "pageId": "12:347",
+  "boardId": "15:452",
+  "componentSetId": "15:451",
+  "appearances": [
+    {
+      "appearance": "dark",
+      "nodeId": "15:435",
+      "iconSvg": "darttodo-folded-check-dark-icon.svg",
+      "markSvg": "darttodo-folded-check-dark-mark.svg",
+      "pngs": [
+        {
+          "file": "darttodo-folded-check-dark-1024.png",
+          "size": 1024,
+          "sha256": "589be05ce3192b29f6dab0f6dd60f3c6b2516a0f790c21fd6f64b43f0c7fad32"
+        },
+        {
+          "file": "darttodo-folded-check-dark-64.png",
+          "size": 64,
+          "sha256": "03865587fd0b79914e07e8cfcd9337ab30af8083b36c9e8d941a54759c551ace"
+        },
+        {
+          "file": "darttodo-folded-check-dark-32.png",
+          "size": 32,
+          "sha256": "c13d3900d9f3d959bc5a94c6a26c17e42a92179868ff840b5eb9eed168276a97"
+        },
+        {
+          "file": "darttodo-folded-check-dark-16.png",
+          "size": 16,
+          "sha256": "93d08656477773771cf70e57e19c5efef00c9a8ee14f2995c381216d5ac411b9"
+        }
+      ],
+      "smallSvgSizes": [
+        64,
+        32,
+        16
+      ],
+      "borderColor": "#29B6F6"
+    },
+    {
+      "appearance": "light",
+      "nodeId": "15:443",
+      "iconSvg": "darttodo-folded-check-light-icon.svg",
+      "markSvg": "darttodo-folded-check-light-mark.svg",
+      "pngs": [
+        {
+          "file": "darttodo-folded-check-light-1024.png",
+          "size": 1024,
+          "sha256": "3e98a4f56ae734e6659f579779ff7ff53a6ea684066e86426e94a96cd93d2612"
+        },
+        {
+          "file": "darttodo-folded-check-light-64.png",
+          "size": 64,
+          "sha256": "5f0e273b93ebd5c885c9f748a7dee2c1e7171ba16ac6cbf37fcfa92351620701"
+        },
+        {
+          "file": "darttodo-folded-check-light-32.png",
+          "size": 32,
+          "sha256": "4eaebee15f39f01df415ee14658a3b97ee545b4a7c90e9261143badda3a279eb"
+        },
+        {
+          "file": "darttodo-folded-check-light-16.png",
+          "size": 16,
+          "sha256": "7e876c67503cd76f371eeee9b2d4c396f75eead2bff4d48a9e1576631618a894"
+        }
+      ],
+      "smallSvgSizes": [
+        64,
+        32,
+        16
+      ],
+      "borderColor": "#0077B5"
+    }
+  ],
+  "border": {
+    "source": "User-added strokes on 480px instances 15:459 and 15:496",
+    "alignment": "INSIDE",
+    "thicknessRatio": 0.041666666666666664,
+    "widthBySize": {
+      "1024": 42.666666666666664,
+      "480": 20,
+      "64": 2.6666666666666665,
+      "32": 1.3333333333333333,
+      "16": 0.6666666666666666
+    }
+  },
+  "validation": {
+    "matchingMarkGeometry": true,
+    "borderOnAllPreviewSizes": true,
+    "vectorPathsPerMark": 5,
+    "pngSizes": [
+      1024,
+      64,
+      32,
+      16
+    ],
+    "fontsValid": true,
+    "boardReviewed": true
+  },
+  "appIntegrated": false
+}

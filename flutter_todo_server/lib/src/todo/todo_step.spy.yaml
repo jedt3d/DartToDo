@@ -1,0 +1,5 @@
+class: TodoStep
+fields:
+  id: String
+  title: String
+  completed: bool, default=false
