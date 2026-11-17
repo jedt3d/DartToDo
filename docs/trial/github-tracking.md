@@ -24,3 +24,4 @@ This page retains trial/release links. For the ongoing tool sequence, configurat
 - Proposed analyzer CI: [issue #13](https://github.com/jedt3d/DartToDo/issues/13).
 - Tool configuration/workflow documentation: [issue #14](https://github.com/jedt3d/DartToDo/issues/14) · [guide](../quality/README.md).
 - Dart formatter scope/results: [issue #16](https://github.com/jedt3d/DartToDo/issues/16) · [Round 2 report](../quality/02-dart-formatter.md).
+- Flutter unit/widget tests: [Round 3 report](../quality/03-flutter-unit-widget-tests.md); 162 selected tests passed, with the printing-name exclusion retained. No actionable failing-test finding required a fix issue.
