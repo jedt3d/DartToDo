@@ -12,10 +12,11 @@ Completed formal reports in this series:
 - **Round 2, Dart formatter:** [baseline, scope correction and final result](02-dart-formatter.md), [issue #16](https://github.com/jedt3d/DartToDo/issues/16). All 73 tracked Dart files already matched formatting; the routine gate was extended to include the omitted server `bin` directory.
 - **Round 3, Flutter unit/widget tests:** [baseline and findings](03-flutter-unit-widget-tests.md). All 162 selected tests passed across 10 frontend files, with 0 failures and 0 skips within that selection. One known mocked printing test was excluded by the existing name filter. No application fix was needed.
 - **Round 4, Dart backend tests:** [baseline, database safeguards and findings](04-dart-backend-tests.md). All 51 normal-suite tests and the separate HTTP attachment test passed, with 0 failures/skips. The initial stopped PostgreSQL service was started for the checks and returned to its stopped state; no application fix was needed.
+- **Round 5, Flutter coverage:** [baseline, attachment tests and final measurement](05-flutter-coverage.md), [issue #20](https://github.com/jedt3d/DartToDo/issues/20). Reported app-line coverage improved from 81.40% to 83.46% after eight attachment widget tests; 170 selected tests passed. Raw reported-library coverage is 79.51%; two startup files remain unmeasured and no threshold was added.
 
 Supporting tests and widget recordings do not mean those tools have completed their own formal quality rounds.
 
-The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first four rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
+The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first five rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
 
 | Tool or focused track | Configuration and scope | When to use it | Current state |
 | --- | --- | --- | --- |
@@ -23,7 +24,7 @@ The sequence below covers the original analysis → formatting → tests/coverag
 | **2. Dart formatter** | Package `formatter` options; explicit Dart file targets | Format edited files; non-writing check before PR | Round 2 complete; 73 files, 0 changes; routine gate now includes backend `bin` |
 | **3. Flutter unit/widget tests** | Frontend `flutter_test`, files under `test/`, fake repositories/platform adapters | Frontend behavior changes and affected PRs | Round 3 complete; 162 selected tests passed; printing-name filter retained |
 | **4. Dart backend tests** | Server `test` dependency, `dart_test.yaml`, unit/integration targets | Backend changes; database tests only with the intended test service/configuration | Round 4 complete; 51 normal-suite tests plus 1 separate HTTP test passed |
-| **5. Flutter coverage** | `flutter test` coverage flags, selected tests/packages and output path | Dedicated measurement; update after relevant test/code changes | Available; no coverage percentage or threshold established by Round 1 |
+| **5. Flutter coverage** | `flutter test` coverage flags, declared source populations and output path | Dedicated measurement; update after relevant test/code changes | Round 5 measured 83.46% of reported app lines; 79.51% raw reported lib; no threshold |
 | **6. Dart backend coverage** | Installed `dart test --coverage-path`, selected backend tests | Separate backend coverage measurement | CLI supports LCOV; collection scope and threshold not yet established |
 | **7. Complexity metrics** | Tool/version, metrics, exclusions and thresholds chosen at that round | Investigate difficult functions, nesting and maintainability | DCM is a candidate, not a configured project gate |
 | **8. App-specific custom lints, if needed** | A reviewed custom rule implementation and tests | Repeated architectural mistakes that official rules/tests do not adequately address | No custom-lint package, plugin or app-specific rule configured |
@@ -124,11 +125,15 @@ For a future golden round, first agree the reference image, fonts, target/render
 
 Coverage records which scoped code executes during selected tests. It does not measure assertion quality or prove correct behavior. Define the package/source denominator, generated exclusions, test selection and line/branch treatment before reporting a percentage or proposing a threshold.
 
-The following options were verified in the installed CLI help. These examples write ignored reports and execute only when a coverage round is selected. From `flutter_todo_flutter`, for selected frontend tests with printing excluded:
+The following options were verified in the installed CLI help. Round 5 executed frontend coverage; backend coverage remains a separate pending round. These commands write ignored reports. From `flutter_todo_flutter`, for selected frontend tests with printing excluded, use a fresh output directory when retaining a snapshot:
 
 ```sh
-mkdir -p .dartnflutter/quality
-flutter test --no-pub --coverage --coverage-path=.dartnflutter/quality/frontend.lcov --name '^(?!.*[Pp]rint)'
+mkdir -p ../.dartnflutter/quality/frontend-coverage
+flutter test --no-pub --coverage \
+  --coverage-package='^flutter_todo_flutter$' \
+  --coverage-path=../.dartnflutter/quality/frontend-coverage/lcov.info \
+  --reporter expanded --name '^(?!.*[Pp]rint)' \
+  --file-reporter json:../.dartnflutter/quality/frontend-coverage/tests.jsonl
 ```
 
 Separately, from `flutter_todo_server`, for unit tests rather than database integration:
@@ -138,7 +143,11 @@ mkdir -p .dartnflutter/quality
 dart test test/unit --coverage-path=.dartnflutter/quality/backend-unit.lcov --reporter expanded
 ```
 
-The current Dart test runner can produce LCOV directly. The [official `coverage` package](https://pub.dev/packages/coverage) is also resolved transitively, but that does not establish a configured collector, global CLI installation or coverage gate. Reuse installed capabilities before adding another tool. No percentage, minimum threshold or branch-coverage acceptance level has been approved by this series.
+[Round 5](05-flutter-coverage.md) declares the denominator and supplies a reproducible subtotal script. Its primary view includes the reported executable lines of maintained app code: 1579/1892, **83.46%**, across 10 of 12 inventory files. Generated Widgetbook and authored preview support remain visible separately; including them gives 1913/2406, **79.51%**, across 12 of 14 library files. `main.dart` and `app_entry.dart` are absent from LCOV and explicitly unmeasured. No source ignore marker or analyzer exclusion defines these subtotals.
+
+The eight attachment widget tests added in that round join the ordinary frontend suite, bringing its printing-filtered selection to 170 passes. Rerun focused tests while editing and coverage when changing tests/code relevant to a recorded result. Keep the same package/filter/source populations for before/after comparisons; changed inputs expire affected evidence. Review uncovered behavior and add assertions for concrete regression risks, rather than excluding inconvenient lines or counting test code as app coverage.
+
+The current Dart test runner can produce LCOV directly. The [official `coverage` package](https://pub.dev/packages/coverage) is resolved transitively and is used by Flutter's collector; no global CLI installation was needed. Reuse installed capabilities before adding another tool. Round 5 establishes measured line percentages; no minimum threshold, branch/function acceptance level, coverage CI gate or pre-commit hook has been approved or installed. A percentage is not proof of assertion quality or native behavior.
 
 ## Metrics and custom lints: conditional additions
 

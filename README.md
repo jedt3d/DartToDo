@@ -44,7 +44,7 @@ Recurrence calendar rules, recovery boundaries and remaining reference differenc
 
 ## Verify and inspect
 
-Use the [quality tools and workflow guide](docs/quality/README.md) for each tool's configuration, when to run it, the proposed one-tool-per-round sequence, and the issue/PR process. Completed formal reports are [Analyzer Round 1](docs/quality/01-dart-analyzer.md), [Dart formatter Round 2](docs/quality/02-dart-formatter.md), [Flutter unit/widget tests Round 3](docs/quality/03-flutter-unit-widget-tests.md) and [Dart backend tests Round 4](docs/quality/04-dart-backend-tests.md); subsequent formal rounds remain pending.
+Use the [quality tools and workflow guide](docs/quality/README.md) for each tool's configuration, when to run it, the proposed one-tool-per-round sequence, and the issue/PR process. Completed formal reports are [Analyzer Round 1](docs/quality/01-dart-analyzer.md), [Dart formatter Round 2](docs/quality/02-dart-formatter.md), [Flutter unit/widget tests Round 3](docs/quality/03-flutter-unit-widget-tests.md), [Dart backend tests Round 4](docs/quality/04-dart-backend-tests.md) and [Flutter coverage Round 5](docs/quality/05-flutter-coverage.md); subsequent formal rounds remain pending.
 
 The compound runner below includes real database/HTTP checks and starts or reuses the backend; `--native` adds native builds and device flows. Choose scoped checks from the guide for routine edits or a single-tool round, and confirm prerequisites before using the full runner.
 
@@ -60,7 +60,7 @@ The native suite needs the configured simulators and real PostgreSQL. Missing pr
 ## Documentation and design
 
 - [User guide](docs/app-guide.md) · [Development](docs/development.md) · [Architecture](docs/architecture.md)
-- [Quality tools, configuration and workflow](docs/quality/README.md) · [Analyzer Round 1](docs/quality/01-dart-analyzer.md) · [Formatter Round 2](docs/quality/02-dart-formatter.md) · [Frontend tests Round 3](docs/quality/03-flutter-unit-widget-tests.md) · [Backend tests Round 4](docs/quality/04-dart-backend-tests.md)
+- [Quality tools, configuration and workflow](docs/quality/README.md) · [Analyzer Round 1](docs/quality/01-dart-analyzer.md) · [Formatter Round 2](docs/quality/02-dart-formatter.md) · [Frontend tests Round 3](docs/quality/03-flutter-unit-widget-tests.md) · [Backend tests Round 4](docs/quality/04-dart-backend-tests.md) · [Flutter coverage Round 5](docs/quality/05-flutter-coverage.md)
 - [Local security and backup](docs/security.md) · [Unsplash source/fallback](docs/unsplash.md)
 - [Editable Figma screens and mapping](docs/design/figma-map.md) · [Selected icon assets](docs/design/icon-variants/folded-check-themes/README.md)
 - [Trial protocol](docs/trial/protocol.md) · [GitHub tracking](docs/trial/github-tracking.md) · [Tool efficiency](docs/trial/tool-efficiency.md)

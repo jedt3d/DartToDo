@@ -134,6 +134,8 @@ The database-backed tests use real PostgreSQL in `flutter_todo_test`, apply migr
 
 [Backend Round 4](quality/04-dart-backend-tests.md), measured on 18 November 2026 with the existing PostgreSQL **17.12** installation, passed all **51 normal-suite tests** (27 unit/middleware and 24 database tests) and the **separate 1-test HTTP attachment probe**. Its initial readiness check found PostgreSQL stopped; the existing service was started for testing and returned to its stopped state. No database was recreated or application fix needed. `dart test test/unit --reporter expanded` runs the 27-test subset without PostgreSQL. Run the normal suite and explicit `tool/attachment_http_test.dart` probe sequentially after confirming the test configuration; HTTP sessions commit and require the probe's own row cleanup. These measurements and the older release checkpoints remain separate.
 
+[Flutter coverage Round 5](quality/05-flutter-coverage.md) added eight attachment import/export widget tests and passed **170 selected frontend tests**, retaining the printing-name exclusion. Coverage of reported app lines improved **81.40% → 83.46%**; raw reported-library coverage including Widgetbook/preview support is **79.51%**. Two startup files remain unmeasured. The [quality guide](quality/README.md#coverage-measure-first-choose-thresholds-afterward) supplies the scoped command and denominator policy; no percentage threshold or CI job is installed.
+
 With the normal backend running, these finite checks verify live transport without printing task contents:
 
 ```sh
