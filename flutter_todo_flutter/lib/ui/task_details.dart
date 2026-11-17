@@ -399,9 +399,9 @@ class _TaskDetailsState extends State<_TaskDetails> {
                                   ? TextDecoration.lineThrough
                                   : null,
                             ),
-                            onFieldSubmitted: (title) {
+                            onFieldSubmitted: (title) async {
                               if (title.trim().isNotEmpty) {
-                                widget.update(
+                                await widget.update(
                                   (current) => current.copyWith(
                                     steps: current.steps
                                         .map(
@@ -645,9 +645,9 @@ class _TaskDetailsState extends State<_TaskDetails> {
                           ),
                         ),
                     ],
-                    onChanged: (id) {
+                    onChanged: (id) async {
                       if (id != null) {
-                        widget.update(
+                        await widget.update(
                           (current) => current.copyWith(listId: id),
                         );
                       }

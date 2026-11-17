@@ -275,7 +275,7 @@ final class UnsplashService {
     _photos = _parseStored(seed['photos'] as List, seed: true);
   }
 
-  List<_Photo> _parseStored(List values, {required bool seed}) {
+  List<_Photo> _parseStored(List<Object?> values, {required bool seed}) {
     final ids = <String>{};
     return values
         .take(150)

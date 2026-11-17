@@ -257,11 +257,11 @@ class _TaskPane extends StatelessWidget {
                               (showCompleted && completed.isNotEmpty
                                   ? 1 + (expanded ? completed.length : 0)
                                   : 0),
-                          onReorder: (oldIndex, newIndex) {
+                          onReorder: (oldIndex, newIndex) async {
                             if (oldIndex < active.length &&
                                 newIndex <= active.length &&
                                 reorder != null) {
-                              reorder!(active, oldIndex, newIndex);
+                              await reorder!(active, oldIndex, newIndex);
                             }
                           },
                           itemBuilder: (context, index) {

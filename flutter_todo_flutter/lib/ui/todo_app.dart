@@ -357,7 +357,7 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
       final list = await _controller.saveList(
         TodoList(title: title, groupId: groupId, position: data.lists.length),
       );
-      if (mounted) _navigate('list:${list.id}');
+      if (mounted) await _navigate('list:${list.id}');
     } catch (error) {
       if (mounted) _message('Could not create list. $error');
     }
@@ -438,7 +438,8 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
       return;
     }
     if (await _run(_controller.deleteList(list.id!)) && mounted) {
-      _navigate('my-day');
+      await _navigate('my-day');
+      if (!mounted) return;
       _message(
         'List deleted',
         action: SnackBarAction(
@@ -521,7 +522,7 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
               ),
             );
           }
-          if (mounted) _navigate('list:${copy.id}');
+          if (mounted) await _navigate('list:${copy.id}');
         } catch (error) {
           if (mounted) _message('Could not duplicate list. $error');
         }

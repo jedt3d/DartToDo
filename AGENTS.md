@@ -10,5 +10,6 @@ This repository is the local To Do application. DartNFlutter is a separate sibli
 - The selected icon is the bordered Folded Check in [the final asset manifest](docs/design/icon-variants/folded-check-themes/manifest.json). Regenerate native sizes with `swift tool/apply_icons.swift "$PWD"`; preserve the user's final geometry and borders.
 - `python3 tool/verify.py` runs the project checks; `--native` additionally exercises the configured native targets. Inspect [development](docs/development.md) for actual prerequisites and the simulator-specific Xcode build limitation.
 - Keep credentials, raw private captures, database files and `.dartnflutter` evidence out of Git. Microsoft theme PNGs are imported locally and excluded from source releases. Publish only original source/design assets and screenshots containing synthetic task data.
+- For quality-tool rounds, open a GitHub issue for each coherent set of actionable findings before fixing it. Link the report and PR, record actual verification, merge after review and required checks pass, then update and close the issue. The user authorizes this workflow for subsequent tool rounds; preserve the agreed scope for each tool.
 
 Versioned source and tests establish behavior. Figma coordination, source inspection and a successful build each have narrower meanings than an application acceptance pass.
