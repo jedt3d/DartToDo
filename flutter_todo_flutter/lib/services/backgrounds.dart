@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
+import 'dart:ui' as ui;
 
 import 'package:flutter_todo_client/flutter_todo_client.dart';
 
@@ -59,6 +60,7 @@ final class BackgroundService {
       final uri = Uri.parse(photo.imageUrl);
       final bytes = await _downloadImage(uri);
       if (bytes.isEmpty || bytes.length > _imageLimit) return cached;
+      await _validateImage(bytes);
       final selected = BackgroundSelection(photo, bytes);
       try {
         await _directory.create(recursive: true);
@@ -99,11 +101,21 @@ final class BackgroundService {
         return null;
       }
       final bytes = base64Decode(data['bytes'] as String);
-      return bytes.isEmpty || bytes.length > _imageLimit
-          ? null
-          : BackgroundSelection(photo.copyWith(fromCache: true), bytes);
+      if (bytes.isEmpty || bytes.length > _imageLimit) return null;
+      await _validateImage(bytes);
+      return BackgroundSelection(photo.copyWith(fromCache: true), bytes);
     } on Object {
       return null;
+    }
+  }
+
+  static Future<void> _validateImage(Uint8List bytes) async {
+    final codec = await ui.instantiateImageCodec(bytes);
+    try {
+      final frame = await codec.getNextFrame();
+      frame.image.dispose();
+    } finally {
+      codec.dispose();
     }
   }
 

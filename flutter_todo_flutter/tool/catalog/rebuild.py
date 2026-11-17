@@ -2,6 +2,7 @@
 """Rebuild semantic mappings and optionally record current named test evidence."""
 import argparse
 import collections
+import datetime
 import json
 from pathlib import Path
 import subprocess
@@ -98,20 +99,25 @@ write(catalog_path, catalog)
 run('widgetbook-generate', 'widgets', 'generate', '--catalog', str(catalog_path), '--out', str(root / 'lib/widgetbook.dart'))
 subprocess.run(['dart', 'format', str(root / 'lib/widgetbook.dart')], cwd=root, check=True)
 if options.record:
+    run_key = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + inventory['fingerprint'][:12]
+    run_directory = state / 'evidence/catalog' / run_key
     for case_state, mapped in cases.items():
-        input_path = state / 'catalog-input' / (case_state + '.json')
-        report_file = '.dartnflutter/evidence/catalog/' + case_state + '.json'
+        input_path = state / 'catalog-input' / run_key / (case_state + '.json')
+        report_file = '.dartnflutter/evidence/catalog/' + run_key + '/' + case_state + '.json'
         write(input_path, {
             'caseId': 'catalog-' + case_state, 'widgetIds': [widget_id for widget_id, _ in mapped],
             'state': case_state, 'method': 'widget-test',
             'command': {'executable': 'flutter', 'args': ['test', '--no-pub', '--machine', 'test/ui/catalog_test.dart', '--plain-name', 'catalog state ' + case_state], 'timeoutMs': 120000},
             'testName': 'catalog state ' + case_state, 'reportFile': report_file,
         })
-        output_path = state / 'catalog-input' / (case_state + '-result.json')
+        output_path = state / 'catalog-input' / run_key / (case_state + '-result.json')
         run('catalog-record-' + case_state, 'widgets', 'record', '--file', str(input_path), '--out', str(output_path))
         reference = json.loads(output_path.read_text())['reference']
         for _, case in mapped:
             case['evidence'] = reference
     write(catalog_path, catalog)
-    run('catalog-validate', 'widgets', 'validate', '--catalog', str(catalog_path), '--out', str(state / 'catalog-report.json'))
+    write(run_directory / 'catalog.json', catalog)
+    run_report = run_directory / 'catalog-report.json'
+    run('catalog-validate', 'widgets', 'validate', '--catalog', str(catalog_path), '--out', str(run_report))
+    write(state / 'catalog-report.json', json.loads(run_report.read_text()))
 print(json.dumps({'semanticDeclarations': len(entries), 'evidenceStateGroups': len(cases), 'mappedCases': sum(len(entry['cases']) for entry in entries), 'recorded': options.record}))

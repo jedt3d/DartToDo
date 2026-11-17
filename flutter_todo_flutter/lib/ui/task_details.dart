@@ -104,11 +104,20 @@ class _TaskDetailsState extends State<_TaskDetails> {
       date = DateTime(today.year, today.month, today.day + 7);
     }
     if (action == 'pick') {
+      final firstDate = DateTime(2000);
+      final lastDate = DateTime(2200);
+      final storedDate = DateUtils.dateOnly(
+        DateTime.tryParse(widget.task.dueDate ?? '') ?? today,
+      );
       date = await showDatePicker(
         context: context,
-        initialDate: DateTime.tryParse(widget.task.dueDate ?? '') ?? today,
-        firstDate: DateTime(2000),
-        lastDate: DateTime(2200),
+        initialDate: storedDate.isBefore(firstDate)
+            ? firstDate
+            : storedDate.isAfter(lastDate)
+            ? lastDate
+            : storedDate,
+        firstDate: firstDate,
+        lastDate: lastDate,
         helpText: 'Add due date',
         initialEntryMode: DatePickerEntryMode.calendarOnly,
       );
@@ -139,11 +148,20 @@ class _TaskDetailsState extends State<_TaskDetails> {
       date = DateTime(now.year, now.month, now.day + 7, 9);
     }
     if (action == 'pick') {
+      final firstDate = DateUtils.dateOnly(now);
+      final lastDate = DateTime(2200);
+      final storedDate = DateUtils.dateOnly(
+        widget.task.reminder?.toLocal() ?? now,
+      );
       final day = await showDatePicker(
         context: context,
-        initialDate: widget.task.reminder?.toLocal() ?? now,
-        firstDate: DateTime(now.year, now.month, now.day),
-        lastDate: DateTime(2200),
+        initialDate: storedDate.isBefore(firstDate)
+            ? firstDate
+            : storedDate.isAfter(lastDate)
+            ? lastDate
+            : storedDate,
+        firstDate: firstDate,
+        lastDate: lastDate,
         helpText: 'Remind me',
       );
       if (day == null || !mounted) return;

@@ -463,6 +463,51 @@ void main() {
     );
 
     test(
+      'attachment metadata rejects DEL and C1 controls but preserves Unicode filenames',
+      () async {
+        final attachment = TodoAttachment(
+          id: 'file-1',
+          name: 'safe.txt',
+          mimeType: 'text/plain',
+          dataBase64: 'AQID',
+        );
+        for (final codePoint in [0x7f, 0x85, 0x9f]) {
+          final control = String.fromCharCode(codePoint);
+          for (final invalid in [
+            attachment.copyWith(name: 'invalid${control}name.txt'),
+            attachment.copyWith(mimeType: 'text/plain$control'),
+          ]) {
+            await expectLater(
+              endpoints.todo.saveTask(
+                sessionBuilder,
+                _newTask('Invalid metadata')..attachments = [invalid],
+              ),
+              throwsA(isA<TodoException>()),
+              reason:
+                  'Reject metadata containing U+${codePoint.toRadixString(16)}',
+            );
+          }
+        }
+        expect((await endpoints.todo.fetch(sessionBuilder)).tasks, isEmpty);
+
+        const filenames = ['บันทึก-東京.txt', 'résumé-文件-📄.txt'];
+        final saved = await endpoints.todo.saveTask(
+          sessionBuilder,
+          _newTask('Unicode attachments')
+            ..attachments = [
+              for (var index = 0; index < filenames.length; index++)
+                attachment.copyWith(id: 'file-$index', name: filenames[index]),
+            ],
+        );
+        final loaded = (await endpoints.todo.fetch(
+          sessionBuilder,
+        )).tasks.single;
+        expect(loaded.id, saved.id);
+        expect(loaded.attachments.map((file) => file.name), filenames);
+      },
+    );
+
+    test(
       'attachment total over 10 MB is rejected before persistence',
       () async {
         final task = _newTask('Too big')

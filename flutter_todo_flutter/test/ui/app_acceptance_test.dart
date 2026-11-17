@@ -234,6 +234,95 @@ void main() {
     },
   );
 
+  for (final fixture in [
+    (
+      name: 'expired',
+      reminder: DateTime.now().subtract(const Duration(days: 2)),
+    ),
+    (name: 'after the calendar limit', reminder: DateTime.utc(2301)),
+  ]) {
+    testWidgets(
+      'reminder calendar opens for a stored reminder ${fixture.name}',
+      (tester) async {
+        final repository = await pumpApp(
+          tester,
+          data: uiData(
+            tasks: [
+              task(
+                id: 1,
+                title: 'Focus task',
+                myDay: localDateKey(DateTime.now()),
+              ).copyWith(reminder: fixture.reminder.toUtc()),
+            ],
+          ),
+        );
+        await openDetails(tester);
+        await tester.ensureVisible(find.byTooltip('Choose reminder'));
+        await tester.tap(find.byTooltip('Choose reminder'));
+        await tester.pumpAndSettle();
+        await tester.ensureVisible(find.text('Pick a date & time…'));
+        await tester.tap(find.text('Pick a date & time…'));
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        final picker = tester.widget<DatePickerDialog>(
+          find.byType(DatePickerDialog),
+        );
+        expect(
+          picker.initialDate,
+          fixture.name == 'expired' ? picker.firstDate : picker.lastDate,
+        );
+        await tester.tap(find.text('CANCEL'));
+        await tester.pumpAndSettle();
+        expect(find.byType(DatePickerDialog), findsNothing);
+        expect(
+          repository.data.tasks.single.reminder,
+          fixture.reminder.toUtc(),
+        );
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
+
+  for (final dueDate in ['1999-12-31', '2301-01-01']) {
+    testWidgets('due date calendar opens for stored date $dueDate', (
+      tester,
+    ) async {
+      final repository = await pumpApp(
+        tester,
+        data: uiData(
+          tasks: [
+            task(
+              id: 1,
+              title: 'Focus task',
+              myDay: localDateKey(DateTime.now()),
+              dueDate: dueDate,
+            ),
+          ],
+        ),
+      );
+      await openDetails(tester);
+      await tester.ensureVisible(find.byTooltip('Choose due date'));
+      await tester.tap(find.byTooltip('Choose due date'));
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(find.text('Pick a Date…'));
+      await tester.tap(find.text('Pick a Date…'));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      final picker = tester.widget<DatePickerDialog>(
+        find.byType(DatePickerDialog),
+      );
+      expect(
+        picker.initialDate,
+        dueDate.startsWith('1999') ? picker.firstDate : picker.lastDate,
+      );
+      await tester.tap(find.text('CANCEL'));
+      await tester.pumpAndSettle();
+      expect(find.byType(DatePickerDialog), findsNothing);
+      expect(repository.data.tasks.single.dueDate, dueDate);
+      expect(tester.takeException(), isNull);
+    });
+  }
+
   testWidgets('rapid note edits survive switching tasks and lists', (
     tester,
   ) async {

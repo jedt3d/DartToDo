@@ -436,13 +436,13 @@ class TodoEndpoint extends Endpoint {
       }
       if (attachment.name.trim().isEmpty ||
           attachment.name.length > 255 ||
-          attachment.name.contains(RegExp(r'[/\\\x00-\x1f]')) ||
+          attachment.name.contains(RegExp(r'[/\\\x00-\x1f\x7f-\x9f]')) ||
           attachment.name == '.' ||
           attachment.name == '..') {
         _fail('Choose a file with a valid filename.');
       }
       if (attachment.mimeType.length > 255 ||
-          attachment.mimeType.contains(RegExp(r'[\x00-\x1f]'))) {
+          attachment.mimeType.contains(RegExp(r'[\x00-\x1f\x7f-\x9f]'))) {
         _fail('Invalid file type.');
       }
       try {
