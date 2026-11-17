@@ -130,7 +130,9 @@ dart test --reporter expanded
 python3 tool/check_codegen.py
 ```
 
-Backend tests use real PostgreSQL in `flutter_todo_test`, apply migrations and roll back each test's data. The **v1.0.0 release backend checkpoint** had 49 passing tests, including a non-destructive literal `decode(...)` string regression that failed on 3.4.5 and passes on 3.4.12. They cover persistence, malformed inputs, foreign references, soft deletion/restore, group dissolution, recurrence, duplicate identity, sort contracts and file limits. HTTP boundary tests run a real local listener. They do not use the app database for test tasks.
+The database-backed tests use real PostgreSQL in `flutter_todo_test`, apply migrations and roll back each test's data. The **v1.0.0 release backend checkpoint** had 49 passing tests, including a non-destructive literal `decode(...)` string regression that failed on 3.4.5 and passes on 3.4.12. They cover persistence, malformed inputs, foreign references, soft deletion/restore, group dissolution, recurrence, duplicate identity, sort contracts and file limits. HTTP boundary tests run a real local listener. They do not use the app database for test tasks.
+
+[Backend Round 4](quality/04-dart-backend-tests.md), measured on 18 November 2026 with the existing PostgreSQL **17.12** installation, passed all **51 normal-suite tests** (27 unit/middleware and 24 database tests) and the **separate 1-test HTTP attachment probe**. Its initial readiness check found PostgreSQL stopped; the existing service was started for testing and returned to its stopped state. No database was recreated or application fix needed. `dart test test/unit --reporter expanded` runs the 27-test subset without PostgreSQL. Run the normal suite and explicit `tool/attachment_http_test.dart` probe sequentially after confirming the test configuration; HTTP sessions commit and require the probe's own row cleanup. These measurements and the older release checkpoints remain separate.
 
 With the normal backend running, these finite checks verify live transport without printing task contents:
 

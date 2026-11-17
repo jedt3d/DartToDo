@@ -25,3 +25,4 @@ This page retains trial/release links. For the ongoing tool sequence, configurat
 - Tool configuration/workflow documentation: [issue #14](https://github.com/jedt3d/DartToDo/issues/14) · [guide](../quality/README.md).
 - Dart formatter scope/results: [issue #16](https://github.com/jedt3d/DartToDo/issues/16) · [Round 2 report](../quality/02-dart-formatter.md).
 - Flutter unit/widget tests: [Round 3 report](../quality/03-flutter-unit-widget-tests.md); 162 selected tests passed, with the printing-name exclusion retained. No actionable failing-test finding required a fix issue.
+- Dart backend tests: [Round 4 report](../quality/04-dart-backend-tests.md); 51 normal-suite tests plus the separate HTTP attachment test passed. Existing PostgreSQL service setup was restored afterward; no application fix or defect issue was needed.
