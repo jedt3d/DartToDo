@@ -28,6 +28,16 @@ class MainFlutterWindow: NSWindow {
       text.string = title + "\n\n" + body
       text.font = NSFont.systemFont(ofSize: 14)
       text.textContainerInset = NSSize(width: 24, height: 24)
+      // The print operation paginates the full text, but drawing is clipped to
+      // the view's bounds. Expand those bounds to include every laid-out line.
+      if let container = text.textContainer, let layout = text.layoutManager {
+        container.size = NSSize(width: 472, height: CGFloat.greatestFiniteMagnitude)
+        container.widthTracksTextView = true
+        container.heightTracksTextView = false
+        layout.ensureLayout(for: container)
+        let height = ceil(layout.usedRect(for: container).height) + 48
+        text.setFrameSize(NSSize(width: 520, height: max(1, height)))
+      }
       let operation = NSPrintOperation(view: text)
       operation.jobTitle = title
       operation.run()

@@ -56,7 +56,7 @@ class _TaskPane extends StatelessWidget {
                 image: MemoryImage(featured!.bytes),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
-                  Colors.black.withValues(alpha: .18),
+                  Colors.black.withValues(alpha: .55),
                   BlendMode.darken,
                 ),
                 onError: (error, stack) {},

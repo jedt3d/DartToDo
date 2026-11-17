@@ -1,0 +1,371 @@
+{
+  "id": "issue-9-parity",
+  "title": "DartToDo 1.1 local interactions and native source release",
+  "kind": "feature",
+  "acceptance": [
+    "Aggregate attachment limit and real HTTP/PostgreSQL boundary pass",
+    "Task dragging, reminder routing and automatic iPad landscape details preserve drafts and identity",
+    "Current macOS/iPhone/iPad native persistence and dragging pass; known external/human acceptance remains explicit",
+    "Every declared widget has current runtime evidence and the source-only archive contains verified synthetic screenshots"
+  ],
+  "checks": [
+    {
+      "id": "analyze",
+      "description": "analyze",
+      "command": {
+        "executable": "flutter",
+        "args": [
+          "analyze",
+          "--no-pub",
+          "--fatal-infos"
+        ],
+        "cwd": ".",
+        "timeoutMs": 180000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ]
+    },
+    {
+      "id": "flutter-behavior",
+      "description": "flutter behavior",
+      "command": {
+        "executable": "flutter",
+        "args": [
+          "test",
+          "--no-pub"
+        ],
+        "cwd": "flutter_todo_flutter",
+        "timeoutMs": 180000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ]
+    },
+    {
+      "id": "backend-behavior",
+      "description": "backend behavior",
+      "command": {
+        "executable": "dart",
+        "args": [
+          "test"
+        ],
+        "cwd": "flutter_todo_server",
+        "timeoutMs": 180000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ],
+      "inputFiles": [
+        "flutter_todo_server/config/passwords.yaml"
+      ]
+    },
+    {
+      "id": "attachment-http",
+      "description": "Exact 25 MiB generated-client request and PostgreSQL persistence",
+      "command": {
+        "executable": "dart",
+        "args": [
+          "test",
+          "tool/attachment_http_test.dart"
+        ],
+        "cwd": "flutter_todo_server",
+        "timeoutMs": 180000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputFiles": [
+        "flutter_todo_server/config/passwords.yaml"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ]
+    },
+    {
+      "id": "generated-consistency",
+      "description": "generated consistency",
+      "command": {
+        "executable": "python3",
+        "args": [
+          "tool/check_codegen.py"
+        ],
+        "cwd": "flutter_todo_server",
+        "timeoutMs": 180000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ]
+    },
+    {
+      "id": "client-http",
+      "description": "client http",
+      "command": {
+        "executable": "dart",
+        "args": [
+          "run",
+          "tool/live_smoke.dart"
+        ],
+        "cwd": "flutter_todo_client",
+        "timeoutMs": 180000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ]
+    },
+    {
+      "id": "http-boundary",
+      "description": "http boundary",
+      "command": {
+        "executable": "dart",
+        "args": [
+          "run",
+          "tool/http_security_smoke.dart"
+        ],
+        "cwd": "flutter_todo_server",
+        "timeoutMs": 180000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ]
+    },
+    {
+      "id": "macos-build",
+      "description": "macos build",
+      "command": {
+        "executable": "flutter",
+        "args": [
+          "build",
+          "macos",
+          "--debug",
+          "--no-pub"
+        ],
+        "cwd": "flutter_todo_flutter",
+        "timeoutMs": 600000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ]
+    },
+    {
+      "id": "ios-simulator-build",
+      "description": "Build against one installed simulator; generic multi-architecture lipo fails under observed Xcode 27.2",
+      "command": {
+        "executable": "python3",
+        "args": [
+          "tool/build_ios.py"
+        ],
+        "cwd": ".",
+        "timeoutMs": 600000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ]
+    },
+    {
+      "id": "macos-native",
+      "description": "Native UI write and independent PostgreSQL readback",
+      "command": {
+        "executable": "flutter",
+        "args": [
+          "test",
+          "--no-pub",
+          "integration_test/app_test.dart",
+          "-d",
+          "macos"
+        ],
+        "cwd": "flutter_todo_flutter",
+        "timeoutMs": 600000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ]
+    },
+    {
+      "id": "iphone-native",
+      "description": "Native UI write and independent PostgreSQL readback",
+      "command": {
+        "executable": "flutter",
+        "args": [
+          "test",
+          "--no-pub",
+          "integration_test/app_test.dart",
+          "-d",
+          "02ED3EB4-23A2-41AB-8D17-49E352A076D3"
+        ],
+        "cwd": "flutter_todo_flutter",
+        "timeoutMs": 600000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ]
+    },
+    {
+      "id": "ipad-native",
+      "description": "Native UI write and independent PostgreSQL readback",
+      "command": {
+        "executable": "flutter",
+        "args": [
+          "test",
+          "--no-pub",
+          "integration_test/app_test.dart",
+          "-d",
+          "62507A81-E969-448F-8510-136600AB8DC6"
+        ],
+        "cwd": "flutter_todo_flutter",
+        "timeoutMs": 600000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ]
+    },
+    {
+      "id": "catalog-current",
+      "description": "Validate fresh semantic inventory and runtime cases",
+      "command": {
+        "executable": "node",
+        "args": [
+          "/Users/worajedt/.codex/skills/dnf-ui/scripts/dnf.mjs",
+          "widgets",
+          "validate",
+          "--catalog",
+          "flutter_todo_flutter/widget-catalog.json",
+          "--root",
+          "flutter_todo_flutter"
+        ],
+        "cwd": ".",
+        "timeoutMs": 180000
+      },
+      "requiredFor": [
+        "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ],
+      "evidenceFiles": [
+        "flutter_todo_flutter/.dartnflutter/catalog-report.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/active.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/active.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/checked.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/checked.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/completed.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/completed.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/custom.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/custom.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/dark.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/dark.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/default.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/default.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/empty.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/empty.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/error.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/error.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/loading.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/loading.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/photo.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/photo.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/saving.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/saving.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/search-empty.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/search-empty.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/selected.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/selected.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/unchecked.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T181404Z-45979cc9af7c/unchecked.machine.jsonl"
+      ]
+    },
+    {
+      "id": "source-release",
+      "description": "Source archive and native icon/screenshot artifacts exclude private configuration and app binaries",
+      "command": {
+        "executable": "python3",
+        "args": [
+          "tool/release_check.py"
+        ],
+        "cwd": ".",
+        "timeoutMs": 60000
+      },
+      "requiredFor": [
+        "release-ready"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "requirements",
+      "description": "Review source behavior and explicit unverified native/human boundaries"
+    },
+    {
+      "id": "design",
+      "description": "Review current screenshots, coordinated Figma and every-widget runtime scope"
+    },
+    {
+      "id": "security",
+      "description": "Review local-only access, attachment validation and source-only inventory"
+    }
+  ]
+}

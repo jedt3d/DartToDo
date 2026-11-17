@@ -228,31 +228,7 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
 
   Future<void> _moveTask(int taskId, int listId) async {
     if (!await _flushDetails() || !mounted) return;
-    final data = ref.read(todoControllerProvider).value;
-    if (data == null ||
-        !data.lists.any((list) => list.id == listId && !list.deleted)) {
-      return;
-    }
-    final task = data.tasks
-        .where((task) => task.id == taskId && !task.deleted)
-        .firstOrNull;
-    if (task == null || task.listId == listId) return;
-    final positions = data.tasks
-        .where((task) => task.listId == listId && !task.deleted)
-        .map((task) => task.position);
-    final position =
-        positions.fold<int>(
-          -1,
-          (highest, value) => value > highest ? value : highest,
-        ) +
-        1;
-    if (await _run(
-          _controller.updateTask(
-            taskId,
-            (current) => current.copyWith(listId: listId, position: position),
-          ),
-        ) &&
-        mounted) {
+    if (await _run(_controller.moveTask(taskId, listId)) && mounted) {
       setState(() {
         _view = listId == 1 ? 'inbox' : 'list:$listId';
         _query = '';

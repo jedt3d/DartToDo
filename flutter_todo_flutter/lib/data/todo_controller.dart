@@ -168,6 +168,30 @@ final class TodoController extends AsyncNotifier<TodoSnapshot> {
     return repository.saveTask(update(task.copyWith()));
   });
 
+  /// Moves against the latest queued snapshot so rapid drops append in order.
+  Future<TodoTask> moveTask(int id, int listId) => _enqueue((repository) {
+    final data = state.requireValue;
+    if (!data.lists.any((list) => list.id == listId && !list.deleted)) {
+      throw StateError('The destination list is no longer available.');
+    }
+    final task = data.tasks.firstWhere(
+      (task) => task.id == id && !task.deleted,
+    );
+    if (task.listId == listId) return Future.value(task);
+    final position =
+        data.tasks
+            .where((task) => task.listId == listId && !task.deleted)
+            .fold<int>(
+              -1,
+              (maximum, task) =>
+                  task.position > maximum ? task.position : maximum,
+            ) +
+        1;
+    return repository.saveTask(
+      task.copyWith(listId: listId, position: position),
+    );
+  });
+
   Future<void> completeTask(TodoTask task) => _enqueue((repository) async {
     final current = state.requireValue.tasks.firstWhere(
       (candidate) => candidate.id == task.id,

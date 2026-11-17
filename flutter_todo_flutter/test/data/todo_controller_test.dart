@@ -36,6 +36,46 @@ void main() {
   }
 
   test(
+    'rapid moves append in queue order using the latest destination state',
+    () async {
+      repository.data = snapshot(
+        tasks: [
+          task(id: 31),
+          task(id: 21),
+          task(id: 7, listId: 2, position: 4),
+        ],
+      );
+      final controller = await ready();
+      repository.saveGate = Completer<void>();
+      final first = controller.moveTask(31, 2);
+      final second = controller.moveTask(21, 2);
+      await Future<void>.delayed(Duration.zero);
+      repository.saveGate!.complete();
+      final moved = await Future.wait([first, second]);
+      expect(moved.map((task) => task.position), [5, 6]);
+      expect(repository.maximumActiveWrites, 1);
+      final ordered = [...repository.data.tasks]
+        ..sort((a, b) => a.position.compareTo(b.position));
+      expect(ordered.map((task) => task.id), [7, 31, 21]);
+    },
+  );
+
+  test(
+    'queued moves reject unavailable destinations without changing the task',
+    () async {
+      final controller = await ready();
+      await expectLater(controller.moveTask(1, 3), throwsStateError);
+      expect(repository.saveCalls, 0);
+      expect(repository.data.tasks.single.listId, 1);
+      final moved = await controller.moveTask(1, 2);
+      expect(moved.position, 0);
+      final before = repository.saveCalls;
+      await controller.moveTask(1, 2);
+      expect(repository.saveCalls, before);
+    },
+  );
+
+  test(
     'initial failures require explicit retry and successful load replaces error',
     () async {
       repository.fetchError = StateError('Server unavailable');

@@ -1,5 +1,8 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_todo_client/flutter_todo_client.dart';
@@ -77,7 +80,13 @@ void main() {
   testWidgets('capture native My Day and usable navigation panels', (
     tester,
   ) async {
-    await tester.pumpWidget(const ProviderScope(child: TodoApp()));
+    final captureKey = GlobalKey();
+    await tester.pumpWidget(
+      RepaintBoundary(
+        key: captureKey,
+        child: const ProviderScope(child: TodoApp()),
+      ),
+    );
     await waitFor(tester, find.byKey(const Key('add-task')));
     // Allow the real photo request/decode to finish, without waiting on the
     // app's periodic refresh timer via pumpAndSettle.
@@ -102,22 +111,56 @@ void main() {
             .image;
     await tester.runAsync(() => precacheImage(image, tester.element(photoBox)));
     await tester.pumpAndSettle();
-    final width = tester.view.physicalSize.width / tester.view.devicePixelRatio;
+    final size = tester.view.physicalSize / tester.view.devicePixelRatio;
     final device = defaultTargetPlatform == TargetPlatform.macOS
         ? 'macos'
-        : width < 720
+        : size.width < 720 || size.shortestSide < 600
         ? 'iphone'
         : 'ipad';
     final landscape =
         device == 'ipad' &&
         tester.view.physicalSize.width > tester.view.physicalSize.height;
     final prefix = landscape ? 'ipad-landscape' : device;
+    final captured = <String>[];
+    final evidence = <String, Object?>{
+      'device': device,
+      'prefix': prefix,
+      'captures': captured,
+      'completed': false,
+    };
+    binding.reportData = {'capture': evidence};
     Future<void> capture(String name) async {
       await tester.pumpAndSettle();
       await tester.runAsync(
         () => Future<void>.delayed(const Duration(milliseconds: 200)),
       );
-      await binding.takeScreenshot('$prefix-$name');
+      if (defaultTargetPlatform == TargetPlatform.macOS) {
+        // Flutter 3.41's integration plugin has no macOS captureScreenshot
+        // handler. Capture the real running app's rendered layer instead.
+        final bytes = await tester.runAsync(() async {
+          final boundary =
+              captureKey.currentContext!.findRenderObject()!
+                  as RenderRepaintBoundary;
+          final image = await boundary.toImage(
+            pixelRatio: tester.view.devicePixelRatio,
+          );
+          try {
+            return (await image.toByteData(
+              format: ui.ImageByteFormat.png,
+            ))!.buffer.asUint8List();
+          } finally {
+            image.dispose();
+          }
+        });
+        binding.reportData!['screenshots'] ??= <dynamic>[];
+        (binding.reportData!['screenshots'] as List<dynamic>).add({
+          'screenshotName': '$prefix-$name',
+          'bytes': bytes!,
+        });
+      } else {
+        await binding.takeScreenshot('$prefix-$name');
+      }
+      captured.add('$prefix-$name');
     }
 
     if (landscape) {
@@ -138,7 +181,7 @@ void main() {
     await capture('suggestions');
     await tester.tap(find.byTooltip('Add Prepare for tomorrow to My Day'));
     await tester.pumpAndSettle();
-    expect(find.text('Prepare for tomorrow'), findsNothing);
+    expect(find.byTooltip('Add Prepare for tomorrow to My Day'), findsNothing);
     final updated = await client.todo.fetch();
     expect(
       updated.tasks
@@ -170,5 +213,6 @@ void main() {
     expect(find.byKey(const Key('search-tasks')), findsOneWidget);
     await capture('lists');
     expect(tester.takeException(), isNull);
+    evidence['completed'] = true;
   });
 }

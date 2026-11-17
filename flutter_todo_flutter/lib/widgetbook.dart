@@ -132,6 +132,15 @@ void main() => runApp(
         ],
       ),
       WidgetbookComponent(
+        name: '_SidebarState._taskDestination',
+        useCases: [
+          WidgetbookUseCase(
+            name: 'Default [default]',
+            builder: (context) => preview0.previewSidebar(context),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
         name: '_SidebarState.build',
         useCases: [
           WidgetbookUseCase(
@@ -315,6 +324,24 @@ void main() => runApp(
         ],
       ),
       WidgetbookComponent(
+        name: '_TaskMoveHandle',
+        useCases: [
+          WidgetbookUseCase(
+            name: 'Default [default]',
+            builder: (context) => preview0.previewTaskMoveHandle(context),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
+        name: '_TaskMoveHandle.build',
+        useCases: [
+          WidgetbookUseCase(
+            name: 'Default [default]',
+            builder: (context) => preview0.previewTaskMoveHandle(context),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
         name: '_TaskPane',
         useCases: [
           WidgetbookUseCase(
@@ -429,6 +456,24 @@ void main() => runApp(
           WidgetbookUseCase(
             name: 'Error [error]',
             builder: (context) => preview0.previewAppError(context),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
+        name: '_EmptyDetails',
+        useCases: [
+          WidgetbookUseCase(
+            name: 'Empty [empty]',
+            builder: (context) => preview0.previewEmptyDetails(context),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
+        name: '_EmptyDetails.build',
+        useCases: [
+          WidgetbookUseCase(
+            name: 'Empty [empty]',
+            builder: (context) => preview0.previewEmptyDetails(context),
           ),
         ],
       ),
