@@ -24,6 +24,11 @@
       },
       "requiredFor": [
         "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
       ]
     },
     {
@@ -40,6 +45,11 @@
       },
       "requiredFor": [
         "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
       ]
     },
     {
@@ -55,6 +65,14 @@
       },
       "requiredFor": [
         "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ],
+      "inputFiles": [
+        "flutter_todo_server/config/passwords.yaml"
       ]
     },
     {
@@ -70,6 +88,11 @@
       },
       "requiredFor": [
         "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
       ]
     },
     {
@@ -86,6 +109,11 @@
       },
       "requiredFor": [
         "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
       ]
     },
     {
@@ -102,6 +130,11 @@
       },
       "requiredFor": [
         "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
       ]
     },
     {
@@ -120,6 +153,11 @@
       },
       "requiredFor": [
         "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
       ]
     },
     {
@@ -135,6 +173,11 @@
       },
       "requiredFor": [
         "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
       ]
     },
     {
@@ -154,6 +197,11 @@
       },
       "requiredFor": [
         "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
       ]
     },
     {
@@ -173,6 +221,11 @@
       },
       "requiredFor": [
         "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
       ]
     },
     {
@@ -192,6 +245,11 @@
       },
       "requiredFor": [
         "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
       ]
     },
     {
@@ -213,6 +271,42 @@
       },
       "requiredFor": [
         "verified"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
+      ],
+      "evidenceFiles": [
+        "flutter_todo_flutter/.dartnflutter/catalog-report.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/active.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/active.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/checked.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/checked.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/custom.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/custom.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/dark.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/dark.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/empty.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/empty.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/loading.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/loading.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/photo.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/photo.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/saving.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/saving.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/search-empty.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/search-empty.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/selected.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/selected.machine.jsonl",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/unchecked.json",
+        "flutter_todo_flutter/.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/unchecked.machine.jsonl"
       ]
     },
     {
@@ -228,6 +322,11 @@
       },
       "requiredFor": [
         "release-ready"
+      ],
+      "inputEnv": [
+        "DEVELOPER_DIR",
+        "FLUTTER_ROOT",
+        "PUB_CACHE"
       ]
     }
   ],
