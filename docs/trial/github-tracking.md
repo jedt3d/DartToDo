@@ -23,3 +23,4 @@ This page retains trial/release links. For the ongoing tool sequence, configurat
 - Dart Analyzer policy/findings: [issue #11](https://github.com/jedt3d/DartToDo/issues/11) · [PR #12](https://github.com/jedt3d/DartToDo/pull/12) · [Round 1 report](../quality/01-dart-analyzer.md).
 - Proposed analyzer CI: [issue #13](https://github.com/jedt3d/DartToDo/issues/13).
 - Tool configuration/workflow documentation: [issue #14](https://github.com/jedt3d/DartToDo/issues/14) · [guide](../quality/README.md).
+- Dart formatter scope/results: [issue #16](https://github.com/jedt3d/DartToDo/issues/16) · [Round 2 report](../quality/02-dart-formatter.md).
