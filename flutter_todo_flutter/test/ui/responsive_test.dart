@@ -112,6 +112,7 @@ Future<void> _showDialogControl(
   Finder control, {
   double minimumHeight = 44,
 }) async {
+  await tester.pumpAndSettle();
   await tester.ensureVisible(control);
   await tester.pumpAndSettle();
   expect(control.hitTestable(), findsOneWidget);
