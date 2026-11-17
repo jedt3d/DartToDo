@@ -10,16 +10,17 @@ Completed formal reports in this series:
 
 - **Round 1, Dart Analyzer:** [results and policy changes](01-dart-analyzer.md), [issue #11](https://github.com/jedt3d/DartToDo/issues/11), [merged PR #12](https://github.com/jedt3d/DartToDo/pull/12). The stricter policy exposed eight findings, addressed before final clean analysis.
 - **Round 2, Dart formatter:** [baseline, scope correction and final result](02-dart-formatter.md), [issue #16](https://github.com/jedt3d/DartToDo/issues/16). All 73 tracked Dart files already matched formatting; the routine gate was extended to include the omitted server `bin` directory.
+- **Round 3, Flutter unit/widget tests:** [baseline and findings](03-flutter-unit-widget-tests.md). All 162 selected tests passed across 10 frontend files, with 0 failures and 0 skips within that selection. One known mocked printing test was excluded by the existing name filter. No application fix was needed.
 
 Supporting tests and widget recordings do not mean those tools have completed their own formal quality rounds.
 
-The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first two rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
+The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first three rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
 
 | Tool or focused track | Configuration and scope | When to use it | Current state |
 | --- | --- | --- | --- |
 | **1. Dart Analyzer** | Three package `analysis_options.yaml` files; workspace resolution | IDE feedback, after Dart edits, before PR/merge | Round 1 complete; expanded policy configured |
 | **2. Dart formatter** | Package `formatter` options; explicit Dart file targets | Format edited files; non-writing check before PR | Round 2 complete; 73 files, 0 changes; routine gate now includes backend `bin` |
-| **3. Flutter unit/widget tests** | Frontend `flutter_test`, files under `test/`, fake repositories/platform adapters | Frontend behavior changes and affected PRs | Existing suite; focused formal review pending |
+| **3. Flutter unit/widget tests** | Frontend `flutter_test`, files under `test/`, fake repositories/platform adapters | Frontend behavior changes and affected PRs | Round 3 complete; 162 selected tests passed; printing-name filter retained |
 | **4. Dart backend tests** | Server `test` dependency, `dart_test.yaml`, unit/integration targets | Backend changes; database tests only with the intended test service/configuration | Existing unit, database and HTTP checks; formal review pending |
 | **5. Flutter coverage** | `flutter test` coverage flags, selected tests/packages and output path | Dedicated measurement; update after relevant test/code changes | Available; no coverage percentage or threshold established by Round 1 |
 | **6. Dart backend coverage** | Installed `dart test --coverage-path`, selected backend tests | Separate backend coverage measurement | CLI supports LCOV; collection scope and threshold not yet established |
@@ -93,13 +94,17 @@ The current broader target list lives in `tool/verify.py`. [Round 2](02-dart-for
 
 | Check | Working directory | Existing entry point | Preconditions and effects |
 | --- | --- | --- | --- |
-| Frontend unit/widget suite | `flutter_todo_flutter` | `flutter test --no-pub --reporter expanded --name '^(?!.*[Pp]rint)'` | Uses the existing test harnesses; this example preserves the printing-test exclusion used in Round 1. Report the filter, not a claim of full unfiltered coverage. |
+| Frontend unit/widget suite | `flutter_todo_flutter` | `flutter test --no-pub --reporter expanded --name '^(?!.*[Pp]rint)'` | Uses the existing test harnesses; preserves the printing-test exclusion used in Rounds 1 and 3. Report the filter, not a claim of full unfiltered coverage. |
 | Isolated backend photo-service tests | `flutter_todo_server` | `dart test test/unit/unsplash_service_test.dart --reporter expanded` | Injected transport and temporary files; no database or live Unsplash request |
 | Backend suite | `flutter_todo_server` | `dart test --reporter expanded` | Includes PostgreSQL integration tests; verify `flutter_todo_test` configuration and preserve other databases |
 | Real-HTTP attachment probe | `flutter_todo_server` | `dart test tool/attachment_http_test.dart` | Separate test-configuration/HTTP run with its own fixture cleanup; not implied by the ordinary suite |
 | Generated protocol consistency | `flutter_todo_server` | `python3 tool/check_codegen.py` | Regenerates declared outputs and compares hashes. It can leave changed generated files for inspection; it is not read-only. |
 | Widget declaration/state recording | `flutter_todo_flutter` | `python3 tool/catalog/rebuild.py --record` | Scans, regenerates catalog/entrypoint and records exact named state tests; writes app catalog files and ignored evidence |
 | Native application flow | `flutter_todo_flutter` | `flutter test --no-pub integration_test/app_test.dart -d macos` | Requires the real local backend and native target. Creates and removes its own synthetic lists through the application service; inspect scope before running. |
+
+[Round 3](03-flutter-unit-widget-tests.md) ran the frontend command before edits and added `--file-reporter json:<fresh-ignored-path>` for exact per-test accounting. The same run passed 47 unit/service tests and 115 widget tests. Its 10 hidden successful suite-loading events are not additional tests; the 49 catalog tests include repeated preview assertions in 14 state groups. Zero runner-reported skips applies to selected tests; the known mock-print test was filtered out. Review this name-based filter when adding or renaming tests.
+
+Use focused test files while editing; run the selected frontend suite after changes to shared UI/state/harness behavior and before merging affected PRs. A documentation-only update can retain current evidence when its test inputs are unchanged. These headless tests use fakes/mocks and temporary caches; real PostgreSQL, OS notifications, native devices, coverage and flake measurements require their separately scoped checks. This round changes no test configuration and installs no automation.
 
 For iOS, verify installed devices and the target configuration in [development](../development.md), [native profile](../../tool/flutter-profile.json) and [verification runner](../../tool/verify.py); stored simulator UUIDs are machine-specific. Notification taps, terminated-app launches, screenshots and human visual acceptance have separate evidence. Physical printing remains skipped at the user's request.
 
