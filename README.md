@@ -44,6 +44,10 @@ Recurrence calendar rules, recovery boundaries and remaining reference differenc
 
 ## Verify and inspect
 
+Use the [quality tools and workflow guide](docs/quality/README.md) for each tool's configuration, when to run it, the proposed one-tool-per-round sequence, and the issue/PR process. [Analyzer Round 1](docs/quality/01-dart-analyzer.md) records the implemented policy and its measured findings; later formal rounds remain pending.
+
+The compound runner below includes real database/HTTP checks and starts or reuses the backend; `--native` adds native builds and device flows. Choose scoped checks from the guide for routine edits or a single-tool round, and confirm prerequisites before using the full runner.
+
 ```sh
 python3 tool/verify.py
 python3 tool/verify.py --native
@@ -51,11 +55,12 @@ cd flutter_todo_flutter
 flutter run -d macos -t lib/widgetbook.dart
 ```
 
-The native suite needs the configured simulators and real PostgreSQL. Missing prerequisites do not count as passes. The [current issue-9 report](docs/trial/issue-9-report.md) records 163 passing frontend tests, 51 backend tests, a separate real-HTTP attachment test and 2/2 current-source native core tests on each target. OS notification delivery passed on all three targets; actual taps and terminated-app cold launch passed on iPhone/iPad. The catalog verifies 42/42 declarations and 78/78 cases; the gallery contains 21 final captures. Native print interfaces and the 120-task PDF passed; physical printing verification was skipped at the user's request. macOS notification tap/cold launch and human visual approval remain unverified. The [v1.0.0 trial report](docs/trial/final-report.md) remains historical; [widget coverage](docs/trial/widget-coverage.md) explains the separate runtime, Figma, accessibility and golden dimensions.
+The native suite needs the configured simulators and real PostgreSQL. Missing prerequisites do not count as passes. The [issue-9 release checkpoint](docs/trial/issue-9-report.md) records 163 passing frontend tests, 51 backend tests, a separate real-HTTP attachment test and 2/2 native core tests on each target. At that checkpoint, OS notification delivery passed on all three targets; actual taps and terminated-app cold launch passed on iPhone/iPad. The catalog verified 42/42 declarations and 78/78 cases; the gallery contains 21 captures. Native print interfaces and the 120-task PDF passed; physical printing verification was skipped at the user's request. macOS notification tap/cold launch and human visual approval remain unverified. These are release-checkpoint results, not fresh verification of later commits. The [v1.0.0 trial report](docs/trial/final-report.md) remains historical; [widget coverage](docs/trial/widget-coverage.md) explains the separate runtime, Figma, accessibility and golden dimensions.
 
 ## Documentation and design
 
 - [User guide](docs/app-guide.md) · [Development](docs/development.md) · [Architecture](docs/architecture.md)
+- [Quality tools, configuration and workflow](docs/quality/README.md) · [Analyzer Round 1](docs/quality/01-dart-analyzer.md)
 - [Local security and backup](docs/security.md) · [Unsplash source/fallback](docs/unsplash.md)
 - [Editable Figma screens and mapping](docs/design/figma-map.md) · [Selected icon assets](docs/design/icon-variants/folded-check-themes/README.md)
 - [Trial protocol](docs/trial/protocol.md) · [GitHub tracking](docs/trial/github-tracking.md) · [Tool efficiency](docs/trial/tool-efficiency.md)
