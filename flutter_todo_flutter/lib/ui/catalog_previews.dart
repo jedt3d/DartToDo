@@ -245,7 +245,7 @@ class _CatalogDialogState extends State<_CatalogDialog> {
 
   void _open() {
     if (mounted) {
-      showDialog<Object>(context: context, builder: widget.builder);
+      unawaited(showDialog<Object>(context: context, builder: widget.builder));
     }
   }
 
