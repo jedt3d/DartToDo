@@ -1,0 +1,29 @@
+{
+  "fileKey": "P72xp9CQ7S1SkSqLdn7ORO",
+  "sessionId": "64c87342-6a56-4cfe-bb2e-0ba62012c7ab",
+  "date": "2026-11-18",
+  "tabletNodeId": "7:347",
+  "inspectorNodeId": "28:347",
+  "logicalSize": [
+    1210,
+    834
+  ],
+  "descendantCount": 182,
+  "nodeTypes": {
+    "FRAME": 53,
+    "TEXT": 39,
+    "INSTANCE": 51,
+    "VECTOR": 26,
+    "RECTANGLE": 6,
+    "ELLIPSE": 7
+  },
+  "imageNodes": [],
+  "fontFamilies": [
+    "Inter"
+  ],
+  "nativeFont": "Apple system",
+  "typographyFidelity": "unverified; existing font limitation remains",
+  "compositionImage": "figma-ipad-landscape.png",
+  "compositionInspection": "Sidebar, list/composer and editable first-task inspector are visible, without overlap or clipped text. Native behavior and screenshots require separate execution.",
+  "humanApproval": false
+}

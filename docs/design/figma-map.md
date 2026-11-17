@@ -9,7 +9,7 @@
 | Review board | `7:28` | 2240 × 1920 | [Review](https://www.figma.com/design/P72xp9CQ7S1SkSqLdn7ORO?node-id=7-28) |
 | macOS Tasks with details | `7:35` | 1100 × 720 | [Desktop](https://www.figma.com/design/P72xp9CQ7S1SkSqLdn7ORO?node-id=7-35) |
 | macOS My Day | `7:252` | 1084 × 720 | [My Day](https://www.figma.com/design/P72xp9CQ7S1SkSqLdn7ORO?node-id=7-252) |
-| iPad Tasks | `7:347` | 1024 × 768 | [iPad](https://www.figma.com/design/P72xp9CQ7S1SkSqLdn7ORO?node-id=7-347) |
+| iPad landscape with first-task details | `7:347` | 1210 × 834 | [iPad](https://www.figma.com/design/P72xp9CQ7S1SkSqLdn7ORO?node-id=7-347) |
 | iPhone Tasks | `7:487` | 390 × 844 | [iPhone list](https://www.figma.com/design/P72xp9CQ7S1SkSqLdn7ORO?node-id=7-487) |
 | iPhone details | `7:558` | 390 × 844 | [iPhone detail](https://www.figma.com/design/P72xp9CQ7S1SkSqLdn7ORO?node-id=7-558) |
 | Selected Folded check icon board | `15:452` | Separate light/dark review | [Final icon source](https://www.figma.com/design/P72xp9CQ7S1SkSqLdn7ORO?node-id=15-452) |
@@ -44,3 +44,9 @@ The user selected **Folded check** in dark and light appearances, then added the
 
 My Day selects a free Featured Unsplash photo on each app launch, without an API key in default mode. The screen is a representative dated selection, not a prediction of the next random choice. The app uses bounded homepage JSON parsing, cached/seed fallback and photographer attribution; this public webpage shape is not a stable API. See [Unsplash behavior and provenance](../unsplash.md). The first-page scope/fidelity notes (`7:640`) and icon-status note (`23:347`) record these distinctions. The final icon page `12:347` was untouched by this coordination update.
 This design is a static editable specification. Real persistence, gestures, reminders, keyboard behavior, accessibility, catalog runtime cases, and simulator coverage must be verified in the application separately. No human design rating or comprehension time has been measured.
+
+## Issue 9 landscape coordination · 18 November 2026
+
+The existing tablet frame now includes an editable 320-point inspector (`28:347`) and uses the actual simulator landscape size of 1210 × 834 logical points. The first visible task is selected automatically; closing details suppresses automatic reopening until list navigation or re-entering landscape. Empty lists show a useful empty inspector in the app. The [composition export](figma-ipad-landscape.png) and [structural record](figma-parity-9.json) show 182 tablet descendants, including 51 component instances, with no complete-screen raster. The 532-descendant board count above is the historical pre-change checkpoint.
+
+The exported composition was inspected for panel boundaries, composer reachability, text clipping and overlap. Text remains Inter in Figma and Apple system in Flutter, so native typography fidelity and human approval remain unverified. Task dragging, reminder navigation and 25 MiB aggregate attachments are application behavior verified separately; static design layers do not establish them.

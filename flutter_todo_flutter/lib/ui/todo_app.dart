@@ -61,7 +61,12 @@ String _repeatLabel(TodoTask task) {
 
 /// The native single-user To Do application.
 class TodoApp extends ConsumerWidget {
-  const TodoApp({super.key, this.platformServices = true});
+  const TodoApp({
+    super.key,
+    this.platformServices = true,
+    this.reminderServiceFactory,
+  });
+  final ReminderService Function(ValueChanged<int>)? reminderServiceFactory;
   final bool platformServices;
 
   @override
@@ -74,7 +79,10 @@ class TodoApp extends ConsumerWidget {
       themeMode: dark ? ThemeMode.dark : ThemeMode.light,
       theme: _theme(Brightness.light),
       darkTheme: _theme(Brightness.dark),
-      home: _TodoHome(platformServices: platformServices),
+      home: _TodoHome(
+        platformServices: platformServices,
+        reminderServiceFactory: reminderServiceFactory,
+      ),
     );
   }
 
@@ -111,7 +119,8 @@ class TodoApp extends ConsumerWidget {
 }
 
 class _TodoHome extends ConsumerStatefulWidget {
-  const _TodoHome({this.platformServices = true});
+  const _TodoHome({this.platformServices = true, this.reminderServiceFactory});
+  final ReminderService Function(ValueChanged<int>)? reminderServiceFactory;
   final bool platformServices;
   @override
   ConsumerState<_TodoHome> createState() => _TodoHomeState();
@@ -128,7 +137,11 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
   final _detailKey = GlobalKey<_TaskDetailsState>();
   final _composerFocus = FocusNode();
   final _searchFocus = FocusNode();
-  final _reminders = ReminderService();
+  late final ReminderService _reminders;
+  int? _pendingReminder;
+  bool _openingReminder = false;
+  bool _autoDetails = true;
+  bool _iPadLandscape = false;
   Timer? _refreshTimer;
   String? _platformWarning;
   BackgroundSelection? _featured;
@@ -138,6 +151,9 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
   @override
   void initState() {
     super.initState();
+    _reminders =
+        widget.reminderServiceFactory?.call(_openReminderTask) ??
+        ReminderService(onTaskSelected: _openReminderTask);
     WidgetsBinding.instance.addObserver(this);
     if (widget.platformServices) {
       unawaited(_loadBackground());
@@ -153,6 +169,96 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
           unawaited(_controller.refresh().catchError((Object _) {}));
           setState(() {});
         }
+      });
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final size = MediaQuery.sizeOf(context);
+    final landscape =
+        Theme.of(context).platform == TargetPlatform.iOS &&
+        size.shortestSide >= 600 &&
+        size.width > size.height;
+    if (landscape && !_iPadLandscape) _autoDetails = true;
+    _iPadLandscape = landscape;
+  }
+
+  void _openReminderTask(int taskId) {
+    _pendingReminder = taskId;
+    unawaited(_showPendingReminder());
+  }
+
+  Future<void> _showPendingReminder() async {
+    if (!mounted || _openingReminder || _pendingReminder == null) return;
+    if (ref.read(todoControllerProvider).value == null) return;
+    _openingReminder = true;
+    final id = _pendingReminder;
+    try {
+      if (!await _flushDetails() || !mounted) return;
+      final task = ref
+          .read(todoControllerProvider)
+          .value
+          ?.tasks
+          .where((task) => task.id == id && !task.deleted)
+          .firstOrNull;
+      if (_pendingReminder != id) return;
+      _pendingReminder = null;
+      if (task == null) {
+        _message('This reminder’s task is no longer available.');
+        return;
+      }
+      FocusScope.of(context).unfocus();
+      setState(() {
+        _view = task.listId == 1 ? 'inbox' : 'list:${task.listId}';
+        _query = '';
+        _selected = task.id;
+        _mobileLists = false;
+        _suggestions = false;
+        _autoDetails = true;
+      });
+    } finally {
+      _openingReminder = false;
+      if (mounted && _pendingReminder != null && _pendingReminder != id) {
+        unawaited(_showPendingReminder());
+      }
+    }
+  }
+
+  Future<void> _moveTask(int taskId, int listId) async {
+    if (!await _flushDetails() || !mounted) return;
+    final data = ref.read(todoControllerProvider).value;
+    if (data == null ||
+        !data.lists.any((list) => list.id == listId && !list.deleted)) {
+      return;
+    }
+    final task = data.tasks
+        .where((task) => task.id == taskId && !task.deleted)
+        .firstOrNull;
+    if (task == null || task.listId == listId) return;
+    final positions = data.tasks
+        .where((task) => task.listId == listId && !task.deleted)
+        .map((task) => task.position);
+    final position =
+        positions.fold<int>(
+          -1,
+          (highest, value) => value > highest ? value : highest,
+        ) +
+        1;
+    if (await _run(
+          _controller.updateTask(
+            taskId,
+            (current) => current.copyWith(listId: listId, position: position),
+          ),
+        ) &&
+        mounted) {
+      setState(() {
+        _view = listId == 1 ? 'inbox' : 'list:$listId';
+        _query = '';
+        _selected = taskId;
+        _mobileLists = false;
+        _suggestions = false;
       });
     }
   }
@@ -173,7 +279,12 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
       unawaited(_flushDetails());
     }
     if (state == AppLifecycleState.resumed) {
-      unawaited(_controller.refresh().catchError((Object _) {}));
+      unawaited(
+        _controller
+            .refresh()
+            .then((_) => _showPendingReminder())
+            .catchError((Object _) {}),
+      );
     }
   }
 
@@ -181,6 +292,7 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     _refreshTimer?.cancel();
+    _reminders.dispose();
     _composerFocus.dispose();
     _searchFocus.dispose();
     super.dispose();
@@ -203,6 +315,7 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
     if (!await _flushDetails() || !mounted) return;
     setState(() {
       _view = view;
+      _autoDetails = true;
       _query = '';
       _selected = null;
       _mobileLists = false;
@@ -226,6 +339,7 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
     FocusScope.of(context).unfocus();
     setState(() {
       _selected = null;
+      _autoDetails = false;
       _suggestions = false;
       _mobileLists = false;
       _query = '';
@@ -542,6 +656,11 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
   Widget build(BuildContext context) {
     ref.listen(todoControllerProvider, (previous, next) {
       final data = next.value;
+      if (data != null && _pendingReminder != null) {
+        WidgetsBinding.instance.addPostFrameCallback(
+          (_) => unawaited(_showPendingReminder()),
+        );
+      }
       if (widget.platformServices && data != null) {
         unawaited(
           _reminders.sync(data.tasks).catchError((Object error) {
@@ -591,7 +710,7 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
         TaskSort.manual;
     var tasks = filteredTasks(data, _view, query: _query, sort: sort);
     if (data.settings.sortDescending) tasks = tasks.reversed.toList();
-    final selected = data.tasks
+    final storedSelection = data.tasks
         .where((t) => t.id == _selected && !t.deleted)
         .firstOrNull;
     final themeId = _themeId(data, list);
@@ -620,9 +739,41 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
                 constraints.maxWidth >= 720 &&
                 MediaQuery.sizeOf(context).shortestSide >= 600;
             final threePane = wide && constraints.maxWidth >= 1050;
+            final automatic =
+                threePane &&
+                _iPadLandscape &&
+                _autoDetails &&
+                !_suggestions &&
+                _query.isEmpty &&
+                !_searchFocus.hasFocus;
+            final firstVisible =
+                tasks.where((task) => !task.completed).firstOrNull ??
+                ((_view == 'completed' ||
+                        (data.settings.showCompleted && _completedExpanded))
+                    ? tasks.firstOrNull
+                    : null);
+            final selected =
+                storedSelection ?? (automatic ? firstVisible : null);
+            if (automatic && selected != null && _selected != selected.id) {
+              final view = _view;
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                if (mounted &&
+                    _iPadLandscape &&
+                    _autoDetails &&
+                    _selected == null &&
+                    _view == view &&
+                    !_suggestions &&
+                    _query.isEmpty) {
+                  setState(() => _selected = selected.id);
+                }
+              });
+            }
+            final emptyDetail = automatic && selected == null;
             final showDetail = selected != null;
             final sidebar = _Sidebar(
               data: data,
+              moveTask: (taskId, listId) =>
+                  unawaited(_moveTask(taskId, listId)),
               reorderList: (list, delta) => _reorderList(list, delta, data),
               reorderGroup: (group, delta) => _reorderGroup(group, delta, data),
               selectedView: _view,
@@ -675,7 +826,10 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
                   ? _featured
                   : null,
               tasks: tasks,
-              selectedId: _selected,
+              selectedId: selected?.id,
+              revealLists: wide
+                  ? null
+                  : () => setState(() => _mobileLists = true),
               showCompleted:
                   _view == 'completed' || data.settings.showCompleted,
               expanded: _completedExpanded,
@@ -723,7 +877,10 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
                     backLabel: threePane ? null : title,
                     task: selected,
                     data: data,
-                    close: () => setState(() => _selected = null),
+                    close: () => setState(() {
+                      _selected = null;
+                      _autoDetails = false;
+                    }),
                     update: (change) =>
                         _run(_controller.updateTask(selected.id!, change)),
                     complete: () => _run(_controller.completeTask(selected)),
@@ -771,11 +928,18 @@ class _TodoHomeState extends ConsumerState<_TodoHome>
                                   ? suggestions
                                   : taskPane,
                             ),
-                            if (threePane && (showDetail || _suggestions)) ...[
+                            if (threePane &&
+                                (showDetail ||
+                                    _suggestions ||
+                                    emptyDetail)) ...[
                               const VerticalDivider(width: 1),
                               SizedBox(
                                 width: 320,
-                                child: showDetail ? detail : suggestions,
+                                child: showDetail
+                                    ? detail
+                                    : _suggestions
+                                    ? suggestions
+                                    : const _EmptyDetails(),
                               ),
                             ],
                           ],
@@ -878,6 +1042,36 @@ class _FailurePage extends StatelessWidget {
         const SizedBox(height: 20),
         OutlinedButton(onPressed: retry, child: const Text('Try again')),
       ],
+    ),
+  );
+}
+
+class _EmptyDetails extends StatelessWidget {
+  const _EmptyDetails();
+  @override
+  Widget build(BuildContext context) => Material(
+    child: SafeArea(
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(CupertinoIcons.doc_text, size: 36, color: todoAccent),
+              const SizedBox(height: 16),
+              Text(
+                'No task selected',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'Add a task to this list to see its details here.',
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ),
     ),
   );
 }

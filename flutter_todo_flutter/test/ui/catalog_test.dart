@@ -1,5 +1,6 @@
 import 'dart:ui' show CheckedState, Tristate;
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_todo_flutter/ui/todo_app.dart';
@@ -7,6 +8,8 @@ import 'package:flutter_todo_flutter/ui/todo_app.dart';
 void main() {
   WidgetController.hitTestWarningShouldBeFatal = true;
   final previews = <String, WidgetBuilder>{
+    'previewEmptyDetails': previewEmptyDetails,
+    'previewTaskMoveHandle': previewTaskMoveHandle,
     'previewAppDefault': previewAppDefault,
     'previewAppLoading': previewAppLoading,
     'previewAppError': previewAppError,
@@ -62,6 +65,22 @@ void main() {
         await tester.pumpAndSettle();
       }
       switch (entry.key) {
+        case 'previewEmptyDetails':
+          expect(find.text('No task selected'), findsOneWidget);
+          expect(find.byKey(const Key('task-title')), findsNothing);
+        case 'previewTaskMoveHandle':
+          expect(find.byTooltip('Drag to another list'), findsOneWidget);
+          final move = find.byKey(const ValueKey('move-task-1'));
+          final gesture = await tester.startGesture(tester.getCenter(move));
+          await tester.pump(
+            kLongPressTimeout + const Duration(milliseconds: 100),
+          );
+          await gesture.moveBy(const Offset(100, 100));
+          await tester.pump();
+          expect(find.text('Plan the week'), findsOneWidget);
+          await gesture.up();
+          await tester.pumpAndSettle();
+          expect(find.text('Plan the week'), findsNothing);
         case 'previewAppDefault':
           expect(find.text('Plan the week'), findsOneWidget);
           expect(find.byKey(const Key('add-task')), findsOneWidget);
@@ -323,6 +342,7 @@ void main() {
   }
   const statePreviews = <String, List<String>>{
     'default': [
+      'previewTaskMoveHandle',
       'previewAppDefault',
       'previewComposer',
       'previewDetailAction',
@@ -351,7 +371,11 @@ void main() {
     'saving': ['previewComposerSaving'],
     'error': ['previewAppError', 'previewComposerError', 'previewFailure'],
     'search-empty': ['previewEmptyState', 'previewTaskPaneSearch'],
-    'empty': ['previewSuggestionsEmpty', 'previewTaskPaneEmpty'],
+    'empty': [
+      'previewEmptyDetails',
+      'previewSuggestionsEmpty',
+      'previewTaskPaneEmpty',
+    ],
     'loading': ['previewAppLoading'],
     'photo': ['previewTaskPanePhoto'],
   };

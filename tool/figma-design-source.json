@@ -12,7 +12,8 @@
     "myDayBackground": "7:325",
     "ipad": "7:347",
     "iphone": "7:487",
-    "iphoneDetail": "7:558"
+    "iphoneDetail": "7:558",
+    "ipadInspector": "28:347"
   },
   "iconNodeId": "15:451",
   "referenceTokens": "docs/design/reference-tokens.json",
@@ -42,5 +43,17 @@
     "light": "15:443",
     "dark": "15:435",
     "board": "15:452"
+  },
+  "ipadLandscape": {
+    "logicalSize": [
+      1210,
+      834
+    ],
+    "sidebarWidth": 244,
+    "detailWidth": 320,
+    "selection": "first visible task automatically; close suppresses auto selection until navigation or re-entering landscape",
+    "coordinationDate": "2026-11-18",
+    "visualApproval": "not yet provided",
+    "structuralEvidence": "docs/design/figma-parity-9.json"
   }
 }

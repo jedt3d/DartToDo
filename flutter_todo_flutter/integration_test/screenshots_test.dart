@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -102,15 +103,34 @@ void main() {
     await tester.runAsync(() => precacheImage(image, tester.element(photoBox)));
     await tester.pumpAndSettle();
     final width = tester.view.physicalSize.width / tester.view.devicePixelRatio;
-    final device = width < 720 ? 'iphone' : 'ipad';
+    final device = defaultTargetPlatform == TargetPlatform.macOS
+        ? 'macos'
+        : width < 720
+        ? 'iphone'
+        : 'ipad';
+    final landscape =
+        device == 'ipad' &&
+        tester.view.physicalSize.width > tester.view.physicalSize.height;
+    final prefix = landscape ? 'ipad-landscape' : device;
     Future<void> capture(String name) async {
       await tester.pumpAndSettle();
       await tester.runAsync(
         () => Future<void>.delayed(const Duration(milliseconds: 200)),
       );
-      await binding.takeScreenshot('$device-$name');
+      await binding.takeScreenshot('$prefix-$name');
     }
 
+    if (landscape) {
+      expect(find.byKey(const Key('task-title')), findsOneWidget);
+      expect(
+        tester
+            .widget<TextField>(find.byKey(const Key('task-title')))
+            .controller!
+            .text,
+        'Make room for what matters',
+      );
+      await capture('auto-details');
+    }
     await capture('my-day');
     await tester.tap(find.byTooltip('Suggestions'));
     await tester.pumpAndSettle();

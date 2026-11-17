@@ -25,6 +25,7 @@ class _TaskPane extends StatelessWidget {
     required this.composerFocus,
     required this.reorder,
     this.featured,
+    this.revealLists,
   });
   final String title, view, query, themeId;
   final BackgroundSelection? featured;
@@ -33,7 +34,7 @@ class _TaskPane extends StatelessWidget {
   final bool showCompleted, expanded, sortDescending, isCustom;
   final TaskSort sort;
   final VoidCallback toggleExpanded;
-  final VoidCallback? back, suggestions;
+  final VoidCallback? back, suggestions, revealLists;
   final ValueChanged<String> action;
   final ValueChanged<TodoTask> select, complete, important;
   final void Function(TodoTask, String) contextAction;
@@ -300,6 +301,7 @@ class _TaskPane extends StatelessWidget {
                               padding: const EdgeInsets.only(bottom: 2),
                               child: _TaskRow(
                                 task: task,
+                                revealLists: revealLists,
                                 dragHandle:
                                     index < active.length && reorder != null
                                     ? Tooltip(
@@ -426,8 +428,10 @@ class _TaskRow extends StatelessWidget {
     required this.important,
     required this.action,
     this.dragHandle,
+    this.revealLists,
   });
   final Widget? dragHandle;
+  final VoidCallback? revealLists;
   final TodoTask task;
   final bool selected;
   final VoidCallback select, complete, important;
@@ -515,6 +519,7 @@ class _TaskRow extends StatelessWidget {
                 child: Row(
                   children: [
                     ?dragHandle,
+                    _TaskMoveHandle(task: task, revealLists: revealLists),
                     _CheckCircle(
                       value: task.completed,
                       label: task.completed
@@ -821,4 +826,64 @@ class _SuggestionsPanel extends StatelessWidget {
       ),
     ),
   );
+}
+
+class _TaskDragData {
+  const _TaskDragData(this.taskId, this.sourceListId);
+  final int taskId, sourceListId;
+}
+
+class _TaskMoveHandle extends StatelessWidget {
+  const _TaskMoveHandle({required this.task, this.revealLists});
+  final TodoTask task;
+  final VoidCallback? revealLists;
+  @override
+  Widget build(BuildContext context) {
+    const handle = SizedBox(
+      width: 44,
+      height: 44,
+      child: Icon(
+        CupertinoIcons.arrow_right_square,
+        size: 16,
+        color: Color(0xff888888),
+      ),
+    );
+    final feedback = Material(
+      elevation: 6,
+      borderRadius: BorderRadius.circular(4),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 280),
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Text(task.title, maxLines: 2, overflow: TextOverflow.ellipsis),
+        ),
+      ),
+    );
+    final payload = _TaskDragData(task.id!, task.listId);
+    final touch =
+        Theme.of(context).platform == TargetPlatform.iOS ||
+        Theme.of(context).platform == TargetPlatform.android;
+    return Tooltip(
+      message: 'Drag to another list',
+      child: Semantics(
+        label: 'Move ${task.title} to another list',
+        child: touch
+            ? LongPressDraggable<_TaskDragData>(
+                key: ValueKey('move-task-${task.id}'),
+                data: payload,
+                rootOverlay: true,
+                onDragStarted: revealLists,
+                feedback: feedback,
+                child: handle,
+              )
+            : Draggable<_TaskDragData>(
+                key: ValueKey('move-task-${task.id}'),
+                data: payload,
+                rootOverlay: true,
+                feedback: feedback,
+                child: handle,
+              ),
+      ),
+    );
+  }
 }

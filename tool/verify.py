@@ -16,6 +16,7 @@ def main():
         ('.', ['flutter', 'analyze', '--no-pub', '--fatal-infos']),
         ('flutter_todo_flutter', ['flutter', 'test', '--no-pub']),
         ('flutter_todo_server', ['dart', 'test']),
+        ('flutter_todo_server', ['dart', 'test', 'tool/attachment_http_test.dart']),
         ('flutter_todo_server', ['python3', 'tool/check_codegen.py']),
         ('.', ['python3', 'tool/run.py', '--backend-only']),
         ('flutter_todo_client', ['dart', 'run', 'tool/live_smoke.dart']),

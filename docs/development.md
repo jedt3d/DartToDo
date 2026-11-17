@@ -118,7 +118,7 @@ dart test --reporter expanded
 python3 tool/check_codegen.py
 ```
 
-Backend tests use real PostgreSQL in `flutter_todo_test`, apply migrations and roll back each test's data. The release backend suite has 49 passing tests, including a non-destructive literal `decode(...)` string regression that failed on 3.4.5 and passes on 3.4.12. They cover persistence, malformed inputs, foreign references, soft deletion/restore, group dissolution, recurrence, duplicate identity, sort contracts and file limits. HTTP boundary tests run a real local listener. They do not use the app database for test tasks.
+Backend tests use real PostgreSQL in `flutter_todo_test`, apply migrations and roll back each test's data. The **v1.0.0 release backend checkpoint** had 49 passing tests, including a non-destructive literal `decode(...)` string regression that failed on 3.4.5 and passes on 3.4.12. They cover persistence, malformed inputs, foreign references, soft deletion/restore, group dissolution, recurrence, duplicate identity, sort contracts and file limits. HTTP boundary tests run a real local listener. They do not use the app database for test tasks.
 
 With the normal backend running, these finite checks verify live transport without printing task contents:
 
@@ -141,9 +141,34 @@ Frontend data tests cover smart-list dates/search/sorting, serialized writes, la
 
 Trial command logs and measured durations are stored locally under `.dartnflutter/trial/`; `tool/trial_run.py` records them. The [trial protocol](trial/protocol.md) explains the acceptance criteria and why this single project cannot establish causal time savings or model-cost improvements.
 
+## Issue-9 behavior and current verification status
+
+The current source raises the aggregate attachment allowance to **25 MiB (26,214,400 decoded bytes)**, with a **40 MiB (41,943,040-byte)** Serverpod request-body bound in all configurations. This maps the published “25 MB” label to an explicit local byte contract. The transport allowance accommodates base64/JSON overhead; it is not an additional per-file allowance.
+
+The separate real-HTTP attachment test commits through generated-client sessions and removes only its own temporary test rows. Run from the server package after confirming the isolated test configuration/database:
+
+```sh
+cd /Users/worajedt/GitHub/FlutterToDo/flutter_todo_server
+dart test tool/attachment_http_test.dart
+```
+
+The main suite and this HTTP probe serve different purposes. Exact-cap/over-cap and aggregate rejection, HTTP roundtrip and cleanup all need actual results; their existence in source is not a pass. From the frontend package, the existing focused files provide the notification-service and responsive checks:
+
+```sh
+cd /Users/worajedt/GitHub/FlutterToDo/flutter_todo_flutter
+flutter test --no-pub test/services/reminders_test.dart
+flutter test --no-pub test/ui/responsive_test.dart
+```
+
+Current source also implements separate cross-list move/manual reorder handles, compact touch Lists reveal, automatic first-visible-task details on wide iPad landscape and cold/warm notification task navigation. Verify each against the real backend and relevant native target. A successful move must retain the task ID and open its destination/details; a closed automatic inspector must stay closed until navigation or a new landscape entry. Notification proof must distinguish permission, pending/delivered state, actual tap and navigation to the stored owning task. Do not use a fixture callback as evidence of OS delivery.
+
+**Final issue-9 command/native results and refreshed catalog evidence are pending.** The v1.0.0 test counts above describe the earlier release candidate and must remain historical. These commands are replay instructions, not a record of new passing results.
+
 ## Native screenshot evidence
 
-The local Xcode installation has bootable simulator runtimes but no Simulator desktop app bundle. The official Flutter integration screenshot driver captures the running native app window and saves its PNG bytes on the host:
+Xcode 27.2 supplies the interactive simulator GUI at `/Applications/Xcode.app/Contents/Applications/DeviceHub.app`; the older `Simulator.app` path is absent. Select the booted device in Device Hub and use **Controls → Rotate Left/Right** or **Device → Orientation** for a genuine landscape run. The app retains iPad multitasking; a completed Flutter preferred-orientation call alone does not prove a rotated framebuffer. Inspect the resulting native image dimensions and panel state. See [installed/official reference evidence](trial/issue-9-reference-research.md).
+
+The official Flutter integration screenshot driver also captures the running native app window and saves its PNG bytes on the host:
 
 ```sh
 flutter drive --no-pub --driver test_driver/screenshots.dart \
@@ -151,6 +176,10 @@ flutter drive --no-pub --driver test_driver/screenshots.dart \
 ```
 
 Run from `flutter_todo_flutter`. The capture uses the real backend, a temporary synthetic list, and the real Unsplash background; teardown soft-deletes that list. These are native app-window captures; OS status-bar text is outside the captured app window. The screenshot test waits for photo decoding before capture. App-container files are removed by the normal test runner, so screenshots must be retained by the host driver.
+
+## Native printing prerequisites
+
+Use one short synthetic list, one page and one copy for the authorized physical check. The configured Brother DCP-1610W macOS CUPS queue is distinct from an AirPrint destination: Brother documents that this model lacks AirPrint. Exercise the app’s macOS native sheet and record the actual submitted/completed queue job separately from observed paper output. On iPhone/iPad, inspect the real native print preview and available destinations; do not report an iOS physical-print pass from this Brother queue or from a canceled sheet. PDF/Printer Simulator output verifies that destination and rendering only. No installed Printer Simulator was found in the researched tool locations. [Prerequisites and primary sources](trial/issue-9-reference-research.md) record those hardware/tool limits; the actual print outcome belongs in the final verification record.
 
 ## Troubleshooting observed failures
 

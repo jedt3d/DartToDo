@@ -565,3 +565,13 @@ Widget previewNameDialog(BuildContext context) => _CatalogFrame(
     builder: (_) => const _NameDialog(title: 'New list', value: 'Weekend'),
   ),
 );
+
+Widget previewEmptyDetails(BuildContext context) =>
+    _CatalogFrame(width: 320, builder: (_, _) => const _EmptyDetails());
+Widget previewTaskMoveHandle(BuildContext context) => _CatalogFrame(
+  height: 100,
+  builder: (_, _) => Align(
+    alignment: Alignment.topLeft,
+    child: _TaskMoveHandle(task: catalogFixture().tasks.first),
+  ),
+);

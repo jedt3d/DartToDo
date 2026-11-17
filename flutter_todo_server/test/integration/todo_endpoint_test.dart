@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter_todo_server/server.dart';
 import 'package:flutter_todo_server/src/generated/protocol.dart';
@@ -507,8 +508,34 @@ void main() {
       },
     );
 
+    test('attachment total exactly 25 MiB survives persistence', () async {
+      final bytes = Uint8List(25 * 1024 * 1024)
+        ..[0] = 7
+        ..[25 * 1024 * 1024 - 1] = 249;
+      final encoded = base64Encode(bytes);
+      final saved = await endpoints.todo.saveTask(
+        sessionBuilder,
+        _newTask('Exact attachment limit')
+          ..attachments = [
+            TodoAttachment(
+              id: 'exact',
+              name: 'exact.bin',
+              mimeType: 'application/octet-stream',
+              dataBase64: encoded,
+            ),
+          ],
+      );
+      final loaded = (await endpoints.todo.fetch(sessionBuilder)).tasks.single;
+      expect(loaded.id, saved.id);
+      expect(loaded.attachments.single.dataBase64 == encoded, isTrue);
+      expect(
+        base64Decode(loaded.attachments.single.dataBase64).length,
+        bytes.length,
+      );
+    });
+
     test(
-      'attachment total over 10 MB is rejected before persistence',
+      'attachment total one byte over 25 MiB is rejected before persistence',
       () async {
         final task = _newTask('Too big')
           ..attachments = [
@@ -516,7 +543,7 @@ void main() {
               id: '1',
               name: 'big.bin',
               mimeType: 'application/octet-stream',
-              dataBase64: base64Encode(List.filled(10 * 1024 * 1024 + 1, 0)),
+              dataBase64: base64Encode(Uint8List(25 * 1024 * 1024 + 1)),
             ),
           ];
         await expectLater(
@@ -526,5 +553,28 @@ void main() {
         expect((await endpoints.todo.fetch(sessionBuilder)).tasks, isEmpty);
       },
     );
+
+    test('multiple attachments share the 25 MiB aggregate limit', () async {
+      final task = _newTask('Aggregate too big')
+        ..attachments = [
+          TodoAttachment(
+            id: 'first',
+            name: 'first.bin',
+            mimeType: 'application/octet-stream',
+            dataBase64: base64Encode(Uint8List(13 * 1024 * 1024)),
+          ),
+          TodoAttachment(
+            id: 'second',
+            name: 'second.bin',
+            mimeType: 'application/octet-stream',
+            dataBase64: base64Encode(Uint8List(12 * 1024 * 1024 + 1)),
+          ),
+        ];
+      await expectLater(
+        endpoints.todo.saveTask(sessionBuilder, task),
+        throwsA(isA<TodoException>()),
+      );
+      expect((await endpoints.todo.fetch(sessionBuilder)).tasks, isEmpty);
+    });
   });
 }

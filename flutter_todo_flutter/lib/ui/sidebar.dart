@@ -17,9 +17,11 @@ class _Sidebar extends StatefulWidget {
     required this.renameGroup,
     required this.ungroup,
     required this.submitSearch,
+    this.moveTask,
     this.reorderList,
     this.reorderGroup,
   });
+  final void Function(int taskId, int listId)? moveTask;
   final void Function(TodoList, int)? reorderList;
   final void Function(TodoGroup, int)? reorderGroup;
   final TodoSnapshot data;
@@ -215,15 +217,18 @@ class _SidebarState extends State<_Sidebar> {
                         ),
                         ('inbox', 'Tasks', CupertinoIcons.house, todoAccent),
                       ])
-                        _NavTile(
-                          label: item.$2,
-                          icon: item.$3,
-                          color: item.$4,
-                          selected:
-                              widget.selectedView == item.$1 &&
-                              widget.query.isEmpty,
-                          count: taskCount(widget.data, item.$1),
-                          onTap: () => widget.navigate(item.$1),
+                        _taskDestination(
+                          item.$1 == 'inbox' ? 1 : null,
+                          _NavTile(
+                            label: item.$2,
+                            icon: item.$3,
+                            color: item.$4,
+                            selected:
+                                widget.selectedView == item.$1 &&
+                                widget.query.isEmpty,
+                            count: taskCount(widget.data, item.$1),
+                            onTap: () => widget.navigate(item.$1),
+                          ),
                         ),
                       const Padding(
                         padding: EdgeInsets.symmetric(
@@ -372,10 +377,30 @@ class _SidebarState extends State<_Sidebar> {
     );
   }
 
-  Widget _listTile(TodoList list) => DragTarget<int>(
-    onAcceptWithDetails: (details) =>
-        widget.saveList(list.copyWith(groupId: details.data)),
-    builder: (context, candidates, rejected) => _NavTile(
+  Widget _taskDestination(int? listId, Widget child) => listId == null
+      ? child
+      : DragTarget<_TaskDragData>(
+          key: ValueKey('drop-list-$listId'),
+          onWillAcceptWithDetails: (details) =>
+              widget.moveTask != null && details.data.sourceListId != listId,
+          onAcceptWithDetails: (details) =>
+              widget.moveTask?.call(details.data.taskId, listId),
+          builder: (context, candidates, rejected) => DecoratedBox(
+            decoration: BoxDecoration(
+              border: candidates.isNotEmpty
+                  ? Border.all(color: todoAccent, width: 2)
+                  : null,
+              color: candidates.isNotEmpty
+                  ? todoAccent.withValues(alpha: .15)
+                  : null,
+            ),
+            child: child,
+          ),
+        );
+
+  Widget _listTile(TodoList list) => _taskDestination(
+    list.id,
+    _NavTile(
       label: list.title,
       icon: CupertinoIcons.list_bullet,
       color: todoColors[list.theme] ?? todoAccent,

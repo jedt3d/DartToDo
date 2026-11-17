@@ -224,10 +224,15 @@ class _TaskDetailsState extends State<_TaskDetails> {
       final result = await FilePicker.pickFile();
       if (result == null) return;
       final file = result;
+      const limit = 25 * 1024 * 1024;
+      final existingBytes = widget.task.attachments.fold<int>(
+        0,
+        (total, file) => total + base64Decode(file.dataBase64).length,
+      );
       final builder = BytesBuilder(copy: false);
       await for (final chunk in file.readAsByteStream()) {
-        if (builder.length + chunk.length > 10 * 1024 * 1024) {
-          throw StateError('Files must be 10 MB or smaller.');
+        if (existingBytes + builder.length + chunk.length > limit) {
+          throw StateError('Files on a task must total 25 MB or smaller.');
         }
         builder.add(chunk);
       }
@@ -238,8 +243,17 @@ class _TaskDetailsState extends State<_TaskDetails> {
         dataBase64: base64Encode(builder.takeBytes()),
       );
       await widget.update(
-        (current) =>
-            current.copyWith(attachments: [...current.attachments, attachment]),
+        (current) {
+          final attachments = [...current.attachments, attachment];
+          if (attachments.fold<int>(
+                0,
+                (total, file) => total + base64Decode(file.dataBase64).length,
+              ) >
+              limit) {
+            throw StateError('Files on a task must total 25 MB or smaller.');
+          }
+          return current.copyWith(attachments: attachments);
+        },
       );
     } catch (error) {
       if (mounted) _message('Could not attach file. $error');
