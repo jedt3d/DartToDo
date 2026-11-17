@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "scope": "observed local release candidate; not full Microsoft parity",
+  "frontendTests": 130,
+  "backendTests": 49,
+  "responsiveTests": 28,
+  "catalog": {
+    "verdict": "passed",
+    "inventoryFingerprint": "149d5d4fb5ee1ac7ec9d48dfa1bac65ee813a0a847f544d5198fa2f122a30776",
+    "coverage": {
+      "total": 37,
+      "registered": 37,
+      "missing": [],
+      "complete": true
+    },
+    "runtime": {
+      "totalCases": 73,
+      "verifiedCases": 73,
+      "complete": true
+    },
+    "design": {
+      "provided": false,
+      "mapped": 0,
+      "missing": [],
+      "complete": false
+    }
+  },
+  "catalogRun": "20261117T160838Z-149d5d4fb5ee",
+  "recordingSeconds": 362.244,
+  "fullVerifySeconds": 22.877,
+  "nativePersistence": [
+    "macos",
+    "iphone-16-pro-ios18.5",
+    "ipad-pro-11-m4-ios18.5"
+  ],
+  "screenshots": "../screenshots/manifest.json",
+  "rawEvidence": "local ignored .dartnflutter directories; regenerate on another checkout"
+}

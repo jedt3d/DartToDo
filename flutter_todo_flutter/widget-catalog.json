@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "inventoryFingerprint": "e1a1cffcabc2bafdd950501f223add463d22daf43229bb68624666795888a3b3",
+  "inventoryFingerprint": "149d5d4fb5ee1ac7ec9d48dfa1bac65ee813a0a847f544d5198fa2f122a30776",
   "entries": [
     {
       "widgetId": "lib/ui/dialogs.dart#_NameDialog",
@@ -23,7 +23,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         }
       ]
     },
@@ -48,7 +52,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         }
       ]
     },
@@ -73,7 +81,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/custom.json",
+            "sha256": "f437b177dec0cfa499af1ad8e3a41d9b0423c941ce26f5ca9b416b959e90a875"
+          }
         }
       ]
     },
@@ -98,7 +110,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/custom.json",
+            "sha256": "f437b177dec0cfa499af1ad8e3a41d9b0423c941ce26f5ca9b416b959e90a875"
+          }
         }
       ]
     },
@@ -124,7 +140,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-dark",
@@ -137,7 +157,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/dark.json",
+            "sha256": "244556b5e90d38fb1b71f71eb6a89909bb1103acc49c89706d1d0fa39eac3c9f"
+          }
         }
       ]
     },
@@ -163,7 +187,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-dark",
@@ -176,7 +204,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/dark.json",
+            "sha256": "244556b5e90d38fb1b71f71eb6a89909bb1103acc49c89706d1d0fa39eac3c9f"
+          }
         }
       ]
     },
@@ -201,7 +233,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         }
       ]
     },
@@ -226,7 +262,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         }
       ]
     },
@@ -252,7 +292,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-selected",
@@ -265,7 +309,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/selected.json",
+            "sha256": "12974823e8340246138b47fa5ebc4bca5ebb93446ea0ab9f7858dc4b790923ad"
+          }
         }
       ],
       "figmaNodeId": "5:85"
@@ -292,7 +340,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-selected",
@@ -305,7 +357,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/selected.json",
+            "sha256": "12974823e8340246138b47fa5ebc4bca5ebb93446ea0ab9f7858dc4b790923ad"
+          }
         }
       ],
       "figmaNodeId": "5:85"
@@ -331,7 +387,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         }
       ],
       "figmaNodeId": "7:35"
@@ -357,7 +417,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         }
       ],
       "figmaNodeId": "7:35"
@@ -383,7 +447,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         }
       ],
       "figmaNodeId": "7:35"
@@ -410,7 +478,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-active",
@@ -423,7 +495,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/active.json",
+            "sha256": "67e48a6627652455d6d7ff4d5981e1d9f83b9ce416af31fa49b82dfc6a582e1c"
+          }
         }
       ],
       "figmaNodeId": "5:127"
@@ -450,7 +526,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-active",
@@ -463,7 +543,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/active.json",
+            "sha256": "67e48a6627652455d6d7ff4d5981e1d9f83b9ce416af31fa49b82dfc6a582e1c"
+          }
         }
       ],
       "figmaNodeId": "5:127"
@@ -490,7 +574,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-completed",
@@ -503,7 +591,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+            "sha256": "f087fe5751744daf5fa797c5139dfc99c9d1769928635e4a907b1f4ff4dfe090"
+          }
         }
       ],
       "figmaNodeId": "7:558"
@@ -530,7 +622,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-completed",
@@ -543,7 +639,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+            "sha256": "f087fe5751744daf5fa797c5139dfc99c9d1769928635e4a907b1f4ff4dfe090"
+          }
         }
       ],
       "figmaNodeId": "7:558"
@@ -570,7 +670,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/unchecked.json",
+            "sha256": "7c159aaa31f0c2ce8cd097f072e01b2dd262d641711a455f749867b84b299ff6"
+          }
         },
         {
           "id": "catalog-checked",
@@ -583,7 +687,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/checked.json",
+            "sha256": "bb0070e80deb813ef4f4b96e2a5d9344da3e62e8cad6aadb9e5b0a6b5d2e4176"
+          }
         }
       ],
       "figmaNodeId": "5:72"
@@ -610,7 +718,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/unchecked.json",
+            "sha256": "7c159aaa31f0c2ce8cd097f072e01b2dd262d641711a455f749867b84b299ff6"
+          }
         },
         {
           "id": "catalog-checked",
@@ -623,7 +735,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/checked.json",
+            "sha256": "bb0070e80deb813ef4f4b96e2a5d9344da3e62e8cad6aadb9e5b0a6b5d2e4176"
+          }
         }
       ],
       "figmaNodeId": "5:72"
@@ -651,7 +767,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-saving",
@@ -664,7 +784,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/saving.json",
+            "sha256": "c237db005911e0bc4369d6c123231f410806b6531fb3e7fb155de0e95e6c2837"
+          }
         },
         {
           "id": "catalog-error",
@@ -677,7 +801,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
         }
       ],
       "figmaNodeId": "5:133"
@@ -705,7 +833,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-saving",
@@ -718,7 +850,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/saving.json",
+            "sha256": "c237db005911e0bc4369d6c123231f410806b6531fb3e7fb155de0e95e6c2837"
+          }
         },
         {
           "id": "catalog-error",
@@ -731,7 +867,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
         }
       ],
       "figmaNodeId": "5:133"
@@ -757,7 +897,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/search-empty.json",
+            "sha256": "356ac012e600cef9bce29f267aa0415e0a93c7f6ea00e9a5a87d0aeebeb112de"
+          }
         }
       ]
     },
@@ -782,7 +926,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/search-empty.json",
+            "sha256": "356ac012e600cef9bce29f267aa0415e0a93c7f6ea00e9a5a87d0aeebeb112de"
+          }
         }
       ]
     },
@@ -807,7 +955,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         }
       ]
     },
@@ -832,7 +984,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         }
       ]
     },
@@ -858,7 +1014,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-empty",
@@ -871,7 +1031,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/empty.json",
+            "sha256": "685ca809f36586bf6f9fc39c19278015493ad257afe799aa0a116773b59c7b05"
+          }
         }
       ]
     },
@@ -897,7 +1061,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-empty",
@@ -910,7 +1078,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/empty.json",
+            "sha256": "685ca809f36586bf6f9fc39c19278015493ad257afe799aa0a116773b59c7b05"
+          }
         }
       ]
     },
@@ -939,7 +1111,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-empty",
@@ -952,7 +1128,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/empty.json",
+            "sha256": "685ca809f36586bf6f9fc39c19278015493ad257afe799aa0a116773b59c7b05"
+          }
         },
         {
           "id": "catalog-search-empty",
@@ -965,7 +1145,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/search-empty.json",
+            "sha256": "356ac012e600cef9bce29f267aa0415e0a93c7f6ea00e9a5a87d0aeebeb112de"
+          }
         },
         {
           "id": "catalog-completed",
@@ -978,7 +1162,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+            "sha256": "f087fe5751744daf5fa797c5139dfc99c9d1769928635e4a907b1f4ff4dfe090"
+          }
         },
         {
           "id": "catalog-photo",
@@ -991,7 +1179,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/photo.json",
+            "sha256": "ad7b52ddaf9c2690140a9c2052e4b6e164815b17e8bce91e817e43fc37f0ba4e"
+          }
         }
       ],
       "figmaNodeId": "7:35"
@@ -1021,7 +1213,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-empty",
@@ -1034,7 +1230,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/empty.json",
+            "sha256": "685ca809f36586bf6f9fc39c19278015493ad257afe799aa0a116773b59c7b05"
+          }
         },
         {
           "id": "catalog-search-empty",
@@ -1047,7 +1247,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/search-empty.json",
+            "sha256": "356ac012e600cef9bce29f267aa0415e0a93c7f6ea00e9a5a87d0aeebeb112de"
+          }
         },
         {
           "id": "catalog-completed",
@@ -1060,7 +1264,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+            "sha256": "f087fe5751744daf5fa797c5139dfc99c9d1769928635e4a907b1f4ff4dfe090"
+          }
         },
         {
           "id": "catalog-photo",
@@ -1073,7 +1281,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/photo.json",
+            "sha256": "ad7b52ddaf9c2690140a9c2052e4b6e164815b17e8bce91e817e43fc37f0ba4e"
+          }
         }
       ],
       "figmaNodeId": "7:35"
@@ -1101,7 +1313,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-selected",
@@ -1114,7 +1330,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/selected.json",
+            "sha256": "12974823e8340246138b47fa5ebc4bca5ebb93446ea0ab9f7858dc4b790923ad"
+          }
         },
         {
           "id": "catalog-completed",
@@ -1127,7 +1347,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+            "sha256": "f087fe5751744daf5fa797c5139dfc99c9d1769928635e4a907b1f4ff4dfe090"
+          }
         }
       ],
       "figmaNodeId": "5:116"
@@ -1155,7 +1379,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-selected",
@@ -1168,7 +1396,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/selected.json",
+            "sha256": "12974823e8340246138b47fa5ebc4bca5ebb93446ea0ab9f7858dc4b790923ad"
+          }
         },
         {
           "id": "catalog-completed",
@@ -1181,7 +1413,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/completed.json",
+            "sha256": "f087fe5751744daf5fa797c5139dfc99c9d1769928635e4a907b1f4ff4dfe090"
+          }
         }
       ],
       "figmaNodeId": "5:116"
@@ -1208,7 +1444,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-loading",
@@ -1221,7 +1461,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/loading.json",
+            "sha256": "bac56fc858bff3b83d8a2e4e7108fb892a0edafcf317d00474103efabff81a8d"
+          }
         },
         {
           "id": "catalog-error",
@@ -1234,7 +1478,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
         }
       ],
       "figmaNodeId": "7:35"
@@ -1262,7 +1510,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-loading",
@@ -1275,7 +1527,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/loading.json",
+            "sha256": "bac56fc858bff3b83d8a2e4e7108fb892a0edafcf317d00474103efabff81a8d"
+          }
         },
         {
           "id": "catalog-error",
@@ -1288,7 +1544,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
         }
       ],
       "figmaNodeId": "7:35"
@@ -1314,7 +1574,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
         }
       ]
     },
@@ -1339,7 +1603,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
         }
       ]
     },
@@ -1366,7 +1634,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-loading",
@@ -1379,7 +1651,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/loading.json",
+            "sha256": "bac56fc858bff3b83d8a2e4e7108fb892a0edafcf317d00474103efabff81a8d"
+          }
         },
         {
           "id": "catalog-error",
@@ -1392,7 +1668,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
         }
       ],
       "figmaNodeId": "7:35"
@@ -1420,7 +1700,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/default.json",
+            "sha256": "558a82f750e528fadb6c43208bc7a53ecefbba2476eb73261fe0e107f0a270c7"
+          }
         },
         {
           "id": "catalog-loading",
@@ -1433,7 +1717,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/loading.json",
+            "sha256": "bac56fc858bff3b83d8a2e4e7108fb892a0edafcf317d00474103efabff81a8d"
+          }
         },
         {
           "id": "catalog-error",
@@ -1446,7 +1734,11 @@
           },
           "requiredEvidence": [
             "widget-test"
-          ]
+          ],
+          "evidence": {
+            "report": ".dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/error.json",
+            "sha256": "289db69e512d4add1eeb45cd8e6fb7865d72aaffb68f25ceb1b62c66716bca64"
+          }
         }
       ],
       "figmaNodeId": "7:35"

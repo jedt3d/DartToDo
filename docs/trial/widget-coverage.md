@@ -26,15 +26,21 @@ The rebuild script invokes the installed dnf-ui launcher with explicit project r
 
 For recording, exact named state-group tests each render and assert every preview mapped to that state. The same declaration can have several required states. Each report names all covered declarations and preserves the actual machine log, command, exit code and before/after semantic fingerprints. Fourteen state groups avoid running the full analyzer twice for each of the 33 individual builders. The individual builder tests remain available for diagnosis. Grouping is a reduction in repeated setup, not evidence of improved model productivity.
 
-Reports and raw logs stay local in `flutter_todo_flutter/.dartnflutter/evidence/catalog`. They are intentionally excluded from Git. The tracked catalog references their digests; a fresh checkout must regenerate them. Source, package, SDK or harness changes require new evidence. A historical passing report is not proof that a changed source tree is current.
+Reports and raw logs stay local in `flutter_todo_flutter/.dartnflutter/evidence/catalog`. The release runner now places each recording in a UTC/fingerprint subdirectory with its input, catalog snapshot and summary, so subsequent runs retain its case payloads. Earlier fixed-path recording preserved wrapper logs but overwrote case report/raw-machine payloads; no historical artifact-freshness claim is made for those overwritten files. They are intentionally excluded from Git. The tracked catalog references their digests; a fresh checkout must regenerate them. Source, package, SDK or harness changes require new evidence. A historical passing report is not proof that a changed source tree is current.
 
-## Final observed result
+## First complete checkpoint
 
-On 17 November 2026, the actual `widgets validate` command exited zero with **37/37 declaration coverage and 73/73 runtime cases**. All fourteen state-group runs passed without skipped or ambiguous tests and retained the same inventory fingerprint, `ae3f075530868d506df1abbecae78f612c8527d9758f830f70f6daa142a3eed5`. The local [catalog report](../../flutter_todo_flutter/.dartnflutter/catalog-report.json) records the result. Figma design was not provided to this validator; its passing runtime verdict does not approve the authored board or measure fidelity.
+On 17 November 2026, the actual `widgets validate` command exited zero with **37/37 declaration coverage and 73/73 runtime cases**. All fourteen state-group runs passed without skipped or ambiguous tests and retained the same inventory fingerprint, `ae3f075530868d506df1abbecae78f612c8527d9758f830f70f6daa142a3eed5`. The local [catalog report](../../flutter_todo_flutter/.dartnflutter/catalog-report.json) tracks the latest complete run; the release checkpoint below supersedes this earlier fingerprint. Figma design was not provided to this validator; its passing runtime verdict does not approve the authored board or measure fidelity.
 
 The focused frontend run passed **76 tests**: 20 app/entrypoint/Widgetbook-navigation checks, nine isolated background tests, 33 individual preview tests and fourteen grouped-state runs. The groups repeat those preview assertions to provide bounded evidence units; these are not 76 independent effectiveness tasks. The [captured run](../../.dartnflutter/trial/raw/20261117T144602137176Z-final-frontend-ui-tests.log) took 5.477 seconds. Actual model token usage and cost were not exposed by this lane.
 
 The fourteen serial `widgets record` calls took **332.731 seconds** in total, ranging from 21.068 to 26.667 seconds per call. This includes their child tests and semantic scans; nested durations should not be added again when calculating end-to-end time. Scan/init/generate/final-validate overhead is recorded separately in the event ledger. These are observed command costs, with no unassisted baseline or savings estimate.
+
+## Release checkpoint
+
+The complete release recording passes 37/37 declarations and 73/73 runtime cases at fingerprint `149d5d4fb5ee1ac7ec9d48dfa1bac65ee813a0a847f544d5198fa2f122a30776`. Its 14 named state-group recordings took 362.244s in aggregate; repeated semantic scans and child tests are included. Reports, raw machine logs, inputs and the catalog snapshot are retained under `.dartnflutter/evidence/catalog/20261117T160838Z-149d5d4fb5ee/`. The latest summary is also copied to `.dartnflutter/catalog-report.json`.
+
+The full frontend suite now passes 130 tests: 19 data, 83 app/background/catalog and 28 responsive checks, including all four dialogs at phone sizes and seven final date/image regressions. Native persistence passes separately on macOS/iPhone/iPad, and both reviewed screenshot flows render the actual app/photo. No full-screen approved Figma snapshot or initial golden baseline is inferred. The source-bound lifecycle check hashes the complete current project, including these tests and screenshot artifacts.
 
 ## Separate evidence dimensions
 

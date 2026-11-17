@@ -20,14 +20,14 @@
       "file": "docs/screenshots/ipad-lists.png",
       "width": 1668,
       "height": 2420,
-      "sha256": "b5a6df4471cc09edb41f0463f5e5c5879102030233fd5664204296ac0cd78348",
+      "sha256": "31511359b72124b23eb7995750607942d6b1f3ada0fb4dadb817796b64e96c93",
       "provenance": "native app capture; synthetic task data"
     },
     {
       "file": "docs/screenshots/ipad-my-day.png",
       "width": 1668,
       "height": 2420,
-      "sha256": "bbaffab7ec99c287d3754819a3972c9087be554d1aba7d69ad28e27bab868b54",
+      "sha256": "84c4c77cab96058a9f798ab0586af3e6bde0365c4e4ef331e96b180e71e15e13",
       "provenance": "native app capture; synthetic task data"
     },
     {
@@ -41,7 +41,7 @@
       "file": "docs/screenshots/iphone-details-keyboard.png",
       "width": 1206,
       "height": 2622,
-      "sha256": "e3eb72ed889f9639b6257367bcf26ffe08448441699f0920e6fddc7cba65f104",
+      "sha256": "2d1d85215be7eedb54f72f613b6c6b1e63c249060ab56a554b532156064048a5",
       "provenance": "native app capture; synthetic task data"
     },
     {
@@ -76,14 +76,14 @@
       "file": "docs/screenshots/macos-live-detail.png",
       "width": 4718592,
       "height": 4292935744,
-      "sha256": "be7c5af59fac34934979121cd1d2f2b284a820b5daf4a1a9c9e1b96a1070dd26",
+      "sha256": "fb2045157ffbb37dc01c094925281bd1576568e8f410f23edb7173e4e93bd1c0",
       "provenance": "native app capture; synthetic task data"
     },
     {
       "file": "docs/screenshots/macos-my-day.png",
       "width": 4718592,
       "height": 4292935744,
-      "sha256": "08bc490d6ab44c9b3913b6f77ed37d43eb2faa96e3fff805406269699f060cd1",
+      "sha256": "d8c50a22fd4f7e84250a6547e3377a2e1f16ee3f3e605e6db7e63f30024dff42",
       "provenance": "native app capture; synthetic task data"
     }
   ]

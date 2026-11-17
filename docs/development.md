@@ -118,7 +118,7 @@ dart test --reporter expanded
 python3 tool/check_codegen.py
 ```
 
-Backend tests use real PostgreSQL in `flutter_todo_test`, apply migrations and roll back each test's data. The patched backend suite has 48 passing tests, including a non-destructive literal `decode(...)` string regression that failed on 3.4.5 and passes on 3.4.12. They cover persistence, malformed inputs, foreign references, soft deletion/restore, group dissolution, recurrence, duplicate identity, sort contracts and file limits. HTTP boundary tests run a real local listener. They do not use the app database for test tasks.
+Backend tests use real PostgreSQL in `flutter_todo_test`, apply migrations and roll back each test's data. The release backend suite has 49 passing tests, including a non-destructive literal `decode(...)` string regression that failed on 3.4.5 and passes on 3.4.12. They cover persistence, malformed inputs, foreign references, soft deletion/restore, group dissolution, recurrence, duplicate identity, sort contracts and file limits. HTTP boundary tests run a real local listener. They do not use the app database for test tasks.
 
 With the normal backend running, these finite checks verify live transport without printing task contents:
 
