@@ -12,7 +12,7 @@ def main():
     parser.add_argument('--native', action='store_true')
     args = parser.parse_args()
     checks = [
-        ('.', ['dart', 'format', '--output=none', '--set-exit-if-changed', 'flutter_todo_flutter/lib', 'flutter_todo_flutter/test', 'flutter_todo_flutter/integration_test', 'flutter_todo_flutter/test_driver', 'flutter_todo_server/lib', 'flutter_todo_server/test', 'flutter_todo_server/tool', 'flutter_todo_client/lib', 'flutter_todo_client/tool']),
+        ('.', ['dart', 'format', '--output=none', '--set-exit-if-changed', 'flutter_todo_flutter/lib', 'flutter_todo_flutter/test', 'flutter_todo_flutter/integration_test', 'flutter_todo_flutter/test_driver', 'flutter_todo_server/bin', 'flutter_todo_server/lib', 'flutter_todo_server/test', 'flutter_todo_server/tool', 'flutter_todo_client/lib', 'flutter_todo_client/tool']),
         ('.', ['flutter', 'analyze', '--no-pub', '--fatal-infos']),
         ('flutter_todo_flutter', ['flutter', 'test', '--no-pub']),
         ('flutter_todo_server', ['dart', 'test']),

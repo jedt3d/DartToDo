@@ -6,14 +6,19 @@ Configuration and availability were inspected on **18 November 2026**, using Flu
 
 ## Current state and proposed sequence
 
-Only **Round 1, Dart Analyzer**, has a completed formal report in this series: [results and policy changes](01-dart-analyzer.md), [issue #11](https://github.com/jedt3d/DartToDo/issues/11), [merged PR #12](https://github.com/jedt3d/DartToDo/pull/12). The stricter policy exposed eight findings, which were addressed before final clean analysis. Supporting tests and widget recordings do not mean those tools have completed their own formal quality rounds.
+Completed formal reports in this series:
 
-The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first round, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
+- **Round 1, Dart Analyzer:** [results and policy changes](01-dart-analyzer.md), [issue #11](https://github.com/jedt3d/DartToDo/issues/11), [merged PR #12](https://github.com/jedt3d/DartToDo/pull/12). The stricter policy exposed eight findings, addressed before final clean analysis.
+- **Round 2, Dart formatter:** [baseline, scope correction and final result](02-dart-formatter.md), [issue #16](https://github.com/jedt3d/DartToDo/issues/16). All 73 tracked Dart files already matched formatting; the routine gate was extended to include the omitted server `bin` directory.
+
+Supporting tests and widget recordings do not mean those tools have completed their own formal quality rounds.
+
+The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first two rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
 
 | Tool or focused track | Configuration and scope | When to use it | Current state |
 | --- | --- | --- | --- |
 | **1. Dart Analyzer** | Three package `analysis_options.yaml` files; workspace resolution | IDE feedback, after Dart edits, before PR/merge | Round 1 complete; expanded policy configured |
-| **2. Dart formatter** | Package `formatter` options; explicit Dart file targets | Format edited files; non-writing check before PR | Available; five edited files checked in Round 1; full formatter round pending |
+| **2. Dart formatter** | Package `formatter` options; explicit Dart file targets | Format edited files; non-writing check before PR | Round 2 complete; 73 files, 0 changes; routine gate now includes backend `bin` |
 | **3. Flutter unit/widget tests** | Frontend `flutter_test`, files under `test/`, fake repositories/platform adapters | Frontend behavior changes and affected PRs | Existing suite; focused formal review pending |
 | **4. Dart backend tests** | Server `test` dependency, `dart_test.yaml`, unit/integration targets | Backend changes; database tests only with the intended test service/configuration | Existing unit, database and HTTP checks; formal review pending |
 | **5. Flutter coverage** | `flutter test` coverage flags, selected tests/packages and output path | Dedicated measurement; update after relevant test/code changes | Available; no coverage percentage or threshold established by Round 1 |
@@ -80,7 +85,7 @@ dart format --output=none --set-exit-if-changed flutter_todo_flutter/lib/ui/todo
 dart format flutter_todo_flutter/lib/ui/todo_app.dart
 ```
 
-The current broader target list lives in `tool/verify.py`. The formatter round should inventory that list, declare authored/generated scope and retain its actual output; a five-file check is not a whole-repository formatting result. No formatter hook or formatter CI job is installed by this guide.
+The current broader target list lives in `tool/verify.py`. [Round 2](02-dart-formatter.md) checked all 73 tracked Dart files, including generated output, and added backend `bin` to that routine list. New Dart directories need a target/inventory review; explicit lists do not automatically cover every future path. The earlier five-file Round 1 check remains a narrower historical result. No formatter hook or formatter CI job is installed by these rounds.
 
 ## Tests, generated consistency and UI evidence
 
