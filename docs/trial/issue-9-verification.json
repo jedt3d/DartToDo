@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 1,
+  "scope": "Issue 9 verified implementation and source-release record; external acceptance limits remain explicit",
+  "updatedLocalDate": "2026-11-18",
+  "timezone": "Asia/Bangkok",
+  "overallStatus": "implemented-and-verified-with-explicit-acceptance-limits",
+  "source": {
+    "branch": "codex/issue-9-parity",
+    "version": "1.1.0+2",
+    "implementationCommit": "3dd5c36fd89be78f9247bb75f769500f2dcd1c83",
+    "reviewedBaseline": "86371bb5301171d925a9b67ab51869c100c9dfe3",
+    "releaseTag": "v1.1.0",
+    "schemaMigrationAdded": false,
+    "evidenceBinding": "Implementation source hashes, current catalog fingerprint and screenshot manifest; tagged Git tree establishes final source identity",
+    "sourceFiles": {
+      "flutter_todo_flutter/lib/app_entry.dart": "9a16d9893b4a5c82a04a3e7e9abc21438bf7b14e233cfb2982f17f132d5d0557",
+      "flutter_todo_flutter/lib/data/task_queries.dart": "51199254b2890e48f845c9135eb98ee41b97f230eacc32f4405360a05993cc07",
+      "flutter_todo_flutter/lib/data/todo_controller.dart": "a23fcef7331bb0e5357795d2d0ba9ac915435838beeda7265f1a01e3b2b67e79",
+      "flutter_todo_flutter/lib/data/todo_repository.dart": "5d700ceb914bc0f47ed00b8651bcc5864edaba84fb19eb75190f14916b7f9e1c",
+      "flutter_todo_flutter/lib/main.dart": "4773116f6c0dcf31fd570281a8a09322887cacf58e937fd427c6ef0dd031ca4b",
+      "flutter_todo_flutter/lib/services/backgrounds.dart": "a0835ca9b5497bb07d71cc6752b9146691854fc63d0329888efb9f25c28386f8",
+      "flutter_todo_flutter/lib/services/reminders.dart": "29446beb3eeadcd818808db64bd7a872ab17073b70e47acf6eebf43bf45eaa0d",
+      "flutter_todo_flutter/lib/ui/catalog_previews.dart": "7c21e461fe047f1324d2aa032fee59a4dc7fd1ec64400cd0729ef36cb0757918",
+      "flutter_todo_flutter/lib/ui/dialogs.dart": "14982586af02e53f5e5b9eb7cf168b7e037300851b93f0400dc275a36e07a36d",
+      "flutter_todo_flutter/lib/ui/sidebar.dart": "666a782786f6d71125fc3073f7237a1a6ec7dc6b1959c005a2b00b2fcb49055f",
+      "flutter_todo_flutter/lib/ui/task_details.dart": "4fd5dc0685a017fd925782cbaa514bda9d951a51dcc19e5f0c255f201952ef84",
+      "flutter_todo_flutter/lib/ui/task_list.dart": "148f9224ff1a98b0c7ee7989cac4715822dfc118da92b1e8e5413785ff365d7b",
+      "flutter_todo_flutter/lib/ui/todo_app.dart": "31be104bdc0f20c1ff59ffe6d27cd309186c419f3995279a5ab5f8a4bd91880e",
+      "flutter_todo_flutter/lib/widgetbook.dart": "776dfeb6161e41b02ea138ebf7b452e36f6845741b5aaf18f2cbe9e29f5a12d3",
+      "flutter_todo_flutter/test/data/fixtures.dart": "025720a86d48a3a422577c7d719c8cc1c63d537662b2188099c2d9a34edbcf55",
+      "flutter_todo_flutter/test/data/task_queries_test.dart": "17273dabd5809d2eb37e0e9041c9d756c1b49ceea85cbd54d18b70964e6ed58d",
+      "flutter_todo_flutter/test/data/todo_controller_test.dart": "b2262651907357deae4d1bd99bf087303b8b0edf6725cb63eb917380b385a2a5",
+      "flutter_todo_flutter/test/services/reminders_test.dart": "958707fb6d85ff73d8216327c5db3e9c4672202e521fffbe78d80cc5b0e55f88",
+      "flutter_todo_flutter/test/ui/app_acceptance_test.dart": "3133b3be6da9d14e94a1aaf1654e7c488f880ad69a5dbc8f6a4b6c901b62baf0",
+      "flutter_todo_flutter/test/ui/background_service_test.dart": "919200d59d5d2648291e0fdedb9ec962be092bd4d2b5bc3ce6df723b43f6784e",
+      "flutter_todo_flutter/test/ui/catalog_test.dart": "a80dbeb35669b9079aabb07e3cc7b8b0476afe498726b6bc2d962b2561e21874",
+      "flutter_todo_flutter/test/ui/parity_test.dart": "09777f47f1fa587f20c01441048e97aaea9e6300b930dca3b32bac4225e447ce",
+      "flutter_todo_flutter/test/ui/responsive_test.dart": "59e3e132a151d2518c42132f65f25a4a8e6d32e2af837c6a2252e2f02cbf69f3",
+      "flutter_todo_flutter/test/ui/support.dart": "1751bcbf6247eec8ec1e7783ad23a950f9bd58ba55fd3fc142622b3903573f1a",
+      "flutter_todo_flutter/test/ui/widgetbook_test.dart": "0f3fb223d59d153a8f49daedce967cf4edabacf7fb872a849c0102cb8792420f",
+      "flutter_todo_flutter/test/widget_test.dart": "fd81cb5dd05b80585087b3352f9a7d616cf69efb000ce956f2bd0a6ecb0de098",
+      "flutter_todo_flutter/integration_test/app_test.dart": "382d4ef5f46d04142b16a7776c1418545323dabe55571f04a7e90b7d1076e213",
+      "flutter_todo_flutter/integration_test/notifications_test.dart": "0dbe1e4a239f32ebf69f9f47be39fa2144fd1f50d05a39962f6bdcd1c11f8cf3",
+      "flutter_todo_flutter/integration_test/printing_test.dart": "6dc1d616ed92efe68e76a0302c6b9162b90155623e0a47cdec9769433e291a1e",
+      "flutter_todo_flutter/integration_test/screenshots_test.dart": "35acbee02aae1f4448a3d2c35d0baa10b9b582c702c87d3d890dd3a0b29c8e3c",
+      "flutter_todo_flutter/test_driver/notifications.dart": "e2beb16fb72caefd28f7986015466f3a4510a70bf6b868bfe2e19b9a1f5096b0",
+      "flutter_todo_flutter/test_driver/printing.dart": "f785dc6ad6934eeb7772cda576e9c240c2818aaeb9690af51c30b9a76346f743",
+      "flutter_todo_flutter/test_driver/screenshots.dart": "a56ea8b4cf93ce0fd39e7d4467b287f6900944e85aa2d54417dc61379eec2dd4"
+    }
+  },
+  "finite": {
+    "status": "passed",
+    "evidenceId": "finite",
+    "elapsedSeconds": 29.556,
+    "frontendTests": 163,
+    "backendTests": 51,
+    "separateRealHttpAttachmentTests": 1,
+    "formatCheck": "passed",
+    "fatalInfoAnalysis": "passed",
+    "generatedProtocolConsistency": "passed",
+    "generatedClientLiveSmoke": "passed",
+    "localHttpSecuritySmoke": "passed"
+  },
+  "attachmentContract": {
+    "decodedBytesPerTask": 26214400,
+    "binaryUnit": "25 MiB",
+    "referenceMarketingLabel": "25 MB",
+    "requestBodyBytes": 41943040,
+    "exactBoundaryAndAggregateRejection": "passed",
+    "realHttpRoundtrip": "passed",
+    "microsoftExactBinaryInterpretation": "not established"
+  },
+  "nativeCore": {
+    "checkpoint": "current implementation; after mutation queue and native fixes",
+    "currentSourceReplay": "passed",
+    "runs": [
+      {
+        "target": "macos",
+        "status": "passed",
+        "tests": 2,
+        "elapsedSeconds": 22.066,
+        "evidenceId": "core-macos"
+      },
+      {
+        "target": "iphone",
+        "status": "passed",
+        "tests": 2,
+        "elapsedSeconds": 33.059,
+        "evidenceId": "core-iphone"
+      },
+      {
+        "target": "ipad",
+        "status": "passed",
+        "tests": 2,
+        "elapsedSeconds": 27.991,
+        "evidenceId": "core-ipad"
+      }
+    ]
+  },
+  "notifications": {
+    "delivery": [
+      {
+        "target": "macos",
+        "status": "passed",
+        "permissionGranted": true,
+        "nativeDeliveryObserved": true,
+        "evidenceId": "notifications-macos-delivery"
+      },
+      {
+        "target": "iphone",
+        "status": "passed",
+        "permissionGranted": true,
+        "nativeDeliveryObserved": true,
+        "evidenceId": "notifications-iphone"
+      },
+      {
+        "target": "ipad",
+        "status": "passed",
+        "permissionGranted": true,
+        "nativeDeliveryObserved": true,
+        "evidenceId": "notifications-ipad"
+      }
+    ],
+    "actualTap": [
+      {
+        "target": "macos",
+        "status": "blocked",
+        "reason": "Available UI tool surface did not complete the actual notification tap",
+        "evidenceId": "notifications-macos-tap-attempt"
+      },
+      {
+        "target": "iphone",
+        "status": "passed",
+        "evidenceId": "notifications-iphone"
+      },
+      {
+        "target": "ipad",
+        "status": "passed",
+        "evidenceId": "notifications-ipad"
+      }
+    ],
+    "terminatedAppColdLaunch": {
+      "unitCoverage": "launch-details, strict payload validation, occurrence deduplication and startup routing",
+      "runs": [
+        {
+          "target": "iphone",
+          "status": "passed",
+          "normalApplication": true,
+          "oldProcessStoppedBeforeDue": true,
+          "actualOsNotificationActivated": true,
+          "newProcessStarted": true,
+          "owningListAndTaskDetailsObserved": true,
+          "fixtureSoftDeleted": true,
+          "observedAtUtc": "2026-11-17T18:46:33.611387+00:00",
+          "localRecordSha256": "af72694bd0fe0dcee79a2a6be14e08e9994cc7020b84580d03518b30640d9ca7"
+        },
+        {
+          "target": "ipad",
+          "status": "passed",
+          "normalApplication": true,
+          "oldProcessStoppedBeforeDue": true,
+          "actualOsNotificationActivated": true,
+          "newProcessStarted": true,
+          "owningListAndTaskDetailsObserved": true,
+          "fixtureSoftDeleted": true,
+          "observedAtUtc": "2026-11-17T18:46:33.883582+00:00",
+          "localRecordSha256": "b4fda2897cdfe13b55f1e9e9f1e0cc8b6198449df5b9b88e459e5924fd338fe9"
+        },
+        {
+          "target": "macos",
+          "status": "unverified",
+          "reason": "Actual notification activation unavailable through the permitted UI tool surface"
+        }
+      ]
+    }
+  },
+  "printing": {
+    "nativeInterface": [
+      {
+        "target": "macos",
+        "status": "passed",
+        "nativeForwardAndReturnVerified": true,
+        "evidenceId": "print-macos-short"
+      },
+      {
+        "target": "iphone",
+        "status": "passed",
+        "nativeForwardAndReturnVerified": true,
+        "evidenceId": "print-iphone"
+      },
+      {
+        "target": "ipad",
+        "status": "passed",
+        "nativeForwardAndReturnVerified": true,
+        "evidenceId": "print-ipad"
+      }
+    ],
+    "macosPdf": {
+      "status": "passed",
+      "tasks": 120,
+      "allMarkersPresent": true,
+      "pages": 7,
+      "localArtifact": "print-pagination-final.pdf",
+      "sha256": "098c8d58163b10c8ff7cd7408cb5642ec3ed9235c691a5e99c5931d37d660bc9",
+      "evidenceId": "print-macos-long",
+      "scope": "Native PDF content; not physical paper",
+      "sourceFiles": {
+        "flutter_todo_flutter/macos/Runner/MainFlutterWindow.swift": "6ada9c18dc7da5dd0843190c3c1a8bc18e21cdef853d56432daac68e6806ede4",
+        "flutter_todo_flutter/macos/Runner/DebugProfile.entitlements": "3ba24547b9d8ac1c97f0a16a4eaf6c1f6472684cd5d8fb6d66e04b0891935ec3",
+        "flutter_todo_flutter/macos/Runner/Release.entitlements": "6b740de3c646dc57c706471270596431d5e52ba479367999c46a918ba2542a69",
+        "flutter_todo_flutter/lib/ui/todo_app.dart": "31be104bdc0f20c1ff59ffe6d27cd309186c419f3995279a5ab5f8a4bd91880e",
+        "flutter_todo_flutter/integration_test/printing_test.dart": "6dc1d616ed92efe68e76a0302c6b9162b90155623e0a47cdec9769433e291a1e",
+        "flutter_todo_flutter/test_driver/printing.dart": "f785dc6ad6934eeb7772cda576e9c240c2818aaeb9690af51c30b9a76346f743"
+      }
+    },
+    "shortPreview": {
+      "tasks": 3,
+      "pages": 1,
+      "status": "observed"
+    },
+    "macosPhysical": {
+      "status": "skipped-at-user-request",
+      "trialJobNumber": 64,
+      "copies": 1,
+      "previewPages": 1,
+      "syntheticTasks": 3,
+      "submittedViaNativePanel": true,
+      "lastQueueState": "Looking for printer",
+      "paperOutput": "unverified",
+      "cleanup": "Canceled only the trial job after a bounded wait",
+      "canceledAtUtc": "2026-11-17T18:00:40Z",
+      "reason": "User asked to skip physical printing; prior queued attempt and its cancellation remain historical evidence only"
+    },
+    "iosPhysical": {
+      "status": "skipped-at-user-request",
+      "reason": "User asked to skip physical printing; observed native one-page previews remain separately verified",
+      "iphonePreviewPages": 1,
+      "ipadPreviewPages": 1,
+      "sheetsCanceled": true,
+      "paperOutput": "unverified"
+    },
+    "corrections": [
+      "Print entitlement in Debug and Release while preserving App Sandbox",
+      "AppKit full-content layout height fixes long-list clipping",
+      "Minimum laid-out height of 1 avoids short-case blank page"
+    ],
+    "furtherHardwareTests": "not run after user requested skip"
+  },
+  "catalog": {
+    "status": "passed",
+    "declarations": 42,
+    "registeredDeclarations": 42,
+    "totalCases": 78,
+    "verifiedCases": 78,
+    "stateGroups": 14,
+    "completeCurrentSourceEvidence": true,
+    "inventoryFingerprint": "45979cc9af7cc0cd7db518db49196016909b85da218d3b72bb431d1af91d8cca",
+    "runId": "20261117T181404Z-45979cc9af7c",
+    "evidenceId": "catalog-current",
+    "historicalAttempt": {
+      "evidenceId": "catalog-saving-attempt",
+      "status": "failed",
+      "savingTestProcessPassed": true,
+      "reason": "Production fingerprint changed during recording; preserved negative attempt, superseded by stable complete recording"
+    }
+  },
+  "visual": {
+    "nativeIpadLandscape": {
+      "status": "passed",
+      "observedPixels": [
+        2420,
+        1668
+      ],
+      "autoDetailsObserved": true,
+      "cleanFinalCapture": "docs/screenshots/ipad-landscape-auto-details.png"
+    },
+    "figma": {
+      "fileKey": "P72xp9CQ7S1SkSqLdn7ORO",
+      "tabletNodeId": "7:347",
+      "inspectorNodeId": "28:347",
+      "logicalSize": [
+        1210,
+        834
+      ],
+      "descendants": 182,
+      "instances": 51,
+      "flattenedUiRasters": 0,
+      "font": "Inter",
+      "nativeFont": "Apple system",
+      "typographyFidelity": "unverified",
+      "humanApproval": false
+    },
+    "officialMobileReference": "Marketing artwork; not a matched full-screen baseline",
+    "fullMobileBaselineApproval": false,
+    "finalScreenshotManifest": "docs/screenshots/manifest.json",
+    "selectedIconApprovalOnly": true,
+    "nativeCaptures": {
+      "total": 21,
+      "macos": 5,
+      "iphone": 5,
+      "ipadPortrait": 5,
+      "ipadLandscape": 6,
+      "originalPng": true,
+      "scope": "Actual app with synthetic tasks and real local backend; application pixels, excluding OS chrome/keyboard pixels"
+    }
+  },
+  "review": {
+    "standardsBaselineFindings": 3,
+    "severity": "P2",
+    "subjects": [
+      "Mutation queue ordering",
+      "Dropdown navigation documentation",
+      "Phone landscape classification"
+    ],
+    "correctionsApplied": true,
+    "deltaReview": "no further finding reported",
+    "specReview": "no new implementation mismatch or material scope creep; acceptance evidence gaps remain",
+    "record": "docs/trial/issue-9-code-review.md"
+  },
+  "release": {
+    "sourceOnly": true,
+    "versionTag": "v1.1.0",
+    "prUrl": "https://github.com/jedt3d/DartToDo/pull/10",
+    "releaseUrl": "https://github.com/jedt3d/DartToDo/releases/tag/v1.1.0",
+    "assetName": "DartToDo-v1.1.0-source.zip",
+    "publicationRecord": "GitHub release is authoritative for publication timestamp, tagged source commit and uploaded asset digest; archive digest cannot be embedded in its own source tree",
+    "binariesIncluded": false
+  },
+  "evidencePublication": {
+    "rawArtifactsIncluded": false,
+    "selection": "Synthetic counts, outcomes, durations, identifiers and SHA-256 digests only",
+    "absoluteUserPathsIncluded": false,
+    "commandsOrEnvironmentIncluded": false,
+    "privateReferenceCapturesIncluded": false,
+    "costOrProductivityInference": null
+  },
+  "evidence": [
+    {
+      "id": "finite",
+      "localArtifact": "20261117T184844548474Z-issue9-final-finite.log",
+      "sha256": "d0088544cccb9b34b218e10b4ed52fc473c8f150e4e56c4e27166e86f5e70b71",
+      "startedAtUtc": "20261117T184844548474Z",
+      "elapsedSeconds": 29.556,
+      "processExitCode": 0
+    },
+    {
+      "id": "core-macos",
+      "localArtifact": "20261117T184634162293Z-core-final-macos.log",
+      "sha256": "a3b9fe4ac4fc7b302ee8398619d6946bda141c54ee78833c8b545feb3d8130e1",
+      "startedAtUtc": "20261117T184634162293Z",
+      "elapsedSeconds": 22.066,
+      "processExitCode": 0
+    },
+    {
+      "id": "core-iphone",
+      "localArtifact": "20261117T184656350823Z-core-final-iphone.log",
+      "sha256": "292e98c8bd7cdfbb29fe57fa7c4feb162f198aa01d0b32bf46fe653ccd1401d8",
+      "startedAtUtc": "20261117T184656350823Z",
+      "elapsedSeconds": 33.059,
+      "processExitCode": 0
+    },
+    {
+      "id": "core-ipad",
+      "localArtifact": "20261117T184715146520Z-core-final-ipad.log",
+      "sha256": "0c062dddb92753d0d31107fa1e4f62961ceeff5f18de1575fade8d843cc4b8c7",
+      "startedAtUtc": "20261117T184715146520Z",
+      "elapsedSeconds": 27.991,
+      "processExitCode": 0
+    },
+    {
+      "id": "notifications-macos-delivery",
+      "localArtifact": "20261117T172712230026Z-notifications-macos-delivery.log",
+      "sha256": "204f4f6bf8c5f77728f3fca2b306745e2047ae1f79994246d61c1cf9c7ff94df",
+      "startedAtUtc": "20261117T172712230026Z",
+      "elapsedSeconds": 20.117,
+      "processExitCode": 0
+    },
+    {
+      "id": "notifications-macos-tap-attempt",
+      "localArtifact": "20261117T172529505434Z-notifications-macos-tap.log",
+      "sha256": "a0ad2a93b6737899591e1d63e2d9b662ece758db6e1ceab642a5bef3184227e8",
+      "startedAtUtc": "20261117T172529505434Z",
+      "elapsedSeconds": 106.973,
+      "processExitCode": 1
+    },
+    {
+      "id": "notifications-iphone",
+      "localArtifact": "20261117T173445697733Z-notifications-iphone-diagnostic-enabled.log",
+      "sha256": "d80edffaf75233a9fff7c1f29f7b8953de0f4075fda5116bc7ed99ba6b9f23bf",
+      "startedAtUtc": "20261117T173445697733Z",
+      "elapsedSeconds": 108.36,
+      "processExitCode": 0
+    },
+    {
+      "id": "notifications-ipad",
+      "localArtifact": "20261117T173706027857Z-notifications-ipad.log",
+      "sha256": "4434558dc0e1f1c9ff65a3254f4b2b1a7fbb958c4c34ee796dc1b9d1bcba42e2",
+      "startedAtUtc": "20261117T173706027857Z",
+      "elapsedSeconds": 78.34,
+      "processExitCode": 0
+    },
+    {
+      "id": "print-macos-long",
+      "localArtifact": "20261117T181657634732Z-print-macos-final-pdf.log",
+      "sha256": "9134162ee775d9ba3eee773bdf5f4baa035375a48952ac8fb15429b2b4e789f8",
+      "startedAtUtc": "20261117T181657634732Z",
+      "elapsedSeconds": 66.261,
+      "processExitCode": 0
+    },
+    {
+      "id": "print-macos-short",
+      "localArtifact": "20261117T175629049271Z-print-macos-physical-final.log",
+      "sha256": "d29d54dbd5f94722f84333b1797edabce496cae4593e0dea1857c3e7ebf2bca5",
+      "startedAtUtc": "20261117T175629049271Z",
+      "elapsedSeconds": 76.918,
+      "processExitCode": 0
+    },
+    {
+      "id": "print-iphone",
+      "localArtifact": "20261117T175834634588Z-print-iphone.log",
+      "sha256": "65cfa42cfbd93c6ddb63417b58a50cd90dd7784feb912b6e56916ca32aea9f58",
+      "startedAtUtc": "20261117T175834634588Z",
+      "elapsedSeconds": 52.734,
+      "processExitCode": 0
+    },
+    {
+      "id": "print-ipad",
+      "localArtifact": "20261117T175946093024Z-print-ipad.log",
+      "sha256": "cefdb8f3b6ebddb185850aff0b6363894377b320358443ad5aad8fca7dee4d21",
+      "startedAtUtc": "20261117T175946093024Z",
+      "elapsedSeconds": 33.961,
+      "processExitCode": 0
+    },
+    {
+      "id": "catalog-saving-attempt",
+      "localArtifact": "20261117T175832985491Z-catalog-record-saving.log",
+      "sha256": "336397011df5e6a43707681a4db74758ae70be21d33e771460e8e3c679765389",
+      "startedAtUtc": "20261117T175832985491Z",
+      "elapsedSeconds": 27.377,
+      "processExitCode": 1
+    },
+    {
+      "id": "catalog-current",
+      "localArtifact": "20261117T182019773158Z-catalog-validate.log",
+      "sha256": "86059d334fe743c40993d3b0a5b57ee9c6ff001c57cd43c11dc05cd64e0b88f7",
+      "startedAtUtc": "20261117T182019773158Z",
+      "elapsedSeconds": 12.224,
+      "processExitCode": 0
+    },
+    {
+      "id": "capture-macos",
+      "localArtifact": "20261117T181136287421Z-capture-macos.log",
+      "sha256": "45077ad85b717c5c2ce1b7e160386c03abad67a2cd94e28d5615b9cb4e7f0386",
+      "startedAtUtc": "20261117T181136287421Z",
+      "elapsedSeconds": 23.03,
+      "processExitCode": 0
+    },
+    {
+      "id": "capture-iphone",
+      "localArtifact": "20261117T181514500354Z-capture-iphone-final.log",
+      "sha256": "18641880dacdaa8607858494b66badb50b1a3221c688cd5271c1d36dd62d815f",
+      "startedAtUtc": "20261117T181514500354Z",
+      "elapsedSeconds": 24.67,
+      "processExitCode": 0
+    },
+    {
+      "id": "capture-ipad",
+      "localArtifact": "20261117T181325715610Z-capture-ipad-portrait.log",
+      "sha256": "244e1911d3c34902a45dd93c4d9cda812db698997eb79fdac1967b2d2ef56957",
+      "startedAtUtc": "20261117T181325715610Z",
+      "elapsedSeconds": 25.892,
+      "processExitCode": 0
+    },
+    {
+      "id": "capture-ipad-landscape",
+      "localArtifact": "20261117T181024013527Z-capture-ipad-landscape-clean.log",
+      "sha256": "78dcc1d1fd9ea6dea206fa4b47016855064dad5e25d025d0baa97468259ef495",
+      "startedAtUtc": "20261117T181024013527Z",
+      "elapsedSeconds": 31.718,
+      "processExitCode": 0
+    }
+  ],
+  "remaining": [
+    "Actual macOS notification activation and terminated-app route observation",
+    "Human approval of controlled full-screen reference comparisons; native/Figma typography and matched mobile reference limitations remain explicit"
+  ],
+  "excludedAtUserRequest": [
+    "Physical paper-output testing; no further print jobs after skip instruction"
+  ]
+}

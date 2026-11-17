@@ -1,4 +1,6 @@
-# DartToDo delivery and real-project trial
+# DartToDo delivery and real-project trial · v1.0.0 history
+
+This is the historical v1.0.0 record. See the [1.1.0 issue-9 report](issue-9-report.md) for current implementation, native checks and screenshots.
 
 DartToDo is a working local Flutter/Riverpod application with Serverpod 3.4.12 and PostgreSQL 17.11, built for macOS and the installed iPhone/iPad simulators. It uses the existing local PostgreSQL service, the dedicated `flutter_todo` database, and no Microsoft account or Docker. Original source is delivered through the feature branch and versioned source release in [DartToDo on GitHub](https://github.com/jedt3d/DartToDo).
 
