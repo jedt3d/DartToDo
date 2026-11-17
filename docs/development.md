@@ -108,6 +108,18 @@ dart run serverpod_cli:serverpod_cli --no-analytics --no-interactive create-migr
 
 Commit authored inputs, generated server/client/test-helper changes and migrations together. Do not hand-edit generated protocol files. `python3 tool/check_codegen.py` from the server directory regenerates and compares the declared outputs; it fails if they change, leaving the generated candidate available for inspection.
 
+## Quality tools and check cadence
+
+The [quality-tools guide](quality/README.md) is the entry point for tool configuration, the proposed analysis-to-CI sequence, when to run each check, and issue/PR handling. The [Round 1 report](quality/01-dart-analyzer.md) records the current analyzer-policy checkpoint; CI is still proposed in [issue #13](https://github.com/jedt3d/DartToDo/issues/13).
+
+After a coherent group of Dart changes and before opening/updating or merging a PR, run workspace analysis from the repository root with dependencies already resolved:
+
+```sh
+flutter analyze --no-pub --fatal-infos --fatal-warnings
+```
+
+Run relevant focused tests alongside it. A documentation-only change uses link/content/scope validation; a clean analyzer is not a substitute for behavior, native or performance checks. A formal single-tool round records its own baseline and scope rather than automatically running the compound `tool/verify.py` suite. The existing full runner and lifecycle recipe already invoke the analyzer; their omitted fatal-warnings flag defaults to on in the installed Flutter CLI.
+
 ## Run focused checks
 
 From `flutter_todo_server`:
@@ -128,10 +140,9 @@ cd ../flutter_todo_client
 dart run tool/live_smoke.dart
 ```
 
-From `flutter_todo_flutter`:
+For workspace analysis, use the root command above. The following separate frontend test/build commands run from `flutter_todo_flutter`; select only the scope required for the task, including the printing exclusion described in the quality guide when it applies:
 
 ```sh
-flutter analyze
 flutter test
 flutter build macos
 python3 ../tool/build_ios.py
@@ -141,7 +152,7 @@ Frontend data tests cover smart-list dates/search/sorting, serialized writes, la
 
 Trial command logs and measured durations are stored locally under `.dartnflutter/trial/`; `tool/trial_run.py` records them. The [trial protocol](trial/protocol.md) explains the acceptance criteria and why this single project cannot establish causal time savings or model-cost improvements.
 
-## Issue-9 behavior and current verification status
+## Issue-9 behavior and release verification checkpoint
 
 The current source raises the aggregate attachment allowance to **25 MiB (26,214,400 decoded bytes)**, with a **40 MiB (41,943,040-byte)** Serverpod request-body bound in all configurations. This maps the published “25 MB” label to an explicit local byte contract. The transport allowance accommodates base64/JSON overhead; it is not an additional per-file allowance.
 
@@ -162,7 +173,7 @@ flutter test --no-pub test/ui/responsive_test.dart
 
 Current source also implements separate cross-list move/manual reorder handles, compact touch Lists reveal, automatic first-visible-task details on wide iPad landscape and cold/warm notification task navigation. Verify each against the real backend and relevant native target. A successful move must retain the task ID and open its destination/details; a closed automatic inspector must stay closed until navigation or a new landscape entry. Notification proof must distinguish permission, pending/delivered state, actual tap and navigation to the stored owning task. Do not use a fixture callback as evidence of OS delivery.
 
-For source version **1.1.0+2**, the final issue-9 finite verification passed in **29.556 seconds**, with **163 frontend tests, 51 backend tests and one real-HTTP attachment test**, plus formatting, fatal-info analysis, generated-protocol consistency and both live HTTP smokes. Final current-source native core replay passed 2/2 on each target: macOS **22.066s**, iPhone **33.059s**, iPad **27.991s**. OS notification delivery passed on all three targets. Actual taps and terminated-app cold launches passed on iPhone/iPad: the old processes were stopped before delivery, native notification activation started new processes and opened the owning task/list/details; synthetic fixtures were cleaned up. macOS tap/cold launch remain unverified through the available tool surface. The fresh catalog passes **42/42 declarations and 78/78 cases** across 14 groups; the earlier interrupted 42/78 attempt remains a historical failure. See the [current report](trial/issue-9-report.md), [selected verification metadata](trial/issue-9-verification.json) and [widget coverage](trial/widget-coverage.md). The v1.0.0 counts above remain historical.
+At the source version **1.1.0+2** release checkpoint, the final issue-9 finite verification passed in **29.556 seconds**, with **163 frontend tests, 51 backend tests and one real-HTTP attachment test**, plus formatting, fatal-info analysis, generated-protocol consistency and both live HTTP smokes. Native core replay at that checkpoint passed 2/2 on each target: macOS **22.066s**, iPhone **33.059s**, iPad **27.991s**. OS notification delivery passed on all three targets. Actual taps and terminated-app cold launches passed on iPhone/iPad: the old processes were stopped before delivery, native notification activation started new processes and opened the owning task/list/details; synthetic fixtures were cleaned up. macOS tap/cold launch remain unverified through the available tool surface. The recorded catalog passed **42/42 declarations and 78/78 cases** across 14 groups; the earlier interrupted 42/78 attempt remains a historical failure. See the [release-checkpoint report](trial/issue-9-report.md), [selected verification metadata](trial/issue-9-verification.json) and [widget coverage](trial/widget-coverage.md). These results do not verify later commits; use the quality guide and dated round reports for subsequent checks. The v1.0.0 counts above remain historical.
 
 ## Native screenshot evidence
 
