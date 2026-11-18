@@ -17,9 +17,11 @@ Completed formal reports in this series:
 
 - **Round 7, complexity survey:** [metrics and reviewed watchlist](07-complexity-metrics.md). All 43 runtime files parsed through installed analyzer 10.0.1; large UI builders and nested feed parsing are review targets. DCM was unavailable; no new dependency, refactor or threshold was added.
 
+- **Round 8, app-specific custom lints:** [assessment and decision](08-app-specific-custom-lints.md). Standard workspace analysis passed; no repeated uncovered constraint justified a new plugin/rule. The conditional assessment is complete, with custom-lint execution explicitly not applicable.
+
 Supporting tests and widget recordings do not mean those tools have completed their own formal quality rounds.
 
-The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first seven rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
+The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first eight rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
 
 | Tool or focused track | Configuration and scope | When to use it | Current state |
 | --- | --- | --- | --- |
@@ -30,7 +32,7 @@ The sequence below covers the original analysis → formatting → tests/coverag
 | **5. Flutter coverage** | `flutter test` coverage flags, declared source populations and output path | Dedicated measurement; update after relevant test/code changes | Round 5 measured 83.46% of reported app lines; 79.51% raw reported lib; no threshold |
 | **6. Dart backend coverage** | `dart test --coverage-path`, declared runtime populations, unit/full/HTTP tracks | Dedicated measurement; keep database prerequisites and test tracks explicit | Round 6 measured 93.27% of reported hand-written lines; 73.35% combined raw; no threshold |
 | **7. Complexity metrics** | Tool/version, metrics, exclusions and thresholds chosen at that round | Investigate difficult functions, nesting and maintainability | Round 7 complete using an explicit read-only AST survey; DCM unrun; no gate |
-| **8. App-specific custom lints, if needed** | A reviewed custom rule implementation and tests | Repeated architectural mistakes that official rules/tests do not adequately address | No custom-lint package, plugin or app-specific rule configured |
+| **8. App-specific custom lints, if needed** | A reviewed custom rule implementation and tests | Repeated architectural mistakes that official rules/tests do not adequately address | Round 8 assessed; no justified addition; no plugin executed |
 | **9. Widgetbook and declaration/state catalog** | Private preview harness, `widget-catalog.json`, catalog rebuild script | Production Dart changes require the repository's declaration/state refresh | Existing workflow; Round 1 refreshed 42 declarations and 78 cases |
 | **10. Native integration checks** | `integration_test`, target IDs, native build/service configuration | Platform-sensitive changes and scoped release checks | Existing macOS/iOS flows; prerequisites and actual targets must be verified |
 | **11. Golden/visual regression** | Reviewed reference images, fixed rendering conditions and test assertions | Visual regressions after an approved baseline exists | No approved golden baseline or golden assertions found in the frontend test tree |
