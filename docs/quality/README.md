@@ -15,9 +15,11 @@ Completed formal reports in this series:
 - **Round 5, Flutter coverage:** [baseline, attachment tests and final measurement](05-flutter-coverage.md), [issue #20](https://github.com/jedt3d/DartToDo/issues/20). Reported app-line coverage improved from 81.40% to 83.46% after eight attachment widget tests; 170 selected tests passed. Raw reported-library coverage is 79.51%; two startup files remain unmeasured and no threshold was added.
 - **Round 6, Dart backend coverage:** [separate test tracks, transport tests and measurements](06-dart-backend-coverage.md), [issue #22](https://github.com/jedt3d/DartToDo/issues/22). Eight new transport tests raised reported hand-written runtime coverage from 89.06% to 93.27%; 59 normal-suite tests plus the separate HTTP test passed. Combined raw coverage is 73.35%; the launcher remains unmeasured and no threshold was added.
 
+- **Round 7, complexity survey:** [metrics and reviewed watchlist](07-complexity-metrics.md). All 43 runtime files parsed through installed analyzer 10.0.1; large UI builders and nested feed parsing are review targets. DCM was unavailable; no new dependency, refactor or threshold was added.
+
 Supporting tests and widget recordings do not mean those tools have completed their own formal quality rounds.
 
-The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first six rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
+The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first seven rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
 
 | Tool or focused track | Configuration and scope | When to use it | Current state |
 | --- | --- | --- | --- |
@@ -27,7 +29,7 @@ The sequence below covers the original analysis → formatting → tests/coverag
 | **4. Dart backend tests** | Server `test` dependency, `dart_test.yaml`, unit/integration targets | Backend changes; database tests only with the intended test service/configuration | Round 4 complete; 51 normal-suite tests plus 1 separate HTTP test passed |
 | **5. Flutter coverage** | `flutter test` coverage flags, declared source populations and output path | Dedicated measurement; update after relevant test/code changes | Round 5 measured 83.46% of reported app lines; 79.51% raw reported lib; no threshold |
 | **6. Dart backend coverage** | `dart test --coverage-path`, declared runtime populations, unit/full/HTTP tracks | Dedicated measurement; keep database prerequisites and test tracks explicit | Round 6 measured 93.27% of reported hand-written lines; 73.35% combined raw; no threshold |
-| **7. Complexity metrics** | Tool/version, metrics, exclusions and thresholds chosen at that round | Investigate difficult functions, nesting and maintainability | DCM is a candidate, not a configured project gate |
+| **7. Complexity metrics** | Tool/version, metrics, exclusions and thresholds chosen at that round | Investigate difficult functions, nesting and maintainability | Round 7 complete using an explicit read-only AST survey; DCM unrun; no gate |
 | **8. App-specific custom lints, if needed** | A reviewed custom rule implementation and tests | Repeated architectural mistakes that official rules/tests do not adequately address | No custom-lint package, plugin or app-specific rule configured |
 | **9. Widgetbook and declaration/state catalog** | Private preview harness, `widget-catalog.json`, catalog rebuild script | Production Dart changes require the repository's declaration/state refresh | Existing workflow; Round 1 refreshed 42 declarations and 78 cases |
 | **10. Native integration checks** | `integration_test`, target IDs, native build/service configuration | Platform-sensitive changes and scoped release checks | Existing macOS/iOS flows; prerequisites and actual targets must be verified |
