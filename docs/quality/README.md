@@ -13,10 +13,11 @@ Completed formal reports in this series:
 - **Round 3, Flutter unit/widget tests:** [baseline and findings](03-flutter-unit-widget-tests.md). All 162 selected tests passed across 10 frontend files, with 0 failures and 0 skips within that selection. One known mocked printing test was excluded by the existing name filter. No application fix was needed.
 - **Round 4, Dart backend tests:** [baseline, database safeguards and findings](04-dart-backend-tests.md). All 51 normal-suite tests and the separate HTTP attachment test passed, with 0 failures/skips. The initial stopped PostgreSQL service was started for the checks and returned to its stopped state; no application fix was needed.
 - **Round 5, Flutter coverage:** [baseline, attachment tests and final measurement](05-flutter-coverage.md), [issue #20](https://github.com/jedt3d/DartToDo/issues/20). Reported app-line coverage improved from 81.40% to 83.46% after eight attachment widget tests; 170 selected tests passed. Raw reported-library coverage is 79.51%; two startup files remain unmeasured and no threshold was added.
+- **Round 6, Dart backend coverage:** [separate test tracks, transport tests and measurements](06-dart-backend-coverage.md), [issue #22](https://github.com/jedt3d/DartToDo/issues/22). Eight new transport tests raised reported hand-written runtime coverage from 89.06% to 93.27%; 59 normal-suite tests plus the separate HTTP test passed. Combined raw coverage is 73.35%; the launcher remains unmeasured and no threshold was added.
 
 Supporting tests and widget recordings do not mean those tools have completed their own formal quality rounds.
 
-The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first five rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
+The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first six rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
 
 | Tool or focused track | Configuration and scope | When to use it | Current state |
 | --- | --- | --- | --- |
@@ -25,7 +26,7 @@ The sequence below covers the original analysis → formatting → tests/coverag
 | **3. Flutter unit/widget tests** | Frontend `flutter_test`, files under `test/`, fake repositories/platform adapters | Frontend behavior changes and affected PRs | Round 3 complete; 162 selected tests passed; printing-name filter retained |
 | **4. Dart backend tests** | Server `test` dependency, `dart_test.yaml`, unit/integration targets | Backend changes; database tests only with the intended test service/configuration | Round 4 complete; 51 normal-suite tests plus 1 separate HTTP test passed |
 | **5. Flutter coverage** | `flutter test` coverage flags, declared source populations and output path | Dedicated measurement; update after relevant test/code changes | Round 5 measured 83.46% of reported app lines; 79.51% raw reported lib; no threshold |
-| **6. Dart backend coverage** | Installed `dart test --coverage-path`, selected backend tests | Separate backend coverage measurement | CLI supports LCOV; collection scope and threshold not yet established |
+| **6. Dart backend coverage** | `dart test --coverage-path`, declared runtime populations, unit/full/HTTP tracks | Dedicated measurement; keep database prerequisites and test tracks explicit | Round 6 measured 93.27% of reported hand-written lines; 73.35% combined raw; no threshold |
 | **7. Complexity metrics** | Tool/version, metrics, exclusions and thresholds chosen at that round | Investigate difficult functions, nesting and maintainability | DCM is a candidate, not a configured project gate |
 | **8. App-specific custom lints, if needed** | A reviewed custom rule implementation and tests | Repeated architectural mistakes that official rules/tests do not adequately address | No custom-lint package, plugin or app-specific rule configured |
 | **9. Widgetbook and declaration/state catalog** | Private preview harness, `widget-catalog.json`, catalog rebuild script | Production Dart changes require the repository's declaration/state refresh | Existing workflow; Round 1 refreshed 42 declarations and 78 cases |
@@ -125,7 +126,7 @@ For a future golden round, first agree the reference image, fonts, target/render
 
 Coverage records which scoped code executes during selected tests. It does not measure assertion quality or prove correct behavior. Define the package/source denominator, generated exclusions, test selection and line/branch treatment before reporting a percentage or proposing a threshold.
 
-The following options were verified in the installed CLI help. Round 5 executed frontend coverage; backend coverage remains a separate pending round. These commands write ignored reports. From `flutter_todo_flutter`, for selected frontend tests with printing excluded, use a fresh output directory when retaining a snapshot:
+The following options were verified in the installed CLI help. Rounds 5 and 6 executed frontend and backend coverage respectively. These commands write ignored reports. From `flutter_todo_flutter`, for selected frontend tests with printing excluded, use a fresh output directory when retaining a snapshot:
 
 ```sh
 mkdir -p ../.dartnflutter/quality/frontend-coverage
@@ -136,18 +137,30 @@ flutter test --no-pub --coverage \
   --file-reporter json:../.dartnflutter/quality/frontend-coverage/tests.jsonl
 ```
 
-Separately, from `flutter_todo_server`, for unit tests rather than database integration:
+Separately, from `flutter_todo_server`, keep the unit/full/HTTP tracks distinct. The first needs no PostgreSQL; confirm the [test database prerequisites](../development.md#postgresql-and-local-configuration) before the last two, which run sequentially. Use a fresh output directory for retained measurements:
 
 ```sh
-mkdir -p .dartnflutter/quality
-dart test test/unit --coverage-path=.dartnflutter/quality/backend-unit.lcov --reporter expanded
+mkdir -p ../.dartnflutter/quality/backend-coverage
+dart test test/unit --coverage-package='^flutter_todo_server$' \
+  --coverage-path=../.dartnflutter/quality/backend-coverage/unit.info \
+  --reporter expanded --file-reporter json:../.dartnflutter/quality/backend-coverage/unit.jsonl
+dart test --coverage-package='^flutter_todo_server$' \
+  --coverage-path=../.dartnflutter/quality/backend-coverage/suite.info \
+  --reporter expanded --file-reporter json:../.dartnflutter/quality/backend-coverage/suite.jsonl
+dart test tool/attachment_http_test.dart --coverage-package='^flutter_todo_server$' \
+  --coverage-path=../.dartnflutter/quality/backend-coverage/http.info \
+  --reporter expanded --file-reporter json:../.dartnflutter/quality/backend-coverage/http.jsonl
 ```
 
 [Round 5](05-flutter-coverage.md) declares the denominator and supplies a reproducible subtotal script. Its primary view includes the reported executable lines of maintained app code: 1579/1892, **83.46%**, across 10 of 12 inventory files. Generated Widgetbook and authored preview support remain visible separately; including them gives 1913/2406, **79.51%**, across 12 of 14 library files. `main.dart` and `app_entry.dart` are absent from LCOV and explicitly unmeasured. No source ignore marker or analyzer exclusion defines these subtotals.
 
 The eight attachment widget tests added in that round join the ordinary frontend suite, bringing its printing-filtered selection to 170 passes. Rerun focused tests while editing and coverage when changing tests/code relevant to a recorded result. Keep the same package/filter/source populations for before/after comparisons; changed inputs expire affected evidence. Review uncovered behavior and add assertions for concrete regression risks, rather than excluding inconvenient lines or counting test code as app coverage.
 
-The current Dart test runner can produce LCOV directly. The [official `coverage` package](https://pub.dev/packages/coverage) is resolved transitively and is used by Flutter's collector; no global CLI installation was needed. Reuse installed capabilities before adding another tool. Round 5 establishes measured line percentages; no minimum threshold, branch/function acceptance level, coverage CI gate or pre-commit hook has been approved or installed. A percentage is not proof of assertion quality or native behavior.
+[Round 6](06-dart-backend-coverage.md) adds eight deterministic photo HTTP-transport tests. The backend unit subset now passes 35 tests and reports 319/594 hand-written lines (53.70%); the full suite passes 59, including those same 35 and 24 PostgreSQL tests, and reports 554/594 (93.27%). The separate HTTP probe adds one test. Its union with the suite reports 1252/1707 runtime lines (73.35%) including 11 generated files; hits are merged by source/line, not by adding percentages or double-counting repeated tests.
+
+The launcher `bin/main.dart` is absent and explicitly unmeasured; the optional photo endpoint wrapper remains 0/3 lines. Runtime startup, some domain paths and live endpoint/photo behavior remain separate gaps. Read the per-track/file report before interpreting the low unit-only percentage as the complete backend result. The report supplies a reproducible union/subtotal script. Generated code and analyzer exclusions are separate coverage concerns; no source suppression or minimum gate was added.
+
+The current Dart test runner can produce LCOV directly. The [official `coverage` package](https://pub.dev/packages/coverage) is resolved transitively and used by the installed collectors; no global CLI installation was needed. Reuse installed capabilities before adding another tool. Rounds 5 and 6 establish measured line percentages; no minimum threshold, branch/function acceptance level, coverage CI gate or pre-commit hook has been approved or installed. A percentage is not proof of assertion quality or native behavior.
 
 ## Metrics and custom lints: conditional additions
 
