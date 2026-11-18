@@ -136,6 +136,8 @@ The database-backed tests use real PostgreSQL in `flutter_todo_test`, apply migr
 
 [Flutter coverage Round 5](quality/05-flutter-coverage.md) added eight attachment import/export widget tests and passed **170 selected frontend tests**, retaining the printing-name exclusion. Coverage of reported app lines improved **81.40% → 83.46%**; raw reported-library coverage including Widgetbook/preview support is **79.51%**. Two startup files remain unmeasured. The [quality guide](quality/README.md#coverage-measure-first-choose-thresholds-afterward) supplies the scoped command and denominator policy; no percentage threshold or CI job is installed.
 
+[Backend coverage Round 6](quality/06-dart-backend-coverage.md) added eight deterministic HTTP-transport unit tests. It passed **35 unit tests**, **59 full-suite tests** and the **separate HTTP attachment test**, with the unit subset already included in the full count. Reported hand-written runtime line coverage improved **89.06% → 93.27%**; the combined raw runtime result including generated code is **73.35%**. The launcher remains unmeasured. The existing PostgreSQL service was restored to its original stopped state after data-preservation checks. The quality guide separates the coverage tracks and their prerequisites; no threshold was installed.
+
 With the normal backend running, these finite checks verify live transport without printing task contents:
 
 ```sh
