@@ -110,6 +110,8 @@ Commit authored inputs, generated server/client/test-helper changes and migratio
 
 ## Quality tools and check cadence
 
+Formal [Rounds 7–10](quality/rounds-01-10-summary.md) are complete: complexity watchlist, conditional custom-lint assessment, fresh catalog recordings and native core checks. [Round 10](quality/10-native-integration.md) documents the new optional `DARTTODO_TEST_SERVER_URL` for both core integration-test clients, a separate test-mode backend and database/service safeguards. Both scenarios passed on macOS, iPhone and iPad simulators. The broad development runner retains its default backend; use the explicit isolated commands for quality measurements. Nonblocking macOS diagnostics remain in issue #28. Rounds 11–13 are deferred.
+
 The [quality-tools guide](quality/README.md) is the entry point for tool configuration, the proposed analysis-to-CI sequence, when to run each check, and issue/PR handling. The [Round 1 report](quality/01-dart-analyzer.md) records the current analyzer-policy checkpoint; CI is still proposed in [issue #13](https://github.com/jedt3d/DartToDo/issues/13).
 
 After a coherent group of Dart changes and before opening/updating or merging a PR, run workspace analysis from the repository root with dependencies already resolved:

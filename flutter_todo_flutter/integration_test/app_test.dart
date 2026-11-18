@@ -3,12 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_todo_client/flutter_todo_client.dart';
+import 'package:flutter_todo_flutter/data/todo_controller.dart';
+import 'package:flutter_todo_flutter/data/todo_repository.dart';
 import 'package:flutter_todo_flutter/ui/todo_app.dart';
 import 'package:integration_test/integration_test.dart';
 
+const _serverUrl = String.fromEnvironment(
+  'DARTTODO_TEST_SERVER_URL',
+  defaultValue: 'http://127.0.0.1:8870/',
+);
+
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-  final client = Client('http://127.0.0.1:8870/');
+  final client = Client(_serverUrl);
   late TodoList trialList;
   late TodoList destination;
 
@@ -32,9 +39,7 @@ void main() {
   testWidgets(
     'native UI persists task, notes, steps, importance and completion',
     (tester) async {
-      await tester.pumpWidget(
-        const ProviderScope(child: TodoApp(platformServices: false)),
-      );
+      await tester.pumpWidget(_nativeApp());
       await waitFor(tester, find.byKey(const Key('add-task')));
       if (tester.view.physicalSize.width / tester.view.devicePixelRatio < 720) {
         await tester.tap(find.text('Lists'));
@@ -101,9 +106,7 @@ void main() {
           attachments: [],
         ),
       );
-      await tester.pumpWidget(
-        const ProviderScope(child: TodoApp(platformServices: false)),
-      );
+      await tester.pumpWidget(_nativeApp());
       await waitFor(tester, find.byKey(const Key('add-task')));
       final size = tester.view.physicalSize / tester.view.devicePixelRatio;
       final phone = size.shortestSide < 600 || size.width < 720;
@@ -155,6 +158,17 @@ void main() {
     },
   );
 }
+
+Widget _nativeApp() => ProviderScope(
+  overrides: [
+    repositoryProvider.overrideWith((ref) {
+      final repository = ServerpodTodoRepository(client: Client(_serverUrl));
+      ref.onDispose(repository.close);
+      return repository;
+    }),
+  ],
+  child: const TodoApp(platformServices: false),
+);
 
 Future<void> waitFor(WidgetTester tester, Finder finder) async {
   for (var attempt = 0; attempt < 100; attempt++) {

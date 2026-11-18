@@ -21,9 +21,13 @@ Completed formal reports in this series:
 
 - **Round 9, Widgetbook/catalog:** [fresh baseline and recordings](09-widget-catalog.md). Baseline validation passed; fourteen state groups reran, verifying 42 declarations and 78 mapped cases. Design approval/visual fidelity remain unverified.
 
+- **Round 10, native integration:** [isolation fix and target results](10-native-integration.md), [issue #26](https://github.com/jedt3d/DartToDo/issues/26). Both core tests passed on macOS, iPhone and iPad simulators using a separate test-mode backend. Nonblocking macOS diagnostics remain in [issue #28](https://github.com/jedt3d/DartToDo/issues/28).
+
+The [rounds 1–10 summary](rounds-01-10-summary.md) records improvements and remaining gaps. The user authorized Rounds 7–10 together and explicitly deferred **Rounds 11–13**.
+
 Supporting tests and widget recordings do not mean those tools have completed their own formal quality rounds.
 
-The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first nine rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
+The sequence below covers the original analysis → formatting → tests/coverage → deeper checks → runtime profiling → CI/review workflow. It also identifies the app's existing UI and native checks. Apart from the completed first ten rounds, the order is proposed: select one tool or focused track per round, rather than starting the remaining rows automatically.
 
 | Tool or focused track | Configuration and scope | When to use it | Current state |
 | --- | --- | --- | --- |
@@ -36,10 +40,10 @@ The sequence below covers the original analysis → formatting → tests/coverag
 | **7. Complexity metrics** | Tool/version, metrics, exclusions and thresholds chosen at that round | Investigate difficult functions, nesting and maintainability | Round 7 complete using an explicit read-only AST survey; DCM unrun; no gate |
 | **8. App-specific custom lints, if needed** | A reviewed custom rule implementation and tests | Repeated architectural mistakes that official rules/tests do not adequately address | Round 8 assessed; no justified addition; no plugin executed |
 | **9. Widgetbook and declaration/state catalog** | Private preview harness, `widget-catalog.json`, catalog rebuild script | Production Dart changes require the repository's declaration/state refresh | Round 9 complete; fresh 42/42 declarations, 78/78 cases, 14 state tests |
-| **10. Native integration checks** | `integration_test`, target IDs, native build/service configuration | Platform-sensitive changes and scoped release checks | Existing macOS/iOS flows; prerequisites and actual targets must be verified |
-| **11. Golden/visual regression** | Reviewed reference images, fixed rendering conditions and test assertions | Visual regressions after an approved baseline exists | No approved golden baseline or golden assertions found in the frontend test tree |
-| **12. Flutter/Dart DevTools** | Selected target/build mode, scenario, fixture and recording settings | Layout investigation, CPU/memory/frame/network profiling | SDK provides DevTools; no performance baseline established by this series |
-| **13. CI gates and code review** | Future `.github/workflows` jobs; separate required-check settings; PR review | CI on approved events, review on every PR | Analyzer CI proposed in [issue #13](https://github.com/jedt3d/DartToDo/issues/13); no Actions workflows currently configured |
+| **10. Native integration checks** | `integration_test`, target IDs, native build/service configuration | Platform-sensitive changes and scoped release checks | Round 10 complete; 2/2 tests each on macOS/iPhone/iPad; isolated endpoint option |
+| **11. Golden/visual regression** | Reviewed reference images, fixed rendering conditions and test assertions | Visual regressions after an approved baseline exists | Deferred by user; no approved golden baseline/assertions |
+| **12. Flutter/Dart DevTools** | Selected target/build mode, scenario, fixture and recording settings | Layout investigation, CPU/memory/frame/network profiling | Deferred by user; no performance baseline established |
+| **13. CI gates and code review** | Future `.github/workflows` jobs; separate required-check settings; PR review | CI on approved events, review on every PR | Deferred by user; analyzer CI remains in [issue #13](https://github.com/jedt3d/DartToDo/issues/13); no Actions workflows |
 
 Code review applies throughout the sequence, not only at its final row. A metrics tool and a custom-lint framework answer different questions; selecting one does not configure the other.
 
